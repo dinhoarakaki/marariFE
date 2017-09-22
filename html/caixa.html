@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt_BR" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Index</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+<div id="app" class="container">
+    <div class="form-caixa box-input col-3 to-left">
+        <label for="descricao">Descrição:</label>
+        <input type="text" class="form-control" v-model="newCaixa.descricao" id="descricao">
+    </div>
+    <div class="form-caixa box-input col-3 to-left">
+        <label for="valor">Valor:</label>
+        <input type="text" class="form-control" v-model="newCaixa.valor" id="valor">
+    </div>
+    <div class="form-caixa box-input col-3 to-left">
+        <label for="status">Status:</label>
+        <input type="text" class="form-control" v-model="newCaixa.status" id="status">
+    </div>
+
+    <div class="form-caixa box-input col-3 to-left">
+        <label for="formaPagamento">Forma de Pagamento:</label>
+        <select v-model="newCaixa.formaPagamento" class="form-control" id="formaPagamento">
+            <option value="" disabled selected>Forma de Pagamento</option>
+            <option v-for="f in formasPagamento" v-bind:value="f.id">
+                {{ f.nome }}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-caixa box-input col-3 to-left">
+        <label for="tipoDespesa">Tipo de Despesa:</label>
+        <select v-model="newCaixa.tipoDespesa" class="form-control" id="tipoDespesa">
+            <option value="" disabled selected>Tipo de Despesa</option>
+            <option v-for="t in tiposDespesa" v-bind:value="t.id">
+                {{ t.nome }}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-caixa box-input col-3 to-left">
+        <label for="fornecedor">Fornecedor:</label>
+        <select v-model="newCaixa.fornecedor" class="form-control" id="fornecedor">
+            <option value="" disabled selected>Fornecedor</option>
+            <option v-for="x in fornecedores" v-bind:value="x.id">
+                {{ x.nome }}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-caixa box-input col-3 to-left">
+        <label for="cliente">Cliente:</label>
+        <select v-model="newCaixa.cliente" class="form-control" id="cliente">
+            <option value="" disabled selected>Cliente</option>
+            <option v-for="c in clientes" v-bind:value="c.id">
+                {{ c.nome }}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-caixa box-input col-3 to-right box-btns">
+        <button type="button" class="to-right btns btn-cancel" v-on:click="clear">Cancelar</button>
+        <button type="button" class="to-right btns btn-save" v-on:click="save">Salvar</button>
+    </div>
+    <ul style="list-style-type: none">
+        <li class="col-12 to-left" v-for="(m,index) in caixas">{{m.descricao}}, {{m.valor}}
+            <button type="button" v-on:click="deleteCaixa(m.remote_id)">Apagar</button>
+            <button type="button" v-on:click="prepareUpdate(index)">Editar</button>
+        </li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<script src="../js/caixa.js"></script>
+</body>
+</html>

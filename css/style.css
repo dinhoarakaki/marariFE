@@ -1,0 +1,128 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+body {
+    background-color: #FFFFFF;
+}
+label{
+    color: black;
+}
+.caixa-login{
+    background-color: #DDDDDD;
+    width: 400px;
+    height: 500px;
+    margin: 100px auto 0px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.div-logo{
+    text-align: center;
+    color: #1e90ff;
+    margin: 10px;
+    padding: 10px;
+    font: 27px/33px sans-serif;
+}
+.div-input{
+    margin: 20px;
+    padding: 5px;
+    font: 25px/23px sans-serif;
+}
+.div-input input{
+    margin-top: 5px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #1e90ff;
+    width: 350px;
+    height: 45px;
+    outline: none;
+    color: black;
+    font: 25px/23px sans-serif;
+}
+.botao{
+    width: 350px;
+    height: 45px;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    float: right;
+    margin-right: 24px;
+    margin-bottom: 10px;
+    font: 20px sans-serif;
+    border: none;
+    outline: none;
+}
+.acessar{
+    background-color: #00cd00;
+}
+.novaconta{
+    background-color: #1e90ff;
+}
+#links{
+    color: black;
+    font: 20px sans-serif;
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 350px;
+    margin-top: 35px;
+}
+#esqueci-senha{
+    float: left;
+}
+#cabecalho{
+    background-color: #444444;
+    height: 130px;
+    margin: -23px -7px auto -5px;
+}
+#cabecalho h1{
+    text-align: center;
+    color: black;
+    font:  35px sans-serif;
+    padding: 40px;
+}
+.to-left{
+    float: left;
+}
+
+.to-right{
+    float: right;
+}
+
+.box-btns{
+    margin-top: 31px;
+}
+
+.btn-cancel{
+    margin-left: 8px;
+    background-color: crimson;
+}
+
+.box-input{
+    display: block;
+    height: 74px;
+}
+
+.btns{
+    height: 38px;
+    border-radius: 5px;
+    border: none;
+    display: block;
+    padding: .5rem .75rem;
+    color: white;
+    font-weight: 700;
+    text-shadow: 0px 0px 6px #000;
+}
+
+.update-form{
+    display: none;
+}
+
+.btn-save{
+    width: 60%;
+    background-color: chartreuse;
+}
+
+.wkday{
+    display: none;
+}
+
+.wkday.active{
+    display: block;
+}
