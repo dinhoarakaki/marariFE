@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	   xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<context:annotation-config/>
+
+	<context:component-scan base-package="com.htcursos.narcorticosws.web.security" />
+	<context:component-scan base-package="com.htcursos.narcorticosws.web.converter" />
+	<context:component-scan base-package="com.htcursos.narcorticosws.web.controller" />
+
+
+
+	<!-- Para funcionar anotacoes do Spring MVC -->
+	<!-- JSR-303/JSR-349 support will be detected
+    on classpath and enabled automatically -->
+	<mvc:annotation-driven />
+	<!--<bean id="UsuarioController" class="com.htcursos.narcorticosws.restioController"></bean>-->
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving
+        up static resources in the ${webappRoot}/resources directory -->
+	<mvc:resources mapping="/**" location="/" />
+
+
+	<bean id="multipartResolver"
+				class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<!-- setting maximum save size -->
+		<property name="maxUploadSize" value="1000000" />
+
+	</bean>
+
+
+
+</beans>
