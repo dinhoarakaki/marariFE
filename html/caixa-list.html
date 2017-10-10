@@ -1,0 +1,51 @@
+<div class="container" id="app">
+    <div class="row">
+        <div class="card-header col-sm-12">
+            <i class="fa fa-table"></i> Listagem de Caixa
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="col-md-2">Descrição</th>
+                        <th class="col-md-2">Valor</th>
+                        <th class="col-md-1">Status</th>
+                        <th class="col-md-1">Forma de Pagamento</th>
+                        <th class="col-md-2">Tipo de Despesa</th>
+                        <th class="col-md-2">Fornecedor</th>
+                        <th class="col-md-2">Cliente</th>
+                    </tr>
+                    </thead>
+                    <tbody id="home_table_body">
+                    <tr v-for="(c,index) in caixas">
+                        <td>{{c.descricao}}</td>
+                        <td>{{c.valor}}</td>
+                        <td>{{c.status}}</td>
+                        <td>{{c.formaPagamento}}</td>
+                        <td>{{c.tipoDespesa}}</td>
+                        <td>{{c.fornecedor}}</td>
+                        <td>{{c.cliente}}</td>
+                        <td align="center">
+                            <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
+                               title="Editar Mov. de Caixa"></i>
+                            <i style="margin-left: 5%;" v-on:click="deleteCaixa(c.remote_id)" class="fa fa-trash"
+                               aria-hidden="true" title="Excluir Mov. de Caixa"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted col-sm-12">
+            <span><!--Swecca--></span>
+            <div align="right">
+                <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                       v-on:click="this.page_data_controller.open_sub_module('add')" value="Novo Mov. de Caixa">
+            </div>
+        </div>
+    </div>
+</div><!-- end container -->
+<script src="../js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<script src="../js/caixa.js"></script>

@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="form-produto box-input col-3 to-left">
-                            <select v-model="newProduto.fornecedor" class="form-control" id="Tipo de Produto">
+                            <select v-model="newProduto.tipoProduto" class="form-control" id="Tipo de Produto">
                                 <option value="" disabled selected>Tipo de Produto</option>
                                 <option v-for="t in tiposProduto" v-bind:value="t.id">
                                     {{ t.nome }}
