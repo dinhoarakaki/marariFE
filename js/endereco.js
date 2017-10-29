@@ -18,7 +18,7 @@ var app = new Vue({
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/endereco/private/")
+            this.$http.get("http://localhost:8080/endereco/todos/")
                 .then(function (res) {
                     this.enderecos = res.body;
                 }, function (res) {

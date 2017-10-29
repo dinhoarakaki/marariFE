@@ -14,7 +14,7 @@ var app = new Vue({
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/perfil/private/")
+            this.$http.get("http://localhost:8080/perfil/private/")//vou refazer o perfil
                 .then(function (res) {
                     this.perfis = res.body;
                 }, function (res) {

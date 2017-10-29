@@ -37,7 +37,7 @@ var app = new Vue({
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/produto/private/")
+            this.$http.get("http://localhost:8080/produto/todos")
                 .then(function (res) {
                     this.produtos = res.body;
                 }, function (res) {
@@ -45,7 +45,7 @@ var app = new Vue({
                 });
         },
         findAllFornecedores:function(){
-            this.$http.get("http://localhost:8080/fornecedor/private/")
+            this.$http.get("http://localhost:8080/fornecedor/todos")
                 .then(function (res) {
                     this.fornecedores = res.body;
                 }, function (res) {
@@ -53,7 +53,7 @@ var app = new Vue({
                 });
         },
         findAllTiposProduto:function(){
-            this.$http.get("http://localhost:8080/produto/private/")
+            this.$http.get("http://localhost:8080/tipoproduto/todos")
                 .then(function (res) {
                     this.produtos = res.body;
                 }, function (res) {
@@ -61,7 +61,7 @@ var app = new Vue({
                 });
         },
         findAllUsuarios:function(){
-            this.$http.get("http://localhost:8080/usuario/private/")
+            this.$http.get("http://localhost:8080/usuario/todos")
                 .then(function (res) {
                     this.usuarios = res.body;
                 }, function (res) {
@@ -69,7 +69,7 @@ var app = new Vue({
                 });
         },
         updateProduto: function () {
-            this.$http.put("http://localhost:8080/produto/private/edit", this.newProduto)
+            this.$http.put("http://localhost:8080/produto/alterar", this.newProduto)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -85,7 +85,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/produto/private/savenofile", this.newProduto)
+            this.$http.post("http://localhost:8080/produto/salvar", this.newProduto)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -93,7 +93,7 @@ var app = new Vue({
                 });
         },
         deleteProduto: function (i) {
-            this.$http.delete("http://localhost:8080/produto/private/" + (i))
+            this.$http.delete("http://localhost:8080/produto/" + (i))
                 .then(function (res) {
                     this.findAll();
                 }, function (res) {

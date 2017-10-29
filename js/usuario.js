@@ -19,7 +19,7 @@ var app = new Vue({
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/usuario/private/")
+            this.$http.get("http://localhost:8080/usuario/todos")
                 .then(function (res) {
                     this.usuarios = res.body;
                 }, function (res) {
@@ -27,7 +27,7 @@ var app = new Vue({
                 });
         },
         findAllPerfis: function () {
-            this.$http.get("http://localhost:8080/perfil/private/")
+            this.$http.get("http://localhost:8080/perfil/todos/")//fazer
                 .then(function (res) {
                     this.perfis = res.body;
                 }, function (res) {
@@ -35,7 +35,7 @@ var app = new Vue({
                 });
         },
         updateUsuario: function () {
-            this.$http.put("http://localhost:8080/usuario/private/edit", this.newUsuario)
+            this.$http.put("http://localhost:8080/usuario/alterar", this.newUsuario)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -51,7 +51,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/usuario/private/savenofile", this.newcliente)
+            this.$http.post("http://localhost:8080/usuario/salvar", this.newcliente)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -59,7 +59,7 @@ var app = new Vue({
                 });
         },
         deleteUsuario: function (i) {
-            this.$http.delete("http://localhost:8080/usuario/private/" + (i))
+            this.$http.delete("http://localhost:8080/usuario/" + (i))
                 .then(function (res) {
                     this.findAll();
                 }, function (res) {

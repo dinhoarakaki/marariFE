@@ -14,7 +14,7 @@ var app = new Vue({
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/formaPagamento/private/")
+            this.$http.get("http://localhost:8080/formapagamento/todos")
                 .then(function (res) {
                     this.formasPagamento = res.body;
                 }, function (res) {
@@ -22,7 +22,7 @@ var app = new Vue({
                 });
         },
         updateFormaPagamento: function () {
-            this.$http.put("http://localhost:8080/formaPagamento/private/edit", this.newFormaPagamento)
+            this.$http.put("http://localhost:8080/formapagamento/alterar", this.newFormaPagamento)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -38,7 +38,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/formaPagamento/private/savenofile", this.newFormaPagamento)
+            this.$http.post("http://localhost:8080/formapagamento/salvar", this.newFormaPagamento)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -46,7 +46,7 @@ var app = new Vue({
                 });
         },
         deleteFormaPagamento: function (i) {
-            this.$http.delete("http://localhost:8080/formaPagamento/private/" + (i))
+            this.$http.delete("http://localhost:8080/formapagamento/" + (i))
                 .then(function (res) {
                     this.findAll();
                 }, function (res) {

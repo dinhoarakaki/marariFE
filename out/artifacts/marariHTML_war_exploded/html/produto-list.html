@@ -1,0 +1,55 @@
+<div class="container" id="app">
+    <div class="row">
+        <div class="card-header col-sm-12">
+            <i class="fa fa-table"></i> Listagem de Produto
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="col-md-2">Descrição</th>
+                        <th class="col-md-2">Fornecedor</th>
+                        <th class="col-md-1">Preço de Custo</th>
+                        <th class="col-md-1">Preco de Venda</th>
+                        <th class="col-md-1">Preco Min. de Venda</th>
+                        <th class="col-md-1">Preco Max. de Venda</th>
+                        <th class="col-md-1">Qtd em Estoque</th>
+                        <th class="col-md-2">Tipo de Produto</th>
+                        <th class="col-md-1">Medida Produto</th>
+                    </tr>
+                    </thead>
+                    <tbody id="home_table_body">
+                    <tr v-for="(c,index) in produtos">
+                        <td>{{c.descricao}}</td>
+                        <td>{{c.fornecedor}}</td>
+                        <td>{{c.precoCusto}}</td>
+                        <td>{{c.precoVenda}}</td>
+                        <td>{{c.precoMinVenda}}</td>
+                        <td>{{c.precoMaxVenda}}</td>
+                        <td>{{c.qtdEstoque}}</td>
+                        <td>{{c.tipoProduto}}</td>
+                        <td>{{c.medidaProduto}}</td>
+                        <td align="center">
+                            <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
+                               title="Editar Produto"></i>
+                            <i style="margin-left: 5%;" v-on:click="deleteProduto(c.remote_id)" class="fa fa-trash"
+                               aria-hidden="true" title="Excluir Produto"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted col-sm-12">
+            <span><!--Swecca--></span>
+            <div align="right">
+                <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                       v-on:click="this.page_data_controller.open_sub_module('add')" value="Novo Produto">
+            </div>
+        </div>
+    </div>
+</div><!-- end container -->
+<script src="../js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<script src="../js/produto.js"></script>

@@ -23,7 +23,7 @@ var app = new Vue({
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/fornecedor/private/")
+            this.$http.get("http://localhost:8080/fornecedor/todos")
                 .then(function (res) {
                     this.fornecedores = res.body;
                 }, function (res) {
@@ -31,7 +31,7 @@ var app = new Vue({
                 });
         },
         findAllEnderecos:function() {
-            this.$http.get("http://localhost:8080/fornecedor/private/")
+            this.$http.get("http://localhost:8080/fornecedor/private/")//esqueci de fazer esse
                 .then(function(res){
                     this.fornecedores = res.body;
                 }, function (res){
@@ -39,7 +39,7 @@ var app = new Vue({
                 });
         },
         updateFornecedor: function () {
-            this.$http.put("http://localhost:8080/fornecedores/private/edit", this.newFornecedor)
+            this.$http.put("http://localhost:8080/fornecedores/alterar", this.newFornecedor)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -55,7 +55,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/fornecedor/private/savenofile", this.newFornecedor)
+            this.$http.post("http://localhost:8080/fornecedor/salvar", this.newFornecedor)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -63,7 +63,7 @@ var app = new Vue({
                 });
         },
         deleteFornecedor: function (i) {
-            this.$http.delete("http://localhost:8080/fornecedor/private/" + (i))
+            this.$http.delete("http://localhost:8080/fornecedor/" + (i))
                 .then(function (res) {
                     this.findAll();
                 }, function (res) {

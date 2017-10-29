@@ -22,7 +22,7 @@ var app = new Vue({
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/cliente/private/")
+            this.$http.get("http://localhost:8080/cliente/todos")
                 .then(function (res) {
                     this.clientes = res.body;
                 }, function (res) {
@@ -30,7 +30,7 @@ var app = new Vue({
                 });
         },
         findAllEnderecos:function() {
-            this.$http.get("http://localhost:8080/endereco/private/")
+            this.$http.get("http://localhost:8080/cliente/endereco")
                 .then(function(res){
                     this.enderecos = res.body;
                 }, function (res){
@@ -38,7 +38,7 @@ var app = new Vue({
                 });
         },
         updateCliente: function () {
-            this.$http.put("http://localhost:8080/cliente/private/edit", this.newCliente)
+            this.$http.put("http://localhost:8080/cliente/alterar", this.newCliente)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -46,7 +46,7 @@ var app = new Vue({
                 });
         },
         save:function(){
-            if(this.newCliente.remoteId==""){
+            if(this.newCliente.id==""){
                 this.add();
             }else {
                 this.updateCliente();
@@ -54,7 +54,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/cliente/private/savenofile", this.newCliente)
+            this.$http.post("http://localhost:8080/cliente/salvar", this.newCliente)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -62,7 +62,7 @@ var app = new Vue({
                 });
         },
         deleteCliente: function (i) {
-            this.$http.delete("http://localhost:8080/cliente/private/" + (i))
+            this.$http.delete("http://localhost:8080/cliente/" + (i))
                 .then(function (res) {
                     this.findAll();
                 }, function (res) {

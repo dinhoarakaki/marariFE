@@ -14,7 +14,7 @@ var app = new Vue({
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/tipoDespesa/private/")
+            this.$http.get("http://localhost:8080/tipodespesa/todos")
                 .then(function (res) {
                     this.tiposDespesa = res.body;
                 }, function (res) {
@@ -22,7 +22,7 @@ var app = new Vue({
                 });
         },
         updateTipoDespesa: function () {
-            this.$http.put("http://localhost:8080/tipoDespesa/private/edit", this.newTipoDespesa)
+            this.$http.put("http://localhost:8080/tipodespesa/alterar", this.newTipoDespesa)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -38,7 +38,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/tipoDespesa/private/savenofile", this.newTipoDespesa)
+            this.$http.post("http://localhost:8080/tipodespesa/salvar", this.newTipoDespesa)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -46,7 +46,7 @@ var app = new Vue({
                 });
         },
         deleteTipoDespesa: function (i) {
-            this.$http.delete("http://localhost:8080/tipoDespesa/private/" + (i))
+            this.$http.delete("http://localhost:8080/tipodespesa/" + (i))
                 .then(function (res) {
                     this.findAll();
                 }, function (res) {

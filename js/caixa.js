@@ -29,7 +29,7 @@ var app = new Vue({
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/caixa/private/")
+            this.$http.get("http://localhost:8080/caixa/todos")
                 .then(function (res) {
                     this.caixas = res.body;
                 }, function (res) {
@@ -37,7 +37,7 @@ var app = new Vue({
                 });
         },
         findAllFormasPagamento:function() {
-        this.$http.get("http://localhost:8080/formaPagamento/private/")
+        this.$http.get("http://localhost:8080/formapagamento/todos")
             .then(function(res){
                this.formasPagamento = res.body;
             }, function (res){
@@ -45,7 +45,7 @@ var app = new Vue({
             });
         },
         findAllTiposDespesa:function() {
-            this.$http.get("http://localhost:8080/tipoDespesa/private/")
+            this.$http.get("http://localhost:8080/tipodespesa/todos")
                 .then(function(res){
                     this.tiposDespesa = res.body;
                 }, function (res){
@@ -53,7 +53,7 @@ var app = new Vue({
                 });
         },
         findAllFornecedores:function(){
-            this.$http.get("http://localhost:8080/fornecedor/private/")
+            this.$http.get("http://localhost:8080/fornecedor/todos")
                 .then(function(res){
                     this.fornecedores = res.body;
                 }, function (res){
@@ -61,7 +61,7 @@ var app = new Vue({
                 });
         },
         findAllClientes:function(){
-            this.$http.get("http://localhost:8080/cliente/private/")
+            this.$http.get("http://localhost:8080/cliente/todos")
                 .then(function(res){
                     this.clientes = res.body;
                 }, function (res){
@@ -69,7 +69,7 @@ var app = new Vue({
                 });
         },
         updateCaixa: function () {
-            this.$http.put("http://localhost:8080/caixa/private/edit", this.newCaixa)
+            this.$http.put("http://localhost:8080/caixa/alterar", this.newCaixa)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -85,7 +85,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/caixa/private/savenofile", this.newCaixa)
+            this.$http.post("http://localhost:8080/caixa/salvar", this.newCaixa)
                 .then(function(res) {
                     this.findAll();
                 }, function (res){
@@ -93,7 +93,7 @@ var app = new Vue({
                 });
         },
         deleteCaixa: function (i) {
-            this.$http.delete("http://localhost:8080/caixa/private/" + (i))
+            this.$http.delete("http://localhost:8080/caixa/" + (i))
                 .then(function (res) {
                     this.findAll();
                 }, function (res) {
