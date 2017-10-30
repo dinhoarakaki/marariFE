@@ -41,11 +41,13 @@
             <span><!--Swecca--></span>
             <div align="right">
                 <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
-                       v-on:click="this.page_data_controller.open_sub_module('add')" value="Novo Mov. de Caixa">
+                       v-on:click="this.open_file('caixa.html')" value="Novo Mov. de Caixa">
             </div>
         </div>
     </div>
 </div><!-- end container -->
-<script src="../js/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
-<script src="../js/caixa.js"></script>
+<script src=".js/caixa.js"></script>
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+<script src="js/sb-admin-datatables.min.js"></script>

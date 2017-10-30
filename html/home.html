@@ -1,0 +1,241 @@
+<div class="container">
+    <div class="row">
+        <!-- coluna 1 -->
+        <div class="col-md-3" style="padding-top: 0.65rem; padding-bottom: 0.7rem; border-right: 1px solid #e9ecef;">
+
+            <div>
+                <div class="row align-self-start mx-auto mt-3 col-md-12"
+                     style="padding-top: 0.65rem; padding-bottom: 0.65rem; border: 1px solid #343a40; background: #5bc0de;">
+                    <div>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; font-size: large">R$</a>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">2.001,50</a>
+                    </div>
+                    <div class="w-100"></div>
+                    <div style="padding-bottom: 0.65rem;">
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left;">Vendas de hoje</a>
+                    </div>
+                    <div class="w-100"></div>
+                    <div>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-size: small">Total liquido vendido hoje</a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="row mx-auto align-self-end">
+                    <a href="#" v-on:click="open_file('caixa.html')" class="nav-link" href="tables.html">
+                        <i class="fa fa-fw fa-plus-circle"></i>
+                        <span class="nav-link-text">Lançar Novo Pedido</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- coluna 2 -->
+        <div class="col-md-3" style="padding-top: 0.65rem; padding-bottom: 0.7rem">
+            <!--item1-->
+            <div class="pb-5">
+                <div class="row align-self-start mx-auto mt-3 col-md-12"
+                     style="padding-top: 0.65rem; padding-bottom: 0.65rem; border: 1px solid #343a40; background: #007bff;">
+                    <div>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; font-size: large">R$</a>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">22.001,50</a>
+                    </div>
+                    <div class="w-100"></div>
+                    <div style="padding-bottom: 0.65rem;">
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left;">Vendas do período</a>
+                    </div>
+                    <div class="w-100"></div>
+                    <div>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-size: small">Total liquido no período</a>
+                    </div>
+                </div>
+            </div>
+            <!--item 2-->
+            <div class="pb-5">
+                <div class="row align-self-center mx-auto mt-3 col-md-12"
+                     style="padding-top: 0.65rem; padding-bottom: 0.65rem; border: 1px solid #343a40; background: #449d44;">
+                    <div>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; font-size: large">R$</a>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">2.001,50</a>
+                    </div>
+                    <div class="w-100"></div>
+                    <div style="padding-bottom: 0.65rem;">
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left;">Média do período</a>
+                    </div>
+                    <div class="w-100"></div>
+                    <div>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-size: small">Valor médio vendido por dia</a>
+                    </div>
+                </div>
+            </div>
+            <!--item 3-->
+            <div>
+                <div class="row align-self-end mx-auto my-3 col-md-12"
+                     style="padding-top: 0.65rem; padding-bottom: 0.65rem; border: 1px solid #343a40; background: #c9302c;">
+                    <div>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; font-size: large">+</a>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">23,02</a>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">%</a>
+                    </div>
+                    <div class="w-100"></div>
+                    <div style="padding-bottom: 0.65rem;">
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left;">Variação</a>
+                    </div>
+                    <div class="w-100"></div>
+                    <div>
+                        <a class="nav-item" data-toggle="modal"
+                           style="float: left; font-size: small">Em relação ao periodo anterior</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--coluna3-->
+        <div class="col-md-6" style="padding-top: 0.65rem; padding-bottom: 0.7rem">
+            <!--item1-->
+            <div class="pb-5">
+                <div class="row mx-auto">
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-5 mt-3">
+                                <a class="nav-item align-bottom py-1" data-toggle="modal"
+                                   style="float: left; font-size: large;">Vendedor</a>
+                            </div>
+                            <div class="col-md-7 pull-right mt-3" style="padding: 0px">
+                                <select v-model="selected" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                    <option disabled value="">Escolha um item</option>
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-3 mt-3">
+                                <a class="nav-item align-bottom py-1" data-toggle="modal"
+                                   style="float: left; font-size: large;">Período</a>
+                            </div>
+                            <div id="reportrange" class="col-md-9 pull-right mt-3"
+                                 style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                                <span></span> <b class="caret"></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="row align-self-start mx-auto mt-3 col-md-12"
+                     style="padding-top: 0.65rem; padding-bottom: 0.65rem;">
+                    <canvas id="myChartB" style="position: relative; height:25vh; width:80vw"></canvas>
+                </div>
+            </div>
+
+            <div>
+                <div class="row align-self-start mx-auto mt-3 col-md-12"
+                     style="padding-top: 0.65rem; padding-bottom: 0.65rem;">
+                    <canvas id="myChartL" style="position: relative; height:25vh; width:80vw"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="vendor/chart.js/Chart.bundle.min.js"></script>
+<script>
+    var ctx = document.getElementById("myChartB");
+    var myChartB = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    var ctx = document.getElementById("myChartL");
+    var myChartL = new Chart(ctx, {
+        "type":"line",
+        "data":{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"borderColor":"rgb(75, 192, 192)","lineTension":0.1}]},
+        "options":{}});
+    ;
+</script>
+
+<script type="text/javascript" src="moment.min.js"></script>
+<script type="text/javascript" src="daterangepicker.js"></script>
+<script>
+    $(function () {
+
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end);
+
+    });
+</script>
