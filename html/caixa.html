@@ -7,20 +7,21 @@
             <form >
                 <div class="row">
                     <div class="col-md-12">
-
-                        <div class="form-caixa box-input col-3 to-left">
+                        <div class="form-caixa" style="width: 40%; float: left;">
                             <input type="text" class="form-control" v-model="newCaixa.descricao" placeholder="Descrição">
                         </div>
 
-                        <div class="form-caixa box-input col-3 to-left">
+                        <div class="form-group" style="width: 28%; float: left; margin-left: 2%;">
                             <input type="text" class="form-control" v-model="newCaixa.valor" placeholder="Valor">
                         </div>
 
-                        <div class="form-caixa box-input col-3 to-left">
+                        <div class="form-group" style="width: 28%; float: left; margin-left: 2%;">
                             <input type="text" class="form-control" v-model="newCaixa.status" placeholder="Status">
                         </div>
+                    </div>
 
-                        <div class="form-caixa box-input col-3 to-left">
+                    <div class="col-md-12">
+                        <div class="form-caixa" style="width: 24%; float: left;">
                             <select v-model="newCaixa.formaPagamento" class="form-control" id="formaPagamento">
                                 <option value="" disabled selected>Forma de Pagamento</option>
                                 <option v-for="f in formasPagamento" v-bind:value="f.id">
@@ -29,7 +30,7 @@
                             </select>
                         </div>
 
-                        <div class="form-caixa box-input col-3 to-left">
+                        <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <select v-model="newCaixa.tipoDespesa" class="form-control" id="tipoDespesa">
                                 <option value="" disabled selected>Tipo de Despesa</option>
                                 <option v-for="t in tiposDespesa" v-bind:value="t.id">
@@ -38,7 +39,7 @@
                             </select>
                         </div>
 
-                        <div class="form-caixa box-input col-3 to-left">
+                        <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <select v-model="newCaixa.fornecedor" class="form-control" id="fornecedor">
                                 <option value="" disabled selected>Fornecedor</option>
                                 <option v-for="x in fornecedores" v-bind:value="x.id">
@@ -47,7 +48,7 @@
                             </select>
                         </div>
 
-                        <div class="form-caixa box-input col-3 to-left">
+                        <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <select v-model="newCaixa.cliente" class="form-control" id="cliente">
                                 <option value="" disabled selected>Cliente</option>
                                 <option v-for="c in clientes" v-bind:value="c.id">

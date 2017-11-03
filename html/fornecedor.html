@@ -7,12 +7,11 @@
             <form >
                 <div class="row">
                     <div class="col-md-12">
-
-                        <div class="form-fornecedor box-input col-3 to-left">
+                        <div cclass="form-caixa" style="width: 24%; float: left;">
                             <input type="text" class="form-control" v-model="newFornecedor.nome" placeholder="Nome">
                         </div>
 
-                        <div class="form-fornecedor box-input col-3 to-left">
+                        <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <select v-model="newFornecedor.endereco" class="form-control" id="endereco">
                                 <option value="" disabled selected>Endereço</option>
                                 <option v-for="e in enderecos" v-bind:value="e.id">
@@ -21,27 +20,29 @@
                             </select>
                         </div>
 
-                        <div class="form-fornecedor box-input col-3 to-left">
+                        <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <input type="text" class="form-control" v-model="newFornecedor.cpfCnpj" placeholder="CPF/CNPJ">
                         </div>
 
-                        <div class="form-fornecedor box-input col-3 to-left">
+                        <div cclass="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <input type="text" class="form-control" v-model="newFornecedor.rgIe" placeholder="RG">
                         </div>
+                    </div>
 
-                        <div class="form-fornecedor box-input col-3 to-left">
+                    <div class="col-md-12">
+                        <div class="form-caixa" style="width: 24%; float: left;">
                             <input type="text" class="form-control" v-model="newFornecedor.telefone" placeholder="Telefone">
                         </div>
 
-                        <div class="form-fornecedor box-input col-3 to-left">
+                        <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <input type="text" class="form-control" v-model="newFornecedor.contato" placeholder="Contato">
                         </div>
 
-                        <div class="form-fornecedor box-input col-3 to-left">
+                        <div lass="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <input type="text" class="form-control" v-model="newFornecedor.info" placeholder="Info">
                         </div>
 
-                        <div class="form-fornecedor box-input col-3 to-left">
+                        <div lass="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <input type="email" class="form-control" v-model="newFornecedor.email" placeholder="Email">
                         </div>
 
