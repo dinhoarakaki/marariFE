@@ -16,7 +16,7 @@ var app = new Vue({
         enderecos:[],
         clientes:[]
     },
-    mounted:function(){
+    created:function(){
         this.findAll();
         this.findAllEnderecos();
     },
@@ -30,12 +30,15 @@ var app = new Vue({
                 });
         },
         findAllEnderecos:function() {
-            this.$http.get("http://localhost:8080/cliente/endereco")
+            this.$http.get("http://localhost:8080/endereco/todos")
                 .then(function(res){
                     this.enderecos = res.body;
+                    console.log(this.enderecos);
                 }, function (res){
                     console.log(res);
                 });
+
+
         },
         updateCliente: function () {
             this.$http.put("http://localhost:8080/cliente/alterar", this.newCliente)
@@ -54,6 +57,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
+            console.log(this.newCliente);
             this.$http.post("http://localhost:8080/cliente/salvar", this.newCliente)
                 .then(function(res) {
                     this.findAll();
