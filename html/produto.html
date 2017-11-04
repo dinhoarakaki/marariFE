@@ -16,7 +16,7 @@
                         <div class="form-group" style="width: 28%; float: left; margin-left: 2%;">
                             <select v-model="newProduto.fornecedor" class="form-control" id="fornecedor">
                                 <option value="" disabled selected>Fornecedor</option>
-                                <option v-for="f in fornecedores" v-bind:value="f.id">
+                                <option v-for="f in fornecedores" v-bind:value="f">
                                     {{ f.nome }}
                                 </option>
                             </select>
@@ -67,21 +67,23 @@
                             <input type="text" class="form-control" v-model="newProduto.medidaProduto" placeholder="Medida Produto">
                         </div>
                         <div class="form-group" style="width: 19%; float: left; margin-left: 1.25%;">
-                            <select v-model="newProduto.tipoProduto" class="form-control" id="Tipo de Produto">
+                            <select v-model="newProduto.tipoProduto" class="form-control" id="tipoProduto">
                                 <option value="" disabled selected>Tipo de Produto</option>
-                                <option v-for="t in tiposProduto" v-bind:value="t.id">
-                                    {{ t.nome }}
+                                <option v-for="t in tiposProduto" v-bind:value="t">
+                                    {{ t.descricao }}
                                 </option>
                             </select>
                         </div>
+
                         <div class="form-group" style="width: 19%; float: left; margin-left: 1.25%;">
                             <select v-model="newProduto.usuario" class="form-control" id="usuario">
                                 <option value="" disabled selected>Usuário</option>
-                                <option v-for="t in usuarios" v-bind:value="t.id">
+                                <option v-for="t in usuarios" v-bind:value="t">
                                     {{ t.nome }}
                                 </option>
                             </select>
                         </div>
+
                         <div class="form-group" style="width: 19%; float: left; margin-left: 1.25%;">
                             <input type="text" class="form-control" v-model="newProduto.validade" placeholder="Validade">
                         </div>

@@ -55,7 +55,8 @@ var app = new Vue({
         findAllTiposProduto:function(){
             this.$http.get("http://localhost:8080/tipoproduto/todos")
                 .then(function (res) {
-                    this.produtos = res.body;
+                    console.log(res.body);
+                    this.tiposProduto = res.body;
                 }, function (res) {
                     console.log(res);
                 });
@@ -78,7 +79,7 @@ var app = new Vue({
                 });
         },
         save:function(){
-            if(this.newProduto.remoteId==""){
+            if(this.newProduto.id==""){
                 this.add();
             }else {
                 this.updateProduto();

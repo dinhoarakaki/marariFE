@@ -17,23 +17,25 @@
                         <th class="col-md-1">Qtd em Estoque</th>
                         <th class="col-md-2">Tipo de Produto</th>
                         <th class="col-md-1">Medida Produto</th>
+                        <th class="col-md-1">Ações</th>
+
                     </tr>
                     </thead>
                     <tbody id="home_table_body">
                     <tr v-for="(c,index) in produtos">
                         <td>{{c.descricao}}</td>
-                        <td>{{c.fornecedor}}</td>
+                        <td>{{c.fornecedor.nome}}</td>
                         <td>{{c.precoCusto}}</td>
                         <td>{{c.precoVenda}}</td>
                         <td>{{c.precoMinVenda}}</td>
                         <td>{{c.precoMaxVenda}}</td>
                         <td>{{c.qtdEstoque}}</td>
-                        <td>{{c.tipoProduto}}</td>
+                        <td>{{c.tipoProduto.descricao}}</td>
                         <td>{{c.medidaProduto}}</td>
                         <td align="center">
                             <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
                                title="Editar Produto"></i>
-                            <i style="margin-left: 5%;" v-on:click="deleteProduto(c.remote_id)" class="fa fa-trash"
+                            <i style="margin-left: 5%;" v-on:click="deleteProduto(c.id)" class="fa fa-trash"
                                aria-hidden="true" title="Excluir Produto"></i>
                         </td>
                     </tr>

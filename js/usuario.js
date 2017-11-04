@@ -44,7 +44,7 @@ var app = new Vue({
                 });
         },
         save:function(){
-            if(this.newUsuario.remoteId==""){
+            if(this.newUsuario.id==""){
                 this.add();
             }else {
                 this.updateUsuario();
@@ -52,9 +52,10 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/usuario/salvar", this.newcliente)
+            console.log(this.newUsuario);
+            this.$http.post("http://localhost:8080/usuario/salvar", this.newUsuario)
                 .then(function(res) {
-                    window.alert("Usuário Editado");
+                    window.alert("Usuário Cadastrado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);

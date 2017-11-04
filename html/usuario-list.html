@@ -8,22 +8,21 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="col-md-3">Descrição</th>
+                        <th class="col-md-3">Nome</th>
                         <th class="col-md-3">Email</th>
-                        <th class="col-md-3">RG</th>
                         <th class="col-md-3">Perfil</th>
+                        <th class="col-md-3">Ações</th>
                     </tr>
                     </thead>
                     <tbody id="home_table_body">
                     <tr v-for="(c,index) in usuarios">
                         <td>{{c.nome}}</td>
                         <td>{{c.email}}</td>
-                        <td>{{c.rg}}</td>
-                        <td>{{c.perfil}}</td>
+                        <td>{{c.perfil.descricao}}</td>
                         <td align="center">
                             <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
                                title="Editar Usuário"></i>
-                            <i style="margin-left: 5%;" v-on:click="deleteUsuario(c.remote_id)" class="fa fa-trash"
+                            <i style="margin-left: 5%;" v-on:click="deleteUsuario(c.id)" class="fa fa-trash"
                                aria-hidden="true" title="Excluir Usuário"></i>
                         </td>
                     </tr>

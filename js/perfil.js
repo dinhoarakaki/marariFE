@@ -31,7 +31,7 @@ var app = new Vue({
                 });
         },
         save:function(){
-            if(this.newPerfil.remoteId==""){
+            if(this.newPerfil.id==""){
                 this.add();
             }else {
                 this.updatePerfil();

@@ -8,36 +8,12 @@
   <component name="ChangeListManager">
     <list default="true" id="66a85f82-9fd8-4de0-99f4-1fb07b10948a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/caixa-list.html" afterPath="$PROJECT_DIR$/html/caixa-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/caixa.html" afterPath="$PROJECT_DIR$/html/caixa.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/cliente-list.html" afterPath="$PROJECT_DIR$/html/cliente-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/cliente.html" afterPath="$PROJECT_DIR$/html/cliente.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/endereco-list.html" afterPath="$PROJECT_DIR$/html/endereco-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/endereco.html" afterPath="$PROJECT_DIR$/html/endereco.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/formaDePagamento-list.html" afterPath="$PROJECT_DIR$/html/formaDePagamento-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/formaDePagamento.html" afterPath="$PROJECT_DIR$/html/formaDePagamento.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/fornecedor-list.html" afterPath="$PROJECT_DIR$/html/fornecedor-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/fornecedor.html" afterPath="$PROJECT_DIR$/html/fornecedor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/perfil-list.html" afterPath="$PROJECT_DIR$/html/perfil-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/perfil.html" afterPath="$PROJECT_DIR$/html/perfil.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/produto-list.html" afterPath="$PROJECT_DIR$/html/produto-list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/produto.html" afterPath="$PROJECT_DIR$/html/produto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tipoDespesa-list.html" afterPath="$PROJECT_DIR$/html/tipoDespesa-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tipoDespesa.html" afterPath="$PROJECT_DIR$/html/tipoDespesa.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tipoProduto-list.html" afterPath="$PROJECT_DIR$/html/tipoProduto-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tipoProduto.html" afterPath="$PROJECT_DIR$/html/tipoProduto.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/usuario-list.html" afterPath="$PROJECT_DIR$/html/usuario-list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/usuario.html" afterPath="$PROJECT_DIR$/html/usuario.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/caixa.js" afterPath="$PROJECT_DIR$/js/caixa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/cliente.js" afterPath="$PROJECT_DIR$/js/cliente.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/endereco.js" afterPath="$PROJECT_DIR$/js/endereco.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/formaDePagamento.js" afterPath="$PROJECT_DIR$/js/formaDePagamento.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/fornecedor.js" afterPath="$PROJECT_DIR$/js/fornecedor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/perfil.js" afterPath="$PROJECT_DIR$/js/perfil.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/produto.js" afterPath="$PROJECT_DIR$/js/produto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tipoDespesa.js" afterPath="$PROJECT_DIR$/js/tipoDespesa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tipoProduto.js" afterPath="$PROJECT_DIR$/js/tipoProduto.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/usuario.js" afterPath="$PROJECT_DIR$/js/usuario.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,11 +25,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="usuario.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="produto.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/produto.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="81" lean-forward="false" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
+              <folding>
+                <element signature="n#style#0;n#div#3;n#div#3;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="produto-list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/produto-list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="37" column="86" lean-forward="false" selection-start-line="37" selection-start-column="86" selection-end-line="37" selection-end-column="86" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="usuario.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/usuario.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="25" column="75" lean-forward="false" selection-start-line="25" selection-start-column="75" selection-end-line="25" selection-end-column="75" />
+              <folding>
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="usuario-list.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/usuario-list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="24" column="87" lean-forward="true" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="usuario.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/usuario.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="90" column="48" lean-forward="false" selection-start-line="90" selection-start-column="48" selection-end-line="90" selection-end-column="48" />
+            <state relative-caret-position="357">
+              <caret line="57" column="52" lean-forward="false" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="produto.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/produto.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-306">
+              <caret line="75" column="35" lean-forward="true" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cliente.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/cliente.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="935">
+              <caret line="100" column="48" lean-forward="false" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -71,7 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nav-bar</find>
       <find>navbar</find>
       <find>navbar-nav</find>
       <find>ml-au</find>
@@ -101,6 +145,7 @@
       <find>locale</find>
       <find>popper</find>
       <find>app</find>
+      <find>nome</find>
     </findStrings>
     <replaceStrings>
       <replace>placeholder</replace>
@@ -148,19 +193,19 @@
         <option value="$PROJECT_DIR$/js/fornecedor.js" />
         <option value="$PROJECT_DIR$/html/perfil.html" />
         <option value="$PROJECT_DIR$/html/perfil-list.html" />
-        <option value="$PROJECT_DIR$/js/perfil.js" />
-        <option value="$PROJECT_DIR$/html/produto.html" />
-        <option value="$PROJECT_DIR$/html/produto-list.html" />
-        <option value="$PROJECT_DIR$/js/produto.js" />
         <option value="$PROJECT_DIR$/html/tipoDespesa-list.html" />
         <option value="$PROJECT_DIR$/html/tipoDespesa.html" />
         <option value="$PROJECT_DIR$/js/tipoDespesa.js" />
         <option value="$PROJECT_DIR$/html/tipoProduto-list.html" />
         <option value="$PROJECT_DIR$/js/tipoProduto.js" />
         <option value="$PROJECT_DIR$/html/tipoProduto.html" />
+        <option value="$PROJECT_DIR$/js/perfil.js" />
         <option value="$PROJECT_DIR$/html/usuario.html" />
-        <option value="$PROJECT_DIR$/html/usuario-list.html" />
         <option value="$PROJECT_DIR$/js/usuario.js" />
+        <option value="$PROJECT_DIR$/js/produto.js" />
+        <option value="$PROJECT_DIR$/html/produto.html" />
+        <option value="$PROJECT_DIR$/html/produto-list.html" />
+        <option value="$PROJECT_DIR$/html/usuario-list.html" />
       </list>
     </option>
   </component>
@@ -188,10 +233,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
     <handled-path value="$PROJECT_DIR$/out/artifacts/marariHTML_war_exploded/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="720" />
     <option name="width" value="720" />
-    <option name="height" value="860" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -212,7 +257,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -252,8 +296,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -472,14 +517,15 @@
       <workItem from="1509731628198" duration="5260000" />
       <workItem from="1509779477853" duration="705000" />
       <workItem from="1509780198077" duration="6634000" />
+      <workItem from="1509811463421" duration="8926000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123743000" />
+    <option name="totallyTimeSpent" value="132669000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="720" y="0" width="720" height="860" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -496,7 +542,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2471591" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12737921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -638,9 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="67" column="85" lean-forward="true" selection-start-line="66" selection-start-column="16" selection-end-line="67" selection-end-column="85" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -648,19 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="43" column="79" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="43" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/cliente.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="52" column="87" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="52" selection-end-column="87" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -668,17 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
           <caret line="44" column="79" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="44" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/cliente.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="100" column="48" lean-forward="false" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -686,7 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
           <caret line="128" column="48" lean-forward="false" selection-start-line="128" selection-start-column="48" selection-end-line="128" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -694,7 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2482">
           <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -702,7 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="48" column="61" lean-forward="false" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -710,9 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="39" column="79" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="39" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -720,9 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="38" column="88" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="38" selection-end-column="88" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -730,7 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="601">
           <caret line="81" column="16" lean-forward="false" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -738,7 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="77" column="48" lean-forward="false" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -754,17 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
           <caret line="31" column="79" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="31" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/fornecedor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="80" column="45" lean-forward="false" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -772,7 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="96" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="22" selection-end-column="96" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -780,17 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
           <caret line="41" column="79" lean-forward="true" selection-start-line="40" selection-start-column="16" selection-end-line="41" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/perfil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="75" column="9" lean-forward="true" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -807,34 +792,8 @@
         <state relative-caret-position="478">
           <caret line="31" column="79" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="31" selection-end-column="79" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/produto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="138" column="48" lean-forward="false" selection-start-line="138" selection-start-column="48" selection-end-line="138" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/produto-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="47" column="79" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="47" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/produto.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="96" column="87" lean-forward="true" selection-start-line="95" selection-start-column="16" selection-end-line="96" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -842,7 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="74" column="48" lean-forward="false" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -850,7 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="91" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="22" selection-end-column="91" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -858,28 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="31" column="79" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="31" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/tipoProduto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="74" column="16" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/usuario.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="43" column="58" lean-forward="false" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -887,6 +822,97 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="22" column="91" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="22" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/tipoProduto-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="31" column="79" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="31" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/fornecedor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="45" lean-forward="false" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tipoProduto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" column="16" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/perfil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/cliente.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="52" column="87" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="52" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/usuario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="75" lean-forward="false" selection-start-line="25" selection-start-column="75" selection-end-line="25" selection-end-column="75" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cliente.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="100" column="48" lean-forward="false" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/usuario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="57" column="52" lean-forward="false" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/produto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="81" lean-forward="false" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#div#3;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/produto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="75" column="35" lean-forward="true" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/produto-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="37" column="86" lean-forward="false" selection-start-line="37" selection-start-column="86" selection-end-line="37" selection-end-column="86" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -895,29 +921,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/usuario-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="37" column="79" lean-forward="false" selection-start-line="37" selection-start-column="79" selection-end-line="37" selection-end-column="79" />
+        <state relative-caret-position="357">
+          <caret line="24" column="87" lean-forward="true" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/tipoProduto-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="31" column="79" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="31" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/usuario.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="90" column="48" lean-forward="false" selection-start-line="90" selection-start-column="48" selection-end-line="90" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
