@@ -37,6 +37,7 @@ var app = new Vue({
         updateUsuario: function () {
             this.$http.put("http://localhost:8080/usuario/alterar", this.newUsuario)
                 .then(function(res) {
+                    window.alert("Usuário Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -53,17 +54,27 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/usuario/salvar", this.newcliente)
                 .then(function(res) {
+                    window.alert("Usuário Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
                 });
         },
+        back_home: function () {
+            $.ajax({
+                url: "/html/usuario-list.html", success: function (result) {
+                    $('.page_data_content').html(result);
+                }
+            });
+        },
         deleteUsuario: function (i) {
             this.$http.delete("http://localhost:8080/usuario/" + (i))
                 .then(function (res) {
-                    this.findAll();
+                    window.alert("Usuário Deletado");
+                    setTimeout(this.back_home, 250);
                 }, function (res) {
                     console.log(res);
+                    alert("Um erro ocorreu :(");
                 });
         },
         prepareUpdate :function(i){
@@ -76,7 +87,8 @@ var app = new Vue({
                 email:'',
                 senha:'',
                 perfil:''
-            }
+            },
+                setTimeout(this.back_home, 250);
         }
     }
 

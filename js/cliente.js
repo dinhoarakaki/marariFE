@@ -43,6 +43,7 @@ var app = new Vue({
         updateCliente: function () {
             this.$http.put("http://localhost:8080/cliente/alterar", this.newCliente)
                 .then(function(res) {
+                    window.alert("Cliente Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -60,17 +61,27 @@ var app = new Vue({
             console.log(this.newCliente);
             this.$http.post("http://localhost:8080/cliente/salvar", this.newCliente)
                 .then(function(res) {
+                    window.alert("Cliente Adicionado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
                 });
         },
+        back_home: function () {
+            $.ajax({
+                url: "/html/cliente-list.html", success: function (result) {
+                    $('.page_data_content').html(result);
+                }
+            });
+        },
         deleteCliente: function (i) {
             this.$http.delete("http://localhost:8080/cliente/" + (i))
                 .then(function (res) {
-                    this.findAll();
+                    window.alert("Caixa Deletado");
+                    setTimeout(this.back_home, 250);
                 }, function (res) {
                     console.log(res);
+                    alert("Um erro ocorreu :(");
                 });
         },
         prepareUpdate :function(i){
@@ -86,7 +97,8 @@ var app = new Vue({
                 rg:'',
                 telefone:'',
                 info:''
-            }
+            },
+                setTimeout(this.back_home, 250);
         }
     }
 

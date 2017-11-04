@@ -24,6 +24,7 @@ var app = new Vue({
         updateTipoDespesa: function () {
             this.$http.put("http://localhost:8080/tipodespesa/alterar", this.newTipoDespesa)
                 .then(function(res) {
+                    window.alert("Tipo de Despesa Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -40,17 +41,27 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/tipodespesa/salvar", this.newTipoDespesa)
                 .then(function(res) {
+                    window.alert("Tipo de Despesa Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
                 });
         },
+        back_home: function () {
+            $.ajax({
+                url: "/html/tipoDespesa-list.html", success: function (result) {
+                    $('.page_data_content').html(result);
+                }
+            });
+        },
         deleteTipoDespesa: function (i) {
             this.$http.delete("http://localhost:8080/tipodespesa/" + (i))
                 .then(function (res) {
-                    this.findAll();
+                    window.alert("Tipo de Despesa Deletado");
+                    setTimeout(this.back_home, 250);
                 }, function (res) {
                     console.log(res);
+                    alert("Um erro ocorreu :(");
                 });
         },
         prepareUpdate :function(i){
@@ -60,7 +71,8 @@ var app = new Vue({
             this.newTipoDespesa = {
                 id:'',
                 descricao:''
-            }
+            },
+                setTimeout(this.back_home, 250);
         }
     }
 

@@ -41,6 +41,7 @@ var app = new Vue({
         updateFornecedor: function () {
             this.$http.put("http://localhost:8080/fornecedores/alterar", this.newFornecedor)
                 .then(function(res) {
+                    window.alert("Fornecedor Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -57,17 +58,27 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/fornecedor/salvar", this.newFornecedor)
                 .then(function(res) {
+                    window.alert("Fornecedor Adicionado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
                 });
         },
+        back_home: function () {
+            $.ajax({
+                url: "/html/fornecedor-list.html", success: function (result) {
+                    $('.page_data_content').html(result);
+                }
+            });
+        },
         deleteFornecedor: function (i) {
             this.$http.delete("http://localhost:8080/fornecedor/" + (i))
                 .then(function (res) {
-                    this.findAll();
+                    window.alert("Fornecedor Deletado");
+                    setTimeout(this.back_home, 250);
                 }, function (res) {
                     console.log(res);
+                    alert("Um erro ocorreu :(");
                 });
         },
         prepareUpdate :function(i){
@@ -84,7 +95,8 @@ var app = new Vue({
                 contato:'',
                 info:'',
                 email:''
-            }
+            },
+                setTimeout(this.back_home, 250);
         }
     }
 

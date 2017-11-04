@@ -24,6 +24,7 @@ var app = new Vue({
         updatePerfil: function () {
             this.$http.put("http://localhost:8080/perfil/private/edit", this.newPerfil)
                 .then(function(res) {
+                    window.alert("Perfil Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -40,17 +41,27 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/perfil/private/savenofile", this.newPerfil)
                 .then(function(res) {
+                    window.alert("Perfil Adicionado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
                 });
         },
+        back_home: function () {
+            $.ajax({
+                url: "/html/perfil-list.html", success: function (result) {
+                    $('.page_data_content').html(result);
+                }
+            });
+        },
         deletePerfil: function (i) {
             this.$http.delete("http://localhost:8080/perfil/private/" + (i))
                 .then(function (res) {
-                    this.findAll();
+                    window.alert("Perfil Deletado");
+                    setTimeout(this.back_home, 250);
                 }, function (res) {
                     console.log(res);
+                    alert("Um erro ocorreu :(");
                 });
         },
         prepareUpdate :function(i){
@@ -60,7 +71,8 @@ var app = new Vue({
             this.newPerfil = {
                 id:'',
                 descricao:''
-            }
+            },
+                setTimeout(this.back_home, 250);
         }
     }
 

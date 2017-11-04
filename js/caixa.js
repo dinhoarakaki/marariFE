@@ -71,6 +71,7 @@ var app = new Vue({
         updateCaixa: function () {
             this.$http.put("http://localhost:8080/caixa/alterar", this.newCaixa)
                 .then(function(res) {
+                    window.alert("Caixa Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -87,17 +88,27 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/caixa/salvar", this.newCaixa)
                 .then(function(res) {
+                    window.alert("Caixa Adiconado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
                 });
         },
+        back_home: function () {
+            $.ajax({
+                url: "/html/caixa-ist.html", success: function (result) {
+                    $('.page_data_content').html(result);
+                }
+            });
+        },
         deleteCaixa: function (i) {
             this.$http.delete("http://localhost:8080/caixa/" + (i))
                 .then(function (res) {
-                    this.findAll();
+                    window.alert("Caixa Deletado");
+                    setTimeout(this.back_home, 250);
                 }, function (res) {
                     console.log(res);
+                    alert("Um erro ocorreu :(");
                 });
         },
         prepareUpdate :function(i){
@@ -114,7 +125,8 @@ var app = new Vue({
                 tipoDespesa:'',
                 cliente:'',
                 fornecedor:''
-            }
+            },
+                setTimeout(this.back_home, 250);
         }
     }
 

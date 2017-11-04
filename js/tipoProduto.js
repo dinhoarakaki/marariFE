@@ -24,6 +24,7 @@ var app = new Vue({
         updateTipoProduto: function () {
             this.$http.put("http://localhost:8080/tipoproduto/alterar", this.newTipoProduto)
                 .then(function(res) {
+                    window.alert("Tipo de Produto Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -40,17 +41,27 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/tipoproduto/salvar", this.newTipoProduto)
                 .then(function(res) {
+                    window.alert("Tipo de Produto Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
                 });
         },
+        back_home: function () {
+            $.ajax({
+                url: "/html/tipoProduto-list.html", success: function (result) {
+                    $('.page_data_content').html(result);
+                }
+            });
+        },
         deleteTipoProduto: function (i) {
             this.$http.delete("http://localhost:8080/tipoproduto/" + (i))
                 .then(function (res) {
-                    this.findAll();
+                    window.alert("Tipo de Produto Deletado");
+                    setTimeout(this.back_home, 250);
                 }, function (res) {
                     console.log(res);
+                    alert("Um erro ocorreu :(");
                 });
         },
         prepareUpdate :function(i){
@@ -60,7 +71,8 @@ var app = new Vue({
             this.newTipoProduto = {
                 id:'',
                 descricao:''
-            }
+            },
+                setTimeout(this.back_home, 250);
         }
     }
 

@@ -24,6 +24,7 @@ var app = new Vue({
         updateFormaPagamento: function () {
             this.$http.put("http://localhost:8080/formapagamento/alterar", this.newFormaPagamento)
                 .then(function(res) {
+                    window.alert("Forma de Pagamento Editada");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -40,17 +41,27 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/formapagamento/salvar", this.newFormaPagamento)
                 .then(function(res) {
+                    window.alert("Forma de Pagamento Editada");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
                 });
         },
+        back_home: function () {
+            $.ajax({
+                url: "/html/formaDePagamento-list.html", success: function (result) {
+                    $('.page_data_content').html(result);
+                }
+            });
+        },
         deleteFormaPagamento: function (i) {
             this.$http.delete("http://localhost:8080/formapagamento/" + (i))
                 .then(function (res) {
+                    window.alert("Forma de Pagamento Deletada");
                     this.findAll();
                 }, function (res) {
                     console.log(res);
+                    alert("Um erro ocorreu :(");
                 });
         },
         prepareUpdate :function(i){
@@ -63,7 +74,8 @@ var app = new Vue({
                 telefone:'',
                 endereco:'',
                 regiao:''
-            }
+            },
+                setTimeout(this.back_home, 250);
         }
     }
 
