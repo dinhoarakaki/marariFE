@@ -78,7 +78,7 @@ var app = new Vue({
                 });
         },
         save:function(){
-            if(this.newCaixa.remoteId==""){
+            if(this.newCaixa.id==""){
                 this.add();
             }else {
                 this.updateCaixa();

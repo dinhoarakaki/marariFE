@@ -24,8 +24,8 @@
                         <div class="form-caixa" style="width: 24%; float: left;">
                             <select v-model="newCaixa.formaPagamento" class="form-control" id="formaPagamento">
                                 <option value="" disabled selected>Forma de Pagamento</option>
-                                <option v-for="f in formasPagamento" v-bind:value="f.id">
-                                    {{ f.nome }}
+                                <option v-for="f in formasPagamento" v-bind:value="f">
+                                    {{ f.descricao }}
                                 </option>
                             </select>
                         </div>
@@ -33,8 +33,8 @@
                         <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <select v-model="newCaixa.tipoDespesa" class="form-control" id="tipoDespesa">
                                 <option value="" disabled selected>Tipo de Despesa</option>
-                                <option v-for="t in tiposDespesa" v-bind:value="t.id">
-                                    {{ t.nome }}
+                                <option v-for="t in tiposDespesa" v-bind:value="t">
+                                    {{ t.descricao }}
                                 </option>
                             </select>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <select v-model="newCaixa.fornecedor" class="form-control" id="fornecedor">
                                 <option value="" disabled selected>Fornecedor</option>
-                                <option v-for="x in fornecedores" v-bind:value="x.id">
+                                <option v-for="x in fornecedores" v-bind:value="x">
                                     {{ x.nome }}
                                 </option>
                             </select>
@@ -51,7 +51,7 @@
                         <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <select v-model="newCaixa.cliente" class="form-control" id="cliente">
                                 <option value="" disabled selected>Cliente</option>
-                                <option v-for="c in clientes" v-bind:value="c.id">
+                                <option v-for="c in clientes" v-bind:value="c">
                                     {{ c.nome }}
                                 </option>
                             </select>

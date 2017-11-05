@@ -9,7 +9,8 @@ var app = new Vue({
             cidade:'',
             cep:'',
             bairro:'',
-            numero:''
+            numero:'',
+            rua:''
         },
         enderecos:[]
     },

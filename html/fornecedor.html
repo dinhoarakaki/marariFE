@@ -14,8 +14,8 @@
                         <div class="form-group" style="width: 24%; float: left; margin-left: 1.33%;">
                             <select v-model="newFornecedor.endereco" class="form-control" id="endereco">
                                 <option value="" disabled selected>Endereço</option>
-                                <option v-for="e in enderecos" v-bind:value="e.id">
-                                    {{ e.nome }}
+                                <option v-for="e in enderecos" v-bind:value="e">
+                                    {{ e.rua }}
                                 </option>
                             </select>
                         </div>

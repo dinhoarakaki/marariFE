@@ -15,6 +15,7 @@
                         <th class="col-md-2">Tipo de Despesa</th>
                         <th class="col-md-2">Fornecedor</th>
                         <th class="col-md-2">Cliente</th>
+                        <th class="col-md-2">Ações</th>
                     </tr>
                     </thead>
                     <tbody id="home_table_body">
@@ -22,14 +23,14 @@
                         <td>{{c.descricao}}</td>
                         <td>{{c.valor}}</td>
                         <td>{{c.status}}</td>
-                        <td>{{c.formaPagamento}}</td>
-                        <td>{{c.tipoDespesa}}</td>
-                        <td>{{c.fornecedor}}</td>
-                        <td>{{c.cliente}}</td>
+                        <td>{{c.formaPagamento.descricao}}</td>
+                        <td>{{c.tipoDespesa.descricao}}</td>
+                        <td>{{c.fornecedor.nome}}</td>
+                        <td>{{c.cliente.nome}}</td>
                         <td align="center">
                             <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
                                title="Editar Mov. de Caixa"></i>
-                            <i style="margin-left: 5%;" v-on:click="deleteCaixa(c.remote_id)" class="fa fa-trash"
+                            <i style="margin-left: 5%;" v-on:click="deleteCaixa(c.id)" class="fa fa-trash"
                                aria-hidden="true" title="Excluir Mov. de Caixa"></i>
                         </td>
                     </tr>

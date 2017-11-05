@@ -17,22 +17,24 @@ var app = new Vue({
         enderecos:[],
         fornecedores:[]
     },
-    mounted:function(){
+    created:function(){
         this.findAll();
-        this.findAllRegioes();
+        this.findAllEnderecos();
     },
     methods: {
         findAll: function () {
             this.$http.get("http://localhost:8080/fornecedor/todos")
                 .then(function (res) {
+                    console.log(res.body);
                     this.fornecedores = res.body;
                 }, function (res) {
                     console.log(res);
                 });
         },
         findAllEnderecos:function() {
-            this.$http.get("http://localhost:8080/fornecedor/private/")//esqueci de fazer esse
+            this.$http.get("http://localhost:8080/endereco/todos")
                 .then(function(res){
+                    console.log(res.body);
                     this.fornecedores = res.body;
                 }, function (res){
                     console.log(res);
@@ -48,7 +50,7 @@ var app = new Vue({
                 });
         },
         save:function(){
-            if(this.newFornecedor.remoteId==""){
+            if(this.newFornecedor.id==""){
                 this.add();
             }else {
                 this.updateFornecedor();
