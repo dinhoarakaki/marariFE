@@ -20,6 +20,7 @@ var app = new Vue({
                 }, function (res) {
                     console.log(res);
                 });
+            setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         updateTipoDespesa: function () {
             this.$http.put("http://localhost:8080/tipodespesa/alterar", this.newTipoDespesa)
@@ -58,7 +59,7 @@ var app = new Vue({
             this.$http.delete("http://localhost:8080/tipodespesa/" + (i))
                 .then(function (res) {
                     window.alert("Tipo de Despesa Deletado");
-                    setTimeout(this.back_home, 250);
+                    setTimeout(this.back_home, 600);
                 }, function (res) {
                     console.log(res);
                     alert("Um erro ocorreu :(");
@@ -72,7 +73,7 @@ var app = new Vue({
                 id:'',
                 descricao:''
             },
-                setTimeout(this.back_home, 250);
+                setTimeout(this.back_home, 600);
         }
     }
 

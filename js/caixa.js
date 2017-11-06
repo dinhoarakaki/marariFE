@@ -35,6 +35,7 @@ var app = new Vue({
                 }, function (res) {
                     console.log(res);
                 });
+            setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         findAllFormasPagamento:function() {
         this.$http.get("http://localhost:8080/formapagamento/todos")
@@ -105,7 +106,7 @@ var app = new Vue({
             this.$http.delete("http://localhost:8080/caixa/" + (i))
                 .then(function (res) {
                     window.alert("Caixa Deletado");
-                    setTimeout(this.back_home, 250);
+                    setTimeout(this.back_home, 600);
                 }, function (res) {
                     console.log(res);
                     alert("Um erro ocorreu :(");
@@ -126,7 +127,7 @@ var app = new Vue({
                 cliente:'',
                 fornecedor:''
             },
-                setTimeout(this.back_home, 250);
+                setTimeout(this.back_home, 600);
         }
     }
 

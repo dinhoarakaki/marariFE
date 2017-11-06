@@ -43,6 +43,7 @@ var app = new Vue({
                 }, function (res) {
                     console.log(res);
                 });
+            setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         findAllFornecedores:function(){
             this.$http.get("http://localhost:8080/fornecedor/todos")
@@ -106,7 +107,7 @@ var app = new Vue({
             this.$http.delete("http://localhost:8080/produto/" + (i))
                 .then(function (res) {
                     window.alert("Produto Deletado");
-                    setTimeout(this.back_home, 250);
+                    setTimeout(this.back_home, 600);
                 }, function (res) {
                     console.log(res);
                     alert("Um erro ocorreu :(");
@@ -137,7 +138,7 @@ var app = new Vue({
                 usuario:'',
                 validade:''
             },
-                setTimeout(this.back_home, 250);
+                setTimeout(this.back_home, 600);
         }
     }
 

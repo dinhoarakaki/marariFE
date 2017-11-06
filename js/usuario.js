@@ -25,6 +25,7 @@ var app = new Vue({
                 }, function (res) {
                     console.log(res);
                 });
+            setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         findAllPerfis: function () {
             this.$http.get("http://localhost:8080/perfil/todos/")//fazer
@@ -72,7 +73,7 @@ var app = new Vue({
             this.$http.delete("http://localhost:8080/usuario/" + (i))
                 .then(function (res) {
                     window.alert("Usuário Deletado");
-                    setTimeout(this.back_home, 250);
+                    setTimeout(this.back_home, 600);
                 }, function (res) {
                     console.log(res);
                     alert("Um erro ocorreu :(");
@@ -89,7 +90,7 @@ var app = new Vue({
                 senha:'',
                 perfil:''
             },
-                setTimeout(this.back_home, 250);
+                setTimeout(this.back_home, 600);
         }
     }
 

@@ -25,6 +25,7 @@ var app = new Vue({
                 }, function (res) {
                     console.log(res);
                 });
+            setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         updateEndereco: function () {
             this.$http.put("http://localhost:8080/endereco/private/edit", this.newEndereco)
@@ -62,7 +63,7 @@ var app = new Vue({
             this.$http.delete("http://localhost:8080/endereco/private/" + (i))
                 .then(function (res) {
                     window.alert("Endereço Deletado");
-                    setTimeout(this.back_home, 250);
+                    setTimeout(this.back_home, 600);
                 }, function (res) {
                     console.log(res);
                     window.alert("Um erro ocorreu :(")
@@ -80,7 +81,7 @@ var app = new Vue({
                 bairro:'',
                 numero:''
             },
-                setTimeout(this.back_home, 250);
+                setTimeout(this.back_home, 600);
         }
     }
 

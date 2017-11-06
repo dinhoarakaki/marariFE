@@ -20,6 +20,7 @@ var app = new Vue({
                 }, function (res) {
                     console.log(res);
                 });
+            setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         updateTipoProduto: function () {
             this.$http.put("http://localhost:8080/tipoproduto/alterar", this.newTipoProduto)
@@ -58,7 +59,7 @@ var app = new Vue({
             this.$http.delete("http://localhost:8080/tipoproduto/" + (i))
                 .then(function (res) {
                     window.alert("Tipo de Produto Deletado");
-                    setTimeout(this.back_home, 250);
+                    setTimeout(this.back_home, 600);
                 }, function (res) {
                     console.log(res);
                     alert("Um erro ocorreu :(");
@@ -72,7 +73,7 @@ var app = new Vue({
                 id:'',
                 descricao:''
             },
-                setTimeout(this.back_home, 250);
+                setTimeout(this.back_home, 600);
         }
     }
 

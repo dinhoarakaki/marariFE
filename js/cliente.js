@@ -28,6 +28,7 @@ var app = new Vue({
                 }, function (res) {
                     console.log(res);
                 });
+            setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         findAllEnderecos:function() {
             this.$http.get("http://localhost:8080/endereco/todos")
@@ -98,7 +99,7 @@ var app = new Vue({
                 telefone:'',
                 info:''
             },
-                setTimeout(this.back_home, 250);
+                setTimeout(this.back_home, 600);
         }
     }
 
