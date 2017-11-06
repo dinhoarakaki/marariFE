@@ -17,6 +17,8 @@
 //         //this.search_menu('index');
 //     }
 // });
+var update_global = '';
+
 function open_file(file_name){
     $.ajax({url: "/html/"+file_name, cache: false, async: false, success: function(result){
         $('.page_data_content').html(result);

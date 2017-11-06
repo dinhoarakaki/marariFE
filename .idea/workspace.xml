@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f92cfc8-7a10-4b8f-8a5a-178752a0b136" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/caixa-list.html" afterPath="$PROJECT_DIR$/html/caixa-list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/cliente-list.html" afterPath="$PROJECT_DIR$/html/cliente-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/endereco-list.html" afterPath="$PROJECT_DIR$/html/endereco-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/fornecedor-list.html" afterPath="$PROJECT_DIR$/html/fornecedor-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/perfil-list.html" afterPath="$PROJECT_DIR$/html/perfil-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/produto-list.html" afterPath="$PROJECT_DIR$/html/produto-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tipoDespesa-list.html" afterPath="$PROJECT_DIR$/html/tipoDespesa-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tipoProduto-list.html" afterPath="$PROJECT_DIR$/html/tipoProduto-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/usuario-list.html" afterPath="$PROJECT_DIR$/html/usuario-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/caixa.js" afterPath="$PROJECT_DIR$/js/caixa.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/cliente.js" afterPath="$PROJECT_DIR$/js/cliente.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/endereco.js" afterPath="$PROJECT_DIR$/js/endereco.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/fornecedor.js" afterPath="$PROJECT_DIR$/js/fornecedor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/perfil.js" afterPath="$PROJECT_DIR$/js/perfil.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/produto.js" afterPath="$PROJECT_DIR$/js/produto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tipoDespesa.js" afterPath="$PROJECT_DIR$/js/tipoDespesa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tipoProduto.js" afterPath="$PROJECT_DIR$/js/tipoProduto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/usuario.js" afterPath="$PROJECT_DIR$/js/usuario.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/home.js" afterPath="$PROJECT_DIR$/js/home.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +14,50 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="caixa.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/caixa.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1479">
+              <caret line="129" column="46" lean-forward="false" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cliente.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/cliente.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-793">
+              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cliente-list.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/cliente-list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="30" column="58" lean-forward="false" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,8 +73,6 @@
         <option value="$PROJECT_DIR$/html/cliente.html" />
         <option value="$PROJECT_DIR$/html/caixa.html" />
         <option value="$PROJECT_DIR$/html/fornecedor.html" />
-        <option value="$PROJECT_DIR$/js/cliente.js" />
-        <option value="$PROJECT_DIR$/html/cliente-list.html" />
         <option value="$PROJECT_DIR$/html/caixa-list.html" />
         <option value="$PROJECT_DIR$/js/caixa.js" />
         <option value="$PROJECT_DIR$/js/endereco.js" />
@@ -64,6 +89,9 @@
         <option value="$PROJECT_DIR$/js/tipoDespesa.js" />
         <option value="$PROJECT_DIR$/js/tipoProduto.js" />
         <option value="$PROJECT_DIR$/js/usuario.js" />
+        <option value="$PROJECT_DIR$/js/home.js" />
+        <option value="$PROJECT_DIR$/js/cliente.js" />
+        <option value="$PROJECT_DIR$/html/cliente-list.html" />
       </list>
     </option>
   </component>
@@ -247,15 +275,16 @@
       <option name="presentableId" value="Default" />
       <updated>1509903672520</updated>
       <workItem from="1509903674768" duration="5908000" />
-      <workItem from="1509983187587" duration="978000" />
+      <workItem from="1509983187587" duration="1818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6886000" />
+    <option name="totallyTimeSpent" value="7726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -270,7 +299,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -354,26 +383,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/cliente.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="73" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/caixa.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="53" column="77" lean-forward="false" selection-start-line="53" selection-start-column="77" selection-end-line="53" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/cliente-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -385,14 +398,6 @@
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/caixa.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="771">
-          <caret line="129" column="46" lean-forward="false" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -512,6 +517,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/caixa.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="129" column="46" lean-forward="false" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cliente.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-793">
+          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/cliente-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="30" column="58" lean-forward="false" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
           <folding />
         </state>
       </provider>

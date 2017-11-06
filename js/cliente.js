@@ -19,6 +19,7 @@ var app = new Vue({
     created:function(){
         this.findAll();
         this.findAllEnderecos();
+        this.valida_update();
     },
     methods: {
         findAll: function () {
@@ -85,8 +86,19 @@ var app = new Vue({
                     alert("Um erro ocorreu :(");
                 });
         },
-        prepareUpdate :function(i){
-            this.newCliente=  Vue.util.extend({},this.clientes[i]);
+        prepareUpdate :function(c){
+            console.log(c.id);
+            update_global = '';
+            update_global = JSON.stringify(c);
+            console.log(c);
+            open_file('cliente.html');
+        },valida_update: function () {
+            if (update_global != '') {
+                var aux_update = JSON.parse(update_global);
+                //Não esta funcionando
+                this.newCliente = aux_update;
+                update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
+            }
         },
         clear: function () {
             this.newCliente = {
