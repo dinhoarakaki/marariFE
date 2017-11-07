@@ -11,10 +11,11 @@ var app = new Vue({
     },
     mounted:function(){
         this.findAll();
+        this.valida_update();
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/perfil/private/")//vou refazer o perfil
+            this.$http.get("http://localhost:8080/perfil/todos")
                 .then(function (res) {
                     this.perfis = res.body;
                 }, function (res) {
@@ -23,7 +24,7 @@ var app = new Vue({
             setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         updatePerfil: function () {
-            this.$http.put("http://localhost:8080/perfil/private/edit", this.newPerfil)
+            this.$http.put("http://localhost:8080/perfil/alterar", this.newPerfil)
                 .then(function(res) {
                     window.alert("Perfil Editado");
                     this.findAll();
@@ -40,7 +41,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/perfil/private/savenofile", this.newPerfil)
+            this.$http.post("http://localhost:8080/perfil/salvar", this.newPerfil)
                 .then(function(res) {
                     window.alert("Perfil Adicionado");
                     this.findAll();
@@ -56,7 +57,7 @@ var app = new Vue({
             });
         },
         deletePerfil: function (i) {
-            this.$http.delete("http://localhost:8080/perfil/private/" + (i))
+            this.$http.delete("http://localhost:8080/perfil/" + (i))
                 .then(function (res) {
                     window.alert("Perfil Deletado");
                     setTimeout(this.back_home, 600);
@@ -65,8 +66,20 @@ var app = new Vue({
                     alert("Um erro ocorreu :(");
                 });
         },
-        prepareUpdate :function(i){
-            this.newPerfil=  Vue.util.extend({},this.perfis[i]);
+        prepareUpdate :function(c){
+            console.log(c.id);
+            update_global = '';
+            update_global = JSON.stringify(c);
+            console.log(c);
+            open_file('perfil.html');
+        },
+        valida_update: function () {
+            if (update_global != '') {
+                var aux_update = JSON.parse(update_global);
+                //Não esta funcionando
+                this.newPerfil = aux_update;
+                update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
+            }
         },
         clear: function () {
             this.newPerfil = {

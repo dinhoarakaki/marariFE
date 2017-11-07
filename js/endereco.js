@@ -16,11 +16,13 @@ var app = new Vue({
     },
     mounted:function(){
         this.findAll();
+        this.valida_update();
     },
     methods: {
         findAll: function () {
-            this.$http.get("http://localhost:8080/endereco/todos/")
+            this.$http.get("http://localhost:8080/endereco/todos")
                 .then(function (res) {
+                    console.log(res.body);
                     this.enderecos = res.body;
                 }, function (res) {
                     console.log(res);
@@ -28,15 +30,16 @@ var app = new Vue({
             setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         updateEndereco: function () {
-            this.$http.put("http://localhost:8080/endereco/private/edit", this.newEndereco)
+            this.$http.put("http://localhost:8080/endereco/alterar", this.newEndereco)
                 .then(function(res) {
+                    window.alert("Endereço Editado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
                 });
         },
         save:function(){
-            if(this.newEndereco.remoteId==""){
+            if(this.newEndereco.id==""){
                 this.add();
             }else {
                 this.updateEndereco();
@@ -44,7 +47,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            this.$http.post("http://localhost:8080/endereco/private/savenofile", this.newEndereco)
+            this.$http.post("http://localhost:8080/endereco/salvar", this.newEndereco)
                 .then(function(res) {
                     window.alert("Endereço Adicionado");
                     this.findAll();
@@ -60,7 +63,7 @@ var app = new Vue({
             });
         },
         deleteEndereco: function (i) {
-            this.$http.delete("http://localhost:8080/endereco/private/" + (i))
+            this.$http.delete("http://localhost:8080/endereco/" + (i))
                 .then(function (res) {
                     window.alert("Endereço Deletado");
                     setTimeout(this.back_home, 600);
@@ -69,8 +72,20 @@ var app = new Vue({
                     window.alert("Um erro ocorreu :(")
                 });
         },
-        prepareUpdate :function(i){
-            this.newEndereco=  Vue.util.extend({},this.enderecos[i]);
+        prepareUpdate :function(c){
+            console.log(c.id);
+            update_global = '';
+            update_global = JSON.stringify(c);
+            console.log(c);
+            open_file('endereco.html');
+        },
+        valida_update: function () {
+            if (update_global != '') {
+                var aux_update = JSON.parse(update_global);
+                //Não esta funcionando
+                this.newEndereco = aux_update;
+                update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
+            }
         },
         clear: function () {
             this.newEndereco = {

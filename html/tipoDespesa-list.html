@@ -9,15 +9,16 @@
                     <thead>
                     <tr>
                         <th class="col-md-12">Descrição</th>
+                        <th class="col-md-12">Ações</th>
                     </tr>
                     </thead>
                     <tbody id="home_table_body">
                     <tr v-for="(c,index) in tiposDespesa">
                         <td>{{c.descricao}}</td>
                         <td align="center">
-                            <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
+                            <i v-on:click="prepareUpdate(c)" class="fa fa-pencil" aria-hidden="true"
                                title="Editar Tipo de Despesa"></i>
-                            <i style="margin-left: 5%;" v-on:click="deleteDespesa(c.remote_id)" class="fa fa-trash"
+                            <i style="margin-left: 5%;" v-on:click="deleteTipoDespesa(c.id)" class="fa fa-trash"
                                aria-hidden="true" title="Excluir tipo de Despesa"></i>
                         </td>
                     </tr>

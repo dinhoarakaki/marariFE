@@ -11,6 +11,7 @@ var app = new Vue({
     },
     mounted:function(){
         this.findAll();
+        this.valida_update();
     },
     methods: {
         findAll: function () {
@@ -32,7 +33,7 @@ var app = new Vue({
                 });
         },
         save:function(){
-            if(this.newTipoProduto.remoteId==""){
+            if(this.newTipoProduto.id==""){
                 this.add();
             }else {
                 this.updateTipoProduto();
@@ -42,7 +43,7 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/tipoproduto/salvar", this.newTipoProduto)
                 .then(function(res) {
-                    window.alert("Tipo de Produto Editado");
+                    window.alert("Tipo de Produto Cadastrado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -65,8 +66,20 @@ var app = new Vue({
                     alert("Um erro ocorreu :(");
                 });
         },
-        prepareUpdate :function(i){
-            this.newTipoProduto=  Vue.util.extend({},this.tiposProduto[i]);
+        prepareUpdate :function(c){
+            console.log(c.id);
+            update_global = '';
+            update_global = JSON.stringify(c);
+            console.log(c);
+            open_file('tipoProduto.html');
+        },
+        valida_update: function () {
+            if (update_global != '') {
+                var aux_update = JSON.parse(update_global);
+                //Não esta funcionando
+                this.newTipoProduto = aux_update;
+                update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
+            }
         },
         clear: function () {
             this.newTipoProduto = {

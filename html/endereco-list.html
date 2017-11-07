@@ -8,24 +8,25 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="col-md-2">Estado</th>
+                        <th class="col-md-2">Rua</th>
                         <th class="col-md-3">Cidade</th>
-                        <th class="col-md-2">CEP</th>
+                        <th class="col-md-2">Estado</th>
                         <th class="col-md-3">Bairro</th>
                         <th class="col-md-2">Número</th>
+                        <th class="col-md-2">Ações</th>
                     </tr>
                     </thead>
                     <tbody id="home_table_body">
-                    <tr v-for="(c,index) in clientes">
-                        <td>{{c.estado}}</td>
+                    <tr v-for="(c,index) in enderecos">
+                        <td>{{c.rua}}</td>
                         <td>{{c.cidade}}</td>
-                        <td>{{c.cep}}</td>
+                        <td>{{c.estado}}</td>
                         <td>{{c.bairro}}</td>
                         <td>{{c.numero}}</td>
                         <td align="center">
-                            <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
+                            <i v-on:click="prepareUpdate(c)" class="fa fa-pencil" aria-hidden="true"
                                title="Editar Endereço"></i>
-                            <i style="margin-left: 5%;" v-on:click="deleteEndereco(c.remote_id)" class="fa fa-trash"
+                            <i style="margin-left: 5%;" v-on:click="deleteEndereco(c.id)" class="fa fa-trash"
                                aria-hidden="true" title="Excluir Endereço"></i>
                         </td>
                     </tr>

@@ -11,6 +11,7 @@ var app = new Vue({
     },
     mounted:function(){
         this.findAll();
+        this.valida_update();
     },
     methods: {
         findAll: function () {
@@ -20,6 +21,7 @@ var app = new Vue({
                 }, function (res) {
                     console.log(res);
                 });
+            setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
         updateFormaPagamento: function () {
             this.$http.put("http://localhost:8080/formapagamento/alterar", this.newFormaPagamento)
@@ -31,7 +33,7 @@ var app = new Vue({
                 });
         },
         save:function(){
-            if(this.newFormaPagamento.remoteId==""){
+            if(this.newFormaPagamento.id==""){
                 this.add();
             }else {
                 this.updateFormaPagamento();
@@ -41,7 +43,7 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/formapagamento/salvar", this.newFormaPagamento)
                 .then(function(res) {
-                    window.alert("Forma de Pagamento Editada");
+                    window.alert("Forma de Pagamento Salva");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -58,14 +60,26 @@ var app = new Vue({
             this.$http.delete("http://localhost:8080/formapagamento/" + (i))
                 .then(function (res) {
                     window.alert("Forma de Pagamento Deletada");
-                    this.findAll();
+                    setTimeout(this.back_home, 600);
                 }, function (res) {
                     console.log(res);
                     alert("Um erro ocorreu :(");
                 });
         },
-        prepareUpdate :function(i){
-            this.newFormaPagamento=  Vue.util.extend({},this.formasPagamento[i]);
+        prepareUpdate :function(c){
+            console.log(c.id);
+            update_global = '';
+            update_global = JSON.stringify(c);
+            console.log(c);
+            open_file('formaDePagamento.html');
+        },
+        valida_update: function () {
+            if (update_global != '') {
+                var aux_update = JSON.parse(update_global);
+                //Não esta funcionando
+                this.newFormaPagamento = aux_update;
+                update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
+            }
         },
         clear: function () {
             this.newFormaPagamento = {
@@ -75,7 +89,7 @@ var app = new Vue({
                 endereco:'',
                 regiao:''
             },
-                setTimeout(this.back_home, 250);
+                setTimeout(this.back_home, 600);
         }
     }
 

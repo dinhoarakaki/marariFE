@@ -11,6 +11,7 @@ var app = new Vue({
     },
     mounted:function(){
         this.findAll();
+        this.valida_update();
     },
     methods: {
         findAll: function () {
@@ -32,7 +33,7 @@ var app = new Vue({
                 });
         },
         save:function(){
-            if(this.newTipoDespesa.remoteId==""){
+            if(this.newTipoDespesa.id==""){
                 this.add();
             }else {
                 this.updateTipoDespesa();
@@ -42,7 +43,7 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/tipodespesa/salvar", this.newTipoDespesa)
                 .then(function(res) {
-                    window.alert("Tipo de Despesa Editado");
+                    window.alert("Tipo de Despesa Cadastrado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -65,8 +66,20 @@ var app = new Vue({
                     alert("Um erro ocorreu :(");
                 });
         },
-        prepareUpdate :function(i){
-            this.newTipoDespesa=  Vue.util.extend({},this.tiposDespesa[i]);
+        prepareUpdate :function(c){
+            console.log(c.id);
+            update_global = '';
+            update_global = JSON.stringify(c);
+            console.log(c);
+            open_file('tipoDespesa.html');
+        },
+        valida_update: function () {
+            if (update_global != '') {
+                var aux_update = JSON.parse(update_global);
+                //Não esta funcionando
+                this.newTipoDespesa = aux_update;
+                update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
+            }
         },
         clear: function () {
             this.newTipoDespesa = {
