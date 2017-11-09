@@ -14,10 +14,6 @@ var app = new Vue({
         },
         enderecos:[]
     },
-    mounted:function(){
-        this.findAll();
-        this.valida_update();
-    },
     methods: {
         findAll: function () {
             this.$http.get("http://localhost:8080/endereco/todos")
@@ -98,6 +94,14 @@ var app = new Vue({
             },
                 setTimeout(this.back_home, 600);
         }
+    },
+    created:function(){
+        this.findAll();
+        this.valida_update();
+    },
+
+    mounted: function () {
+        $('#cep').mask('99999-999');
     }
 
-})
+});
