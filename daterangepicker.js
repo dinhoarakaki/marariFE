@@ -69,12 +69,12 @@
             direction: 'ltr',
             format: moment.localeData().longDateFormat('L'),
             separator: ' - ',
-            applyLabel: 'Apply',
-            cancelLabel: 'Cancel',
-            weekLabel: 'W',
-            customRangeLabel: 'Custom Range',
-            daysOfWeek: moment.weekdaysMin(),
-            monthNames: moment.monthsShort(),
+            applyLabel: 'Aplicar',
+            cancelLabel: 'Cancelar',
+            weekLabel: 'S',
+            customRangeLabel: 'Outro Período',
+            daysOfWeek: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+            monthNames: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
             firstDay: moment.localeData().firstDayOfWeek()
         };
 

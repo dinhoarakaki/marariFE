@@ -14,6 +14,15 @@ var app = new Vue({
             info:'',
             email:''
         },
+        newEndereco:{
+            id:'',
+            estado:'',
+            cidade:'',
+            cep:'',
+            bairro:'',
+            numero:'',
+            rua:''
+        },
         enderecos:[],
         fornecedores:[]
     },
