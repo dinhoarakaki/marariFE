@@ -23,12 +23,12 @@ var app = new Vue({
             numero:'',
             rua:''
         },
-        enderecos:[],
         fornecedores:[]
     },
     created:function(){
         this.findAll();
-        this.findAllEnderecos();
+        this.valida_update();
+       // this.findAllEnderecos();
     },
     methods: {
         findAll: function () {
@@ -41,7 +41,7 @@ var app = new Vue({
                 });
             setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
-        findAllEnderecos:function() {
+        /*findAllEnderecos:function() {
             this.$http.get("http://localhost:8080/endereco/todos")
                 .then(function(res){
                     console.log(res.body);
@@ -49,9 +49,9 @@ var app = new Vue({
                 }, function (res){
                     console.log(res);
                 });
-        },
+        },*/
         updateFornecedor: function () {
-            this.$http.put("http://localhost:8080/fornecedores/alterar", this.newFornecedor)
+            this.$http.put("http://localhost:8080/fornecedor/alterar", this.newFornecedor)
                 .then(function(res) {
                     window.alert("Fornecedor Editado");
                     this.findAll();
@@ -68,6 +68,8 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
+            console.log(this.newEndereco);
+            this.newFornecedor.endereco = this.newEndereco;
             this.$http.post("http://localhost:8080/fornecedor/salvar", this.newFornecedor)
                 .then(function(res) {
                     window.alert("Fornecedor Adicionado");
@@ -93,8 +95,22 @@ var app = new Vue({
                     alert("Um erro ocorreu :(");
                 });
         },
-        prepareUpdate :function(i){
-            this.newFornecedor=  Vue.util.extend({},this.fornecedores[i]);
+        prepareUpdate :function(c){
+            console.log(c.id);
+            update_global = '';
+            update_global = JSON.stringify(c);
+            console.log("prepare update");
+            console.log(c);
+            open_file('fornecedor.html');
+        },
+        valida_update: function () {
+        if (update_global != '') {
+            var aux_update = JSON.parse(update_global);
+            //Não esta funcionando
+            this.newFornecedor = aux_update;
+            this.newEndereco = aux_update.endereco;
+            update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
+        }
         },
         clear: function () {
             this.newFornecedor = {
@@ -107,6 +123,15 @@ var app = new Vue({
                 contato:'',
                 info:'',
                 email:''
+            }
+            ,this.newEndereco = {
+                id:'',
+                    estado:'',
+                    cidade:'',
+                    cep:'',
+                    bairro:'',
+                    numero:'',
+                    rua:''
             },
                 setTimeout(this.back_home, 600);
         }

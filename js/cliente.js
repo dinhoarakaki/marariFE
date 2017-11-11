@@ -20,6 +20,7 @@ var app = new Vue({
         this.findAll();
         this.findAllEnderecos();
         this.valida_update();
+        this.findParametro();
     },
     methods: {
         findAll: function () {
@@ -41,6 +42,15 @@ var app = new Vue({
                 });
 
 
+        },
+        findParametro:function () {
+            this.$http.get("http://localhost:8080/cliente/parametro?parametro=gf")
+                .then(function (res) {
+                    console.log("parametro");
+                    console.log(res.body);
+                }, function (res) {
+                    console.log(res);
+                });
         },
         updateCliente: function () {
             this.$http.put("http://localhost:8080/cliente/alterar", this.newCliente)
