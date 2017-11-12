@@ -13,12 +13,21 @@ var app = new Vue({
             telefone:'',
             info:''
         },
+        newEndereco:{
+            id:'',
+            estado:'',
+            cidade:'',
+            cep:'',
+            bairro:'',
+            numero:'',
+            rua:''
+        },
         enderecos:[],
         clientes:[]
     },
     created:function(){
         this.findAll();
-        this.findAllEnderecos();
+        //this.findAllEnderecos();
         this.valida_update();
         this.findParametro();
     },
