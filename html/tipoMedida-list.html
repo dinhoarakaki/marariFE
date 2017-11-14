@@ -1,0 +1,42 @@
+<div class="container" id="app">
+    <div class="row">
+        <div class="card-header col-sm-12">
+            <i class="fa fa-table"></i> Listagem de Tipo de Medida
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="col-md-12">Descrição</th>
+                        <th class="col-md-12">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody id="home_table_body">
+                    <tr v-for="(c,index) in tiposMedida">
+                        <td>{{c.descricao}}</td>
+                        <td align="center">
+                            <i v-on:click="prepareUpdate(c)" class="fa fa-pencil" aria-hidden="true"
+                               title="Editar Tipo de Medida"></i>
+                            <i style="margin-left: 5%;" v-on:click="deleteTipoMedida(c.id)" class="fa fa-trash"
+                               aria-hidden="true" title="Excluir tipo de Medida"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted col-sm-12">
+            <span><!--Swecca--></span>
+            <div align="right">
+                <input type="button" class="btn btn-sm float-left" style="background-color: #d9534f; color: white;"
+                       v-on:click="this.open_file('home.html')" value="Voltar">
+                <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                       v-on:click="this.open_file('tipoMedida.html')" value="Novo Tipo de Medida">
+            </div>
+        </div>
+    </div>
+</div><!-- end container -->
+<script src="/js/tipoMedida.js"></script>
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.js"></script>

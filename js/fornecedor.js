@@ -135,6 +135,14 @@ var app = new Vue({
             },
                 setTimeout(this.back_home, 600);
         }
+    },
+    mounted: function(){
+        $('#cep').mask('99999-999');
+        $('#num').mask('9999999999');
+        $('#cel').mask('(99) 999999999');
+        $('#rg').mask('999.999.999');
+        $('#cpf').mask('999.999.999-99');
+
     }
 
 })
