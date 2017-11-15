@@ -22,14 +22,12 @@ var app = new Vue({
             numero:'',
             rua:''
         },
-        enderecos:[],
         clientes:[]
     },
     created:function(){
         this.findAll();
         //this.findAllEnderecos();
         this.valida_update();
-        this.findParametro();
     },
     methods: {
         findAll: function () {
@@ -40,17 +38,6 @@ var app = new Vue({
                     console.log(res);
                 });
             setTimeout(function() { $("#dataTable").DataTable(); }, 600);
-        },
-        findAllEnderecos:function() {
-            this.$http.get("http://localhost:8080/endereco/todos")
-                .then(function(res){
-                    this.enderecos = res.body;
-                    console.log(this.enderecos);
-                }, function (res){
-                    console.log(res);
-                });
-
-
         },
         findParametro:function () {
             this.$http.get("http://localhost:8080/cliente/parametro?parametro=gf")
@@ -80,6 +67,7 @@ var app = new Vue({
         },
         add: function () {
             console.log(this.newCliente);
+            this.newCliente.endereco = this.newEndereco;
             this.$http.post("http://localhost:8080/cliente/salvar", this.newCliente)
                 .then(function(res) {
                     window.alert("Cliente Adicionado");
@@ -116,6 +104,7 @@ var app = new Vue({
                 var aux_update = JSON.parse(update_global);
                 //Não esta funcionando
                 this.newCliente = aux_update;
+                this.newEndereco = aux_update.endereco;
                 update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
             }
         },
@@ -129,6 +118,14 @@ var app = new Vue({
                 rg:'',
                 telefone:'',
                 info:''
+            },this.newEndereco = {
+                id:'',
+                estado:'',
+                cidade:'',
+                cep:'',
+                bairro:'',
+                numero:'',
+                rua:''
             },
                 setTimeout(this.back_home, 600);
         }
