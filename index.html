@@ -45,20 +45,20 @@
                 data-toggle="tooltip" data-placement="right" title="Tables">
                 <span class="nav-link-text">VENDAS</span>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a href="#" onclick="open_file('endereco-list.html')" class="nav-link" href="tables.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pedidos">
+                <a href="#" onclick="open_file('itemPedido.html')" class="nav-link" href="endereco-list.html">
                     <i class="fa fa-fw fa-pencil-square-o"></i>
                     <span class="nav-link-text">Pedidos</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a href="#" onclick="open_file('cliente-list.html')" class="nav-link" href="tables.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Clientes">
+                <a href="#" onclick="open_file('cliente-list.html')" class="nav-link" href="cliente-list.html">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="nav-link-text">Clientes</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a href="#" onclick="open_file('produto-list.html')" class="nav-link" href="tables.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Estoque">
+                <a href="#" onclick="open_file('produto-list.html')" class="nav-link" href="Estoque.html">
                     <i class="fa fa-fw fa-shopping-cart"></i>
                     <span class="nav-link-text">Estoque</span>
                 </a>
@@ -68,43 +68,44 @@
                 data-toggle="tooltip" data-placement="right" title="Tables">
                 <span class="nav-link-text">GESTOR</span>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a href="#" onclick="open_file('caixa-list.html')" class="nav-link" href="tables.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Caixa">
+                <a href="#" onclick="open_file('caixa-list.html')" class="nav-link" href="Caixa.html">
                     <i class="fa fa-fw fa-money"></i>
                     <span class="nav-link-text">Caixa</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a href="#" onclick="open_file('fornecedor-list.html')" class="nav-link" href="tables.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Fornecedores">
+                <a href="#" onclick="open_file('fornecedor-list.html')" class="nav-link" href="Fornecedores.html">
                     <i class="fa fa-fw fa-truck"></i>
                     <span class="nav-link-text">Fornecedores</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a href="#" onclick="open_file('produto-list.html')" class="nav-link" href="tables.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Preços">
+                <a href="#" onclick="open_file('produto-list.html')" class="nav-link" href="Preços.html">
                     <i class="fa fa-fw fa-dollar"></i>
                     <span class="nav-link-text">Preços</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a href="#" onclick="open_file('pedidos.html')" class="nav-link" href="tables.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Relatórios">
+                <a href="#" onclick="open_file('pedidos.html')" class="nav-link" href="Relatórios.html">
                     <i class="fa fa-fw fa-bar-chart"></i>
                     <span class="nav-link-text">Relatórios</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a href="#" onclick="open_file('usuario-list.html')" class="nav-link" href="tables.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Vendedores">
+                <a href="#" onclick="open_file('usuario-list.html')" class="nav-link" href="Vendedores.html">
                     <i class="fa fa-fw fa-users"></i>
                     <span class="nav-link-text">Vendedores</span>
                 </a>
             </li>
+
+            <!--Começo dos testes-->
             <li class="navbar-brand"
                 style="margin-right: 0rem; padding-left: 1rem; padding-top: 1rem; pointer-events: none;"
                 data-toggle="tooltip" data-placement="right" title="Tables">
                 <span class="nav-link-text">------</span>
             </li>
 
-            <!--Começo dos testes-->
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
                 <a href="#" onclick="open_file('endereco-list.html')" class="nav-link" href="tables.html">
                     <i class="fa fa-fw fa-hand-spock-o"></i>
@@ -142,7 +143,6 @@
                 </a>
             </li>
             <!--fim dos testes-->
-
         </ul>
 
         <ul class="navbar-nav mr-auto">
@@ -154,7 +154,7 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" style="float: right;"/>
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                <i class="fa fa-fw fa-sign-out"></i>Sair</a>
             </li>
         </ul>
     </div>
@@ -184,15 +184,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Realmente deseja sair?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Selecione "Sair" se quiser sair da sessão atual.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Sair</a>
                 </div>
             </div>
         </div>
