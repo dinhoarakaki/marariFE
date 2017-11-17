@@ -1,15 +1,15 @@
 <div class="container" id="app">
     <div class="row">
         <div class="card-header col-sm-12">
-            <i class="fa fa-table"></i> Listagem de Pedidos
+            <i class="fa fa-plus" aria-hidden="true"></i> Item Pedido
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="col-md-2">Cliente</th>
-                        <th class="col-md-2">Total</th>
+                        <th class="col-md-2">Produto</th>
+                        <th class="col-md-2">Quantidade</th>
                         <th class="col-md-1">Forma de Pagamento</th>
                         <th class="col-md-1">Status</th>
                         <th class="col-md-2">Ações</th>
@@ -17,15 +17,15 @@
                     </thead>
                     <tbody id="home_table_body">
                     <tr v-for="(c,index) in pedidos">
-                        <td>{{c.cliente.nome}}</td>
+                        <td>{{c.produto.nome}}</td>
                         <td>{{c.valor}}</td>
                         <td>{{c.formaPagamento.descricao}}</td>
                         <td>{{c.status}}</td>
                         <td align="center">
                             <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
-                               title="Editar Pedido"></i>
+                               title="Editar item"></i>
                             <i style="margin-left: 5%;" v-on:click="deletePedido(c.id)" class="fa fa-trash"
-                               aria-hidden="true" title="Excluir Pedido"></i>
+                               aria-hidden="true" title="Remover item"></i>
                         </td>
                     </tr>
                     </tbody>
@@ -36,9 +36,9 @@
             <span><!--Swecca--></span>
             <div align="right">
                 <input type="button" class="btn btn-sm float-left" style="background-color: #d9534f; color: white;"
-                       v-on:click="this.open_file('home.html')" value="Voltar">
+                       v-on:click="this.open_file('pedido-list.html')" value="Voltar">
                 <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
-                       v-on:click="this.open_file('pedido.html')" value="Novo Pedido">
+                        v-on:click="this.open_file('pedido.html')" value="Adicionar Item">
             </div>
         </div>
     </div>
@@ -46,3 +46,10 @@
 <script src="/js/pedido.js"></script>
 <script src="vendor/datatables/jquery.dataTables.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+<!--ul style="list-style-type: none">
+    <li class="col-12 to-left" v-for="(m,index) in caixas">{{m.descricao}}, {{m.valor}}
+        <button type="button" v-on:click="deleteCaixa(m.remote_id)">Apagar</button>
+        <button type="button" v-on:click="prepareUpdate(index)">Editar</button>
+    </li>
+</ul-->

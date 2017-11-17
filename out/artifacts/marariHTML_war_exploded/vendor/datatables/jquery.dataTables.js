@@ -11273,13 +11273,13 @@
 				 *      $('#example').dataTable( {
 				 *        "language": {
 				 *          "aria": {
-				 *            "sortAscending": " - click/return to sort ascending"
+				 *            "sortAscending": " - click/return para ordem ascendente"
 				 *          }
 				 *        }
 				 *      } );
 				 *    } );
 				 */
-				"sSortAscending": ": activate to sort column ascending",
+				"sSortAscending": ": ative para ordenar em ordem ascendente",
 	
 				/**
 				 * ARIA label that is added to the table headers when the column may be
@@ -11296,13 +11296,13 @@
 				 *      $('#example').dataTable( {
 				 *        "language": {
 				 *          "aria": {
-				 *            "sortDescending": " - click/return to sort descending"
+				 *            "sortDescending": " - click/return para ordem descendente"
 				 *          }
 				 *        }
 				 *      } );
 				 *    } );
 				 */
-				"sSortDescending": ": activate to sort column descending"
+				"sSortDescending": ": ative para ordenar em ordem descendente"
 			},
 	
 			/**
@@ -11326,13 +11326,13 @@
 				 *      $('#example').dataTable( {
 				 *        "language": {
 				 *          "paginate": {
-				 *            "first": "First page"
+				 *            "first": "Primeira página"
 				 *          }
 				 *        }
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "First",
+				"sFirst": "Primeiro(a)",
 	
 	
 				/**
@@ -11349,13 +11349,13 @@
 				 *      $('#example').dataTable( {
 				 *        "language": {
 				 *          "paginate": {
-				 *            "last": "Last page"
+				 *            "last": "Última página"
 				 *          }
 				 *        }
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "Last",
+				"sLast": "Último(a)",
 	
 	
 				/**
@@ -11372,13 +11372,13 @@
 				 *      $('#example').dataTable( {
 				 *        "language": {
 				 *          "paginate": {
-				 *            "next": "Next page"
+				 *            "next": "Próximo(a) pagina"
 				 *          }
 				 *        }
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "Próximo(a)",
 	
 	
 				/**
@@ -11395,13 +11395,13 @@
 				 *      $('#example').dataTable( {
 				 *        "language": {
 				 *          "paginate": {
-				 *            "previous": "Previous page"
+				 *            "previous": "Página anterior"
 				 *          }
 				 *        }
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "Anterior"
 			},
 	
 			/**
@@ -11419,12 +11419,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "emptyTable": "No data available in table"
+			 *          "emptyTable": "A tabela está vazia."
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "A tabela está vazia.",
 	
 	
 			/**
@@ -11451,12 +11451,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "info": "Showing page _PAGE_ of _PAGES_"
+			 *          "info": "Mostrando página _PAGE_ de _PAGES_"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Mostrando _START_ até _END_ de _TOTAL_ registros",
 	
 	
 			/**
@@ -11472,12 +11472,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "infoEmpty": "No entries to show"
+			 *          "infoEmpty": "Nenhum registro para mostrar"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
 	
 	
 			/**
@@ -11494,12 +11494,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "infoFiltered": " - filtering from _MAX_ records"
+			 *          "infoFiltered": " - filtrando de _MAX_ registros"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "(filtrado de _MAX_ registros )",
 	
 	
 			/**
@@ -11517,7 +11517,7 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "infoPostFix": "All records shown are derived from real information."
+			 *          "infoPostFix": "Todos os registros mostrados são derivados de dados reais."
 			 *        }
 			 *      } );
 			 *    } );
@@ -11595,7 +11595,7 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "lengthMenu": "Display _MENU_ records"
+			 *          "lengthMenu": "Mostrar _MENU_ registros"
 			 *        }
 			 *      } );
 			 *    } );
@@ -11612,12 +11612,12 @@
 			 *            '<option value="40">40</option>'+
 			 *            '<option value="50">50</option>'+
 			 *            '<option value="-1">All</option>'+
-			 *            '</select> records'
+			 *            '</select> registros'
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Mostrar _MENU_ registros",
 	
 	
 			/**
@@ -11636,12 +11636,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "loadingRecords": "Please wait - loading..."
+			 *          "loadingRecords": "Espere - carregando..."
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sLoadingRecords": "Loading...",
+			"sLoadingRecords": "Carregando...",
 	
 	
 			/**
@@ -11657,12 +11657,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "processing": "DataTables is currently busy"
+			 *          "processing": "DataTables está ocupado..."
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
+			"sProcessing": "Processando...",
 	
 	
 			/**
@@ -11682,7 +11682,7 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "search": "Filter records:"
+			 *          "search": "Filtrar registros:"
 			 *        }
 			 *      } );
 			 *    } );
@@ -11692,12 +11692,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "search": "Apply filter _INPUT_ to table"
+			 *          "search": "Aplicar filtro: _INPUT_ para a tabela"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Procurar:",
 	
 	
 			/**
@@ -11750,12 +11750,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "zeroRecords": "No records to display"
+			 *          "zeroRecords": "Nenhum registro para mostrar"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "Nenhum registro achado"
 		},
 	
 	

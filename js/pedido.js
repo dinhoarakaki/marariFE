@@ -84,7 +84,7 @@ var app = new Vue({
         },
         back_home: function () {
             $.ajax({
-                url: "/html/pedido-ist.html", success: function (result) {
+                url: "/html/pedido-list.html", success: function (result) {
                     $('.page_data_content').html(result);
                 }
             });
