@@ -140,6 +140,9 @@ var app = new Vue({
             },
                 setTimeout(this.back_home, 600);
         }
+    },
+    mounted: function(){
+        $('#pc,#pv,#pmin,#pmax').mask('000.000.000.000.000,00', {reverse: true});
     }
 
 })

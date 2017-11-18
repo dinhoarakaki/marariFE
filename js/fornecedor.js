@@ -137,11 +137,25 @@ var app = new Vue({
         }
     },
     mounted: function(){
-        $('#cep').mask('99999-999');
+        var options =  {
+            onKeyPress: function(cpf, e, field, options) {
+                var masks = ['00.000.000/0000-00','000.000.000-009'];
+                var mask = (cpf.length>14) ? masks[0] : masks[1];
+                console.log(cpf.length);
+                console.log(mask);
+                $('#cpf').mask(mask, options);
+            }
+        };
+
+        $('#cpf').mask('000.000.000-00', options);
+
         $('#num').mask('9999999999');
         $('#cel').mask('(99) 999999999');
         $('#rg').mask('999.999.999');
-        $('#cpf').mask('999.999.999-99');
+
+        $('#estado').mask('AA');
+        $('#cep').mask('99999-999');
+        $('#num').mask('9999999999');
 
     }
 
