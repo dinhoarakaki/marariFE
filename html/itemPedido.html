@@ -1,0 +1,46 @@
+<div class="container" id="app">
+    <div class="row">
+        <div class="card-header col-sm-12">
+            <i class="fa fa-plus" aria-hidden="true"></i> Adicionar Item
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" style="width: 66.66%; float: left;">
+                            <select v-model="newItemPedido.produto" class="form-control" id="produto">
+                                <option value="" disabled selected>Forma de Pagamento</option>
+                                <option v-for="f in produtos" v-bind:value="f">
+                                    {{ f.nome }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="width: 32%; float: left; margin-left: 1.33%;">
+                            <input type="number" class="form-control" v-model="newItemPedido.quantidade" placeholder="Email">
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="card-footer small text-muted col-sm-12">
+            <span><!--Swecca--></span>
+            <div align="right">
+                <input type="button" class="btn btn-sm float-left" style="background-color: #d9534f; color: white;"
+                       v-on:click="this.open_file('pedido.html')" value="Voltar">
+                <input type="button" class="btn" style="background-color: green; color: white;" v-on:click="save" value="Salvar">
+            </div>
+        </div>
+    </div>
+</div><!-- end container -->
+<script src="/js/itemPedido.js"></script>
+
+
+<!--ul style="list-style-type: none">
+    <li class="col-12 to-left" v-for="(m,index) in fornecedors">{{m.nome}}, {{m.telefone}}
+        <button type="button" v-on:click="deleteFornecedor(m.remote_id)">Apagar</button>
+        <button type="button" v-on:click="prepareUpdate(index)">Editar</button>
+    </li>
+</ul-->

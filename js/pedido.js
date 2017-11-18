@@ -3,7 +3,7 @@ var app = new Vue({
     data:{
         indexUpdate: -1,
         isActive: false,
-        newItemPedido:{
+        newPedido:{
             id:'',
             produto:'',
             quantidade:'',
@@ -12,7 +12,7 @@ var app = new Vue({
             cliente:''
         },
         pedidos:[],
-        produtos:[],
+        itensPedido:[],
         formasPagamento:[],
         clientes:[]
     },
@@ -20,7 +20,7 @@ var app = new Vue({
         this.findAll();
         this.findAllFormasPagamento();
         this.findAllClientes();
-        this.findAllProdutos();
+        this.findAllitensPedido();
     },
     methods: {
         findAll: function () {
@@ -32,10 +32,10 @@ var app = new Vue({
                 });
             setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
-        findAllProdutos:function() {
-            this.$http.get("http://localhost:8080/produto/todos")
+        findAllitensPedido:function() {
+            this.$http.get("http://localhost:8080/itemPedido/todos")
                 .then(function(res){
-                    this.produtos = res.body;
+                    this.itensPedido = res.body;
                 }, function (res){
                     console.log(res);
                 });
@@ -103,7 +103,7 @@ var app = new Vue({
             this.newPedido=  Vue.util.extend({},this.pedidos[i]);
         },
         clear: function () {
-            this.newItemPedido = {
+            this.newPedido = {
                 id:'',
                 data:'',
                 descricao:'',
