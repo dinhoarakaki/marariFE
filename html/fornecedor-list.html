@@ -8,8 +8,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="col-md-2">CPF/CNPJ</th>
-                        <th class="col-md-2">RG</th>
+                        <th class="col-md-2">Nome</th>
+                        <th class="col-md-2">RG/IE</th>
                         <th class="col-md-2">Telefone</th>
                         <th class="col-md-2">Contato</th>
                         <th class="col-md-2">Info</th>
@@ -19,7 +19,7 @@
                     </thead>
                     <tbody id="home_table_body">
                     <tr v-for="(c,index) in fornecedores">
-                        <td>{{c.cpfCnpj}}</td>
+                        <td>{{c.nome}}</td>
                         <td>{{c.rgIe}}</td>
                         <td>{{c.telefone}}</td>
                         <td>{{c.contato}}</td>

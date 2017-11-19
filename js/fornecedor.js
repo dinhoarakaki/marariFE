@@ -149,13 +149,22 @@ var app = new Vue({
 
         $('#cpf').mask('000.000.000-00', options);
 
-        $('#num').mask('9999999999');
-        $('#cel').mask('(99) 999999999');
-        $('#rg').mask('999.999.999');
+        var options1 =  {
+            onKeyPress: function(cel, e, field, options1) {
+                var masks = ['(00) 00000-0000','(00) 0000-00009'];
+                var mask = (cel.length>14) ? masks[0] : masks[1];
+                console.log(cel.length);
+                console.log(mask);
+                $('#cel').mask(mask, options1);
+            }
+        };
 
+        $('#cel').mask('(00) 0000-0000', options1);
+
+        $('#num').mask('0000000000');
+        $('#rg').mask('000.000.000');
+        $('#cep').mask('00000-000');
         $('#estado').mask('AA');
-        $('#cep').mask('99999-999');
-        $('#num').mask('9999999999');
 
     }
 
