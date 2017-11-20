@@ -1,35 +1,62 @@
 <div class="container" id="app">
     <div class="row">
         <div class="card-header col-sm-12">
-            <i class="fa fa-plus" aria-hidden="true"></i> Item Pedido
+            <i class="fa fa-table" aria-hidden="true"></i> Pedido
         </div>
         <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group" style="width: 66.66%; float: left;">
+                        <select v-model="newPedido.cliente" class="form-control" id="cliente">
+                            <option value="" disabled selected>Cliente</option>
+                            <option v-for="c in clientes" v-bind:value="c">
+                                {{ c.nome }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="width: 32%; float: left; margin-left: 1.33%">
+                        <select v-model="newPedido.formaPagamento" class="form-control" id="produto">
+                            <option value="" disabled selected>Forma de Pagamento</option>
+                            <option v-for="f in formasPagamento" v-bind:value="f">
+                                {{ f.descricao }}
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="col-md-2">Produto</th>
-                        <th class="col-md-2">Quantidade</th>
+                        <th class="col-md-7">Produto</th>
+                        <th class="col-md-1">Quantidade</th>
                         <th class="col-md-1">Forma de Pagamento</th>
                         <th class="col-md-1">Status</th>
                         <th class="col-md-2">Ações</th>
                     </tr>
                     </thead>
                     <tbody id="home_table_body">
-                    <tr v-for="(c,index) in pedidos">
-                        <td>{{c.produto.nome}}</td>
+                    <tr v-for="(c,index) in itensPedido">
+                        <td>{{c.nome}}</td>
                         <td>{{c.valor}}</td>
                         <td>{{c.formaPagamento.descricao}}</td>
                         <td>{{c.status}}</td>
                         <td align="center">
                             <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
                                title="Editar item"></i>
-                            <i style="margin-left: 5%;" v-on:click="deletePedido(c.id)" class="fa fa-trash"
+                            <i style="margin-left: 5%;" v-on:click="deleteItemPedido(c.id)" class="fa fa-trash"
                                aria-hidden="true" title="Remover item"></i>
                         </td>
                     </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="col-md-12">
+                <input type="button" class="btn btn-sm" style="float: right; background-color: #337ab7; color: white;"
+                       v-on:click="this.open_file('itemPedido.html')" value="Adicionar Item">
             </div>
         </div>
         <div class="card-footer small text-muted col-sm-12">
@@ -37,8 +64,8 @@
             <div align="right">
                 <input type="button" class="btn btn-sm float-left" style="background-color: #d9534f; color: white;"
                        v-on:click="this.open_file('pedido-list.html')" value="Voltar">
-                <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
-                        v-on:click="this.open_file('pedido.html')" value="Adicionar Item">
+
+                <input type="button" class="btn" style="background-color: green; color: white;" v-on:click="save" value="Salvar">
             </div>
         </div>
     </div>

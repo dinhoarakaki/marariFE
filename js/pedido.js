@@ -5,22 +5,19 @@ var app = new Vue({
         isActive: false,
         newPedido:{
             id:'',
-            produto:'',
-            quantidade:'',
-            valor:'',
             formaPagamento:'',
             cliente:''
         },
         pedidos:[],
-        itensPedido:[],
         formasPagamento:[],
-        clientes:[]
+        clientes:[],
+        itensPedido:[]
     },
     mounted:function(){
         this.findAll();
         this.findAllFormasPagamento();
         this.findAllClientes();
-        this.findAllitensPedido();
+        this.findAllItensPedido();
     },
     methods: {
         findAll: function () {
@@ -32,18 +29,17 @@ var app = new Vue({
                 });
             setTimeout(function() { $("#dataTable").DataTable(); }, 600);
         },
-        findAllitensPedido:function() {
-            this.$http.get("http://localhost:8080/itemPedido/todos")
-                .then(function(res){
-                    this.itensPedido = res.body;
-                }, function (res){
-                    console.log(res);
-                });
-        },
         findAllFormasPagamento:function() {
             this.$http.get("http://localhost:8080/formapagamento/todos")
                 .then(function(res){
                     this.formasPagamento = res.body;
+                }, function (res){
+                    console.log(res);
+                });
+        },findAllItensPedido:function() {
+            this.$http.get("http://localhost:8080/itemPedido/todos")
+                .then(function(res){
+                    this.itensPedido = res.body;
                 }, function (res){
                     console.log(res);
                 });
@@ -105,14 +101,11 @@ var app = new Vue({
         clear: function () {
             this.newPedido = {
                 id:'',
-                data:'',
-                descricao:'',
+                itemPedido:'',
+                quantidade:'',
                 valor:'',
-                status:'',
                 formaPagamento:'',
-                tipoDespesa:'',
-                cliente:'',
-                fornecedor:''
+                cliente:''
             },
                 setTimeout(this.back_home, 600);
         }

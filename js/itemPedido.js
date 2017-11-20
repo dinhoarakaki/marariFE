@@ -6,6 +6,7 @@ var app = new Vue({
         newItemPedido:{
             id:'',
             produto:'',
+            valor:'',
             quantidade:''
         },
         produtos:[]
@@ -14,7 +15,7 @@ var app = new Vue({
         this.findAll();
     },
     methods: {
-        findAll:function() {
+        findAll:function(){
             this.$http.get("http://localhost:8080/produto/todos")
                 .then(function(res){
                     this.produtos = res.body;
@@ -42,7 +43,7 @@ var app = new Vue({
         add: function () {
             this.$http.post("http://localhost:8080/itemPedido/salvar", this.newPedido)
                 .then(function(res) {
-                    window.alert("Pedido Adiconado");
+                    window.alert("Item Adiconado");
                     this.findAll();
                 }, function (res){
                     window.alert(res.body.mensagem);
@@ -55,7 +56,7 @@ var app = new Vue({
                 }
             });
         },
-        deletePedido: function (i) {
+        deleteItemPedido: function (i) {
             this.$http.delete("http://localhost:8080/itemPedido/" + (i))
                 .then(function (res) {
                     window.alert("Item Removido");
@@ -71,14 +72,8 @@ var app = new Vue({
         clear: function () {
             this.newItemPedido = {
                 id:'',
-                data:'',
-                descricao:'',
-                valor:'',
-                status:'',
-                formaPagamento:'',
-                tipoDespesa:'',
-                cliente:'',
-                fornecedor:''
+                produto:'',
+                quantidade:''
             },
                 setTimeout(this.back_home, 600);
         }
