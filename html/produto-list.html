@@ -24,13 +24,13 @@
                     <tbody id="home_table_body">
                     <tr v-for="(c,index) in produtos">
                         <td>{{c.descricao}}</td>
-                        <td>{{c.fornecedor.nome}}</td>
+                        <td>{{c.fornecedor}}</td>
                         <td>{{c.precoCusto}}</td>
                         <td>{{c.precoVenda}}</td>
                         <td>{{c.precoMinVenda}}</td>
                         <td>{{c.precoMaxVenda}}</td>
                         <td>{{c.qtdEstoque}}</td>
-                        <td>{{c.tipoProduto.descricao}}</td>
+                        <td>{{c.tipoProduto}}</td>
                         <td>{{c.medidaProduto}}</td>
                         <td align="center">
                             <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
@@ -54,6 +54,7 @@
         </div>
     </div>
 </div><!-- end container -->
+<script src="/js/jquery_mask.js"></script>
 <script src="/js/produto.js"></script>
 <script src="vendor/datatables/jquery.dataTables.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.js"></script>

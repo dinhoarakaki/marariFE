@@ -16,6 +16,7 @@ var app = new Vue({
             quantidade:'',
             valorVenda:''
         },
+        produtos:[],
         pedidos:[],
         formasPagamento:[],
         clientes:[]
@@ -24,6 +25,7 @@ var app = new Vue({
         this.findAll();
         this.findAllFormasPagamento();
         this.findAllClientes();
+        this.findAllProdutos();
         this.findAllItensPedido();
     },
     methods: {
@@ -54,7 +56,8 @@ var app = new Vue({
                 }, function (res){
                     console.log(res);
                 });
-        },findAllItensPedido:function() {
+        },
+        findAllItensPedido:function() {
             this.$http.get("http://localhost:8080/itemPedido/todos")
                 .then(function(res){
                     this.itensPedido = res.body;
@@ -66,6 +69,14 @@ var app = new Vue({
             this.$http.get("http://localhost:8080/cliente/todos")
                 .then(function(res){
                     this.clientes = res.body;
+                }, function (res){
+                    console.log(res);
+                });
+        },
+        findAllProdutos: function () {
+            this.$http.get("http://localhost:8080/produto/todos")
+                .then(function(res){
+                    this.produtos = res.body;
                 }, function (res){
                     console.log(res);
                 });
