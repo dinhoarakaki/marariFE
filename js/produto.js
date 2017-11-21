@@ -29,7 +29,7 @@ var app = new Vue({
         tiposProduto:[],
         usuarios:[]
     },
-    mounted:function(){
+    created:function(){
         this.findAll();
         this.findAllFornecedores();
         this.findAllTiposProduto();

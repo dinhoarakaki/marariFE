@@ -20,7 +20,7 @@ var app = new Vue({
         clientes:[],
         fornecedores:[]
     },
-    mounted:function(){
+    created:function(){
         this.findAll();
         this.findAllFormasPagamento();
         this.findAllTiposDespesa();

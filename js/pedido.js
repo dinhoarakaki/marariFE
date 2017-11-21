@@ -21,7 +21,7 @@ var app = new Vue({
         formasPagamento:[],
         clientes:[]
     },
-    mounted:function(){
+    created:function(){
         this.findAll();
         this.findAllFormasPagamento();
         this.findAllClientes();
