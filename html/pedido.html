@@ -16,12 +16,31 @@
                     </div>
 
                     <div class="form-group" style="width: 32%; float: left; margin-left: 1.33%">
-                        <select v-model="newPedido.formaPagamento" class="form-control" id="produto">
+                        <select v-model="newPedido.formaPagamento" class="form-control" id="formaPagamento">
                             <option value="" disabled selected>Forma de Pagamento</option>
                             <option v-for="f in formasPagamento" v-bind:value="f">
                                 {{ f.descricao }}
                             </option>
                         </select>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group" style="width: 47.33%; float: left;">
+                        <select v-model="newItemPedido.produto" class="form-control" id="produto">
+                            <option value="" disabled selected>Produto</option>
+                            <option v-for="f in produtos" v-bind:value="f">
+                                {{ f.nome }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="width: 25%; float: left; margin-left: 1.33%;">
+                        <input type="number" class="form-control" v-model="newItemPedido.quantidade" placeholder="Qtd">
+                    </div>
+
+                    <div class="form-group" style="width: 25%; float: left; margin-left: 1.33%;">
+                        <input id="valor" type="text" class="form-control" v-model="newItemPedido.valorVenda" placeholder="Valor">
                     </div>
 
                 </div>
@@ -31,32 +50,32 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="col-md-7">Produto</th>
-                        <th class="col-md-1">Quantidade</th>
-                        <th class="col-md-1">Forma de Pagamento</th>
-                        <th class="col-md-1">Status</th>
+                        <th class="col-md-6">Produto</th>
+                        <th class="col-md-2">Quantidade</th>
+                        <th class="col-md-2">Valor</th>
                         <th class="col-md-2">Ações</th>
                     </tr>
                     </thead>
                     <tbody id="home_table_body">
-                    <tr v-for="(c,index) in itensPedido">
-                        <td>{{c.nome}}</td>
-                        <td>{{c.valor}}</td>
-                        <td>{{c.formaPagamento.descricao}}</td>
-                        <td>{{c.status}}</td>
-                        <td align="center">
-                            <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
-                               title="Editar item"></i>
-                            <i style="margin-left: 5%;" v-on:click="deleteItemPedido(c.id)" class="fa fa-trash"
-                               aria-hidden="true" title="Remover item"></i>
-                        </td>
-                    </tr>
+                        <tr v-for="(c,index) in newPedido.itensPedido">
+                            <td>{{c.nome}}</td>
+                            <td>{{c.quantidade}}</td>
+                            <td>{{c.valor}}</td>
+                            <td align="center">
+                                <i v-on:click="prepareUpdate(index)" id="btn-editar" class="fa d-none fa-pencil" aria-hidden="true"
+                                   title="Editar item"></i>
+                                <i id="btn-salvar" class="fa fa-pencil" aria-hidden="true"
+                                   title="Savar item"></i>
+                                <i style="margin-left: 5%;" v-on:click="deleteItemPedido(c.id)" class="fa fa-trash"
+                                   aria-hidden="true" title="Remover item"></i>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
             <div class="col-md-12">
                 <input type="button" class="btn btn-sm" style="float: right; background-color: #337ab7; color: white;"
-                       v-on:click="this.open_file('itemPedido.html')" value="Adicionar Item">
+                       v-on:click="addItens()" value="Adicionar Item">
             </div>
         </div>
         <div class="card-footer small text-muted col-sm-12">
@@ -70,6 +89,7 @@
         </div>
     </div>
 </div><!-- end container -->
+<script src="/js/jquery_mask.js"></script>
 <script src="/js/pedido.js"></script>
 <script src="vendor/datatables/jquery.dataTables.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.js"></script>

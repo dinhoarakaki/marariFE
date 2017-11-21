@@ -5,13 +5,20 @@ var app = new Vue({
         isActive: false,
         newPedido:{
             id:'',
+            data:'',
             formaPagamento:'',
-            cliente:''
+            cliente:'',
+            itensPedido:[],
+            valor:''
+        },
+        newItemPedido:{
+            produto:'',
+            quantidade:'',
+            valorVenda:''
         },
         pedidos:[],
         formasPagamento:[],
-        clientes:[],
-        itensPedido:[]
+        clientes:[]
     },
     mounted:function(){
         this.findAll();
@@ -20,6 +27,17 @@ var app = new Vue({
         this.findAllItensPedido();
     },
     methods: {
+        addItens: function () {
+            if (this.newItemPedido.produto != "" || this.newItemPedido.quantidade != "" ) {
+                this.newPedido.itensPedido.add(this.newItemPedido);
+                this.newItemPedido = {
+                    produto: '',
+                    quantidade: '',
+                    valorVenda:''
+                };
+            }
+
+        },
         findAll: function () {
             this.$http.get("http://localhost:8080/pedido/todos")
                 .then(function (res) {
@@ -101,14 +119,27 @@ var app = new Vue({
         clear: function () {
             this.newPedido = {
                 id:'',
-                itemPedido:'',
-                quantidade:'',
-                valor:'',
+                data:'',
                 formaPagamento:'',
-                cliente:''
+                cliente:'',
+                itensPedido:[],
+                valor:''
             },
                 setTimeout(this.back_home, 600);
         }
+    },
+    mounted: function(){
+        $('#valor').mask('000.000.000.000.000,00', {reverse: true});
+        $("#btn-salvar").on('click',function () {
+            $(this).addClass("d-none");
+            $(this).closest('td').find("#btn-editar").removeClass("b-none");
+            $(this).clone('tr').css('pointer-events','none');
+        });
+        $("#btn-editar").on('click',function () {
+            $(this).addClass("d-none");
+            $(this).closest('td').find("#btn-salvar").removeClass("b-none");
+            $(this).clone('tr').css('pointer-events','normal');
+        });
     }
 
 })
