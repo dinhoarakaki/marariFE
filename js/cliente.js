@@ -11,7 +11,9 @@ var app = new Vue({
             cpfCnpj:'',
             rg:'',
             telefone:'',
-            info:''
+            info:'',
+            regiao:'',
+            status:''
         },
         newEndereco:{
             id:'',

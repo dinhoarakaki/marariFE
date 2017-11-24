@@ -52,7 +52,6 @@ var app = new Vue({
         },
         saveItem:function(){
             console.log(this.newItemPedido.id+"if >= 0 should edit");
-            console.log(this.newItemPedido.valorVenda);
             console.log(this.newItemPedido.quantidade);
             console.log(this.newItemPedido.produto);
             if(this.newItemPedido.id===""){
@@ -64,7 +63,7 @@ var app = new Vue({
         },
         addItem: function () {
 
-            if (this.newItemPedido.produto !== "" && this.newItemPedido.quantidade !== "" && this.newItemPedido.valorVenda !== "" ) {
+            if (this.newItemPedido.produto !== "" && this.newItemPedido.quantidade !== "" ) {
                this.newPedido.itensPedido.push(this.newItemPedido);
             }else{
                 window.alert("Entradas inválidas");
@@ -142,7 +141,9 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
-            console.log("pedido "+this.newPedido);
+            console.log("pedido ");
+            console.log(this.newPedido);
+
             this.$http.post("http://localhost:8080/pedido/salvar", this.newPedido)
                 .then(function(res) {
                     window.alert("Pedido Adiconado");

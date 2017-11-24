@@ -11,6 +11,7 @@
                         <th class="col-md-8">Cliente</th>
                         <th class="col-md-1">Forma de Pagamento</th>
                         <th class="col-md-1">Status</th>
+                        <th class="col-md-1">Valor Total</th>
                         <th class="col-md-2">Ações</th>
                     </tr>
                     </thead>
@@ -19,6 +20,7 @@
                         <td>{{c.cliente.nome}}</td>
                         <td>{{c.formaPagamento.descricao}}</td>
                         <td>{{c.status}}</td>
+                        <td>{{c.valorTotal}}</td>
                         <td align="center">
                             <i v-on:click="prepareUpdate(index)" class="fa fa-pencil" aria-hidden="true"
                                title="Editar Pedido"></i>
