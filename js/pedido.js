@@ -12,6 +12,7 @@ var app = new Vue({
             valor:''
         },
         newItemPedido:{
+            id:'',
             produto:'',
             quantidade:'',
             valorVenda:''
@@ -29,16 +30,48 @@ var app = new Vue({
         this.findAllItensPedido();
     },
     methods: {
-        addItens: function () {
-            if (this.newItemPedido.produto != "" || this.newItemPedido.quantidade != "" ) {
-                this.newPedido.itensPedido.add(this.newItemPedido);
-                this.newItemPedido = {
-                    produto: '',
-                    quantidade: '',
-                    valorVenda:''
-                };
+        clearItem: function () {
+            this.newItemPedido = {
+                id:'',
+                produto:'',
+                quantidade:'',
+                valorVenda:''
             }
+        },
+        updateItem: function () {
+            console.log(this.newItemPedido.id);
+            // this.$http.put("http://localhost:8080/pedido/alterar", this.newPedido)
+            //     .then(function(res) {
+            //         window.alert("Pedido Editado");
+            //         this.findAll();
+            //     }, function (res){
+            //         window.alert(res.body.mensagem);
+            //     });
+        },
+        saveItem:function(){
+            console.log(this.newItemPedido.id+"if >= 0 should edit");
+            console.log(this.newItemPedido.valorVenda);
+            console.log(this.newItemPedido.quantidade);
+            console.log(this.newItemPedido.produto);
+            if(this.newItemPedido.id===""){
+                this.addItem();
+            }else {
+                this.newPedido.itensPedido.splice(this.newItemPedido.id, 1, this.newItemPedido);
+            }
+            this.clearItem();
+        },
+        addItem: function () {
 
+            if (this.newItemPedido.produto !== "" && this.newItemPedido.quantidade !== "" && this.newItemPedido.valorVenda !== "" ) {
+               this.newPedido.itensPedido.push(this.newItemPedido);
+            }else{
+                window.alert("Entradas inválidas");
+            }
+        },
+        prepareUpdateItem: function (i) {
+            console.log(i);
+            this.newItemPedido = Vue.util.extend({},this.newPedido.itensPedido[i]);
+            this.newItemPedido.id = i;
         },
         findAll: function () {
             this.$http.get("http://localhost:8080/pedido/todos")
