@@ -16,7 +16,7 @@
                     </thead>
                     <tbody id="home_table_body">
                     <tr v-for="(c,index) in pedidos">
-                        <td>{{c.cliente}}</td>
+                        <td>{{c.cliente.nome}}</td>
                         <td>{{c.formaPagamento.descricao}}</td>
                         <td>{{c.status}}</td>
                         <td align="center">

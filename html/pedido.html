@@ -30,7 +30,7 @@
                         <select v-model="newItemPedido.produto" class="form-control" id="produto">
                             <option value="" disabled selected>Produto</option>
                             <option v-for="f in produtos" v-bind:value="f">
-                                {{ f.nome }}
+                                {{ f.descricao }}
                             </option>
                         </select>
                     </div>
@@ -39,9 +39,15 @@
                         <input id="qtd" type="text" class="form-control" v-model="newItemPedido.quantidade" placeholder="Qtd">
                     </div>
 
-                    <div class="form-group" style="width: 25%; float: left; margin-left: 1.33%;">
-                        <input id="valor" type="text" class="form-control" v-model="newItemPedido.valorVenda" placeholder="Valor">
+                    <div class="form-group" style="width: 47.33%; float: left;">
+                        <select v-model="newPedido.usuario" class="form-control" id="usuario">
+                            <option value="" disabled selected>Usuário</option>
+                            <option v-for="f in usuarios" v-bind:value="f">
+                                {{ f.nome }}
+                            </option>
+                        </select>
                     </div>
+
                 </div>
 
                 <div class="col-md-12">
@@ -65,7 +71,7 @@
                     </thead>
                     <tbody id="home_table_body">
                         <tr v-for="(c,index) in newPedido.itensPedido">
-                            <td>{{c.nome}}</td>
+                            <td>{{c.produto.descricao}}</td>
                             <td>{{c.quantidade}}</td>
                             <td>{{c.valorVenda}}</td>
                             <td align="center">

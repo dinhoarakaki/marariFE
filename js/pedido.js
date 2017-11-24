@@ -9,18 +9,20 @@ var app = new Vue({
             formaPagamento:'',
             cliente:'',
             itensPedido:[],
-            valor:''
+            valorTotal:'',
+            info:'',
+            usuario:''
         },
         newItemPedido:{
             id:'',
             produto:'',
-            quantidade:'',
-            valorVenda:''
+            quantidade:''
         },
         produtos:[],
         pedidos:[],
         formasPagamento:[],
-        clientes:[]
+        clientes:[],
+        usuarios:[]
     },
     created:function(){
         this.findAll();
@@ -28,14 +30,14 @@ var app = new Vue({
         this.findAllClientes();
         this.findAllProdutos();
         this.findAllItensPedido();
+        this.findAllUsuarios();
     },
     methods: {
         clearItem: function () {
             this.newItemPedido = {
                 id:'',
                 produto:'',
-                quantidade:'',
-                valorVenda:''
+                quantidade:''
             }
         },
         updateItem: function () {
@@ -98,6 +100,14 @@ var app = new Vue({
                     console.log(res);
                 });
         },
+        findAllUsuarios:function() {
+            this.$http.get("http://localhost:8080/usuario/todos")
+                .then(function(res){
+                    this.usuarios = res.body;
+                }, function (res){
+                    console.log(res);
+                });
+        },
         findAllClientes:function(){
             this.$http.get("http://localhost:8080/cliente/todos")
                 .then(function(res){
@@ -132,6 +142,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
+            console.log("pedido "+this.newPedido);
             this.$http.post("http://localhost:8080/pedido/salvar", this.newPedido)
                 .then(function(res) {
                     window.alert("Pedido Adiconado");
