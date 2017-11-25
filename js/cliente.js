@@ -12,7 +12,7 @@ var app = new Vue({
             rg:'',
             telefone:'',
             info:'',
-            regiao:'',
+            vendedor:'',
             status:''
         },
         newEndereco:{
@@ -24,11 +24,12 @@ var app = new Vue({
             numero:'',
             rua:''
         },
-        clientes:[]
+        clientes:[],
+        vendedores:[]
     },
     created:function(){
         this.findAll();
-        //this.findAllEnderecos();
+        this.findAllVendedores();
         this.valida_update();
     },
     methods: {
@@ -36,6 +37,15 @@ var app = new Vue({
             this.$http.get("http://localhost:8080/cliente/todos")
                 .then(function (res) {
                     this.clientes = res.body;
+                }, function (res) {
+                    console.log(res);
+                });
+            setTimeout(function() { $("#dataTable").DataTable(); }, 600);
+        },
+        findAllVendedores: function () {
+            this.$http.get("http://localhost:8080/vendedor/todos")
+                .then(function (res) {
+                    this.vendedores = res.body;
                 }, function (res) {
                     console.log(res);
                 });
@@ -137,8 +147,6 @@ var app = new Vue({
             onKeyPress: function(cpf, e, field, options) {
                 var masks = ['00.000.000/0000-00','000.000.000-009'];
                 var mask = (cpf.length>14) ? masks[0] : masks[1];
-                console.log(cpf.length);
-                console.log(mask);
                 $('#cpf').mask(mask, options);
             }
         };
@@ -149,8 +157,6 @@ var app = new Vue({
             onKeyPress: function(cel, e, field, options1) {
                 var masks = ['(00) 00000-0000','(00) 0000-00009'];
                 var mask = (cel.length>14) ? masks[0] : masks[1];
-                console.log(cel.length);
-                console.log(mask);
                 $('#cel').mask(mask, options1);
             }
         };
