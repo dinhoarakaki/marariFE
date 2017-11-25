@@ -32,6 +32,7 @@ var app = new Vue({
         this.findAllItensPedido();
         this.findAllUsuarios();
         this.vendasHoje();
+        this.vendas
     },
     methods: {
         clearItem: function () {
@@ -40,15 +41,6 @@ var app = new Vue({
                 produto:'',
                 quantidade:''
             }
-        },
-        vendasHoje: function () {
-            this.$http.get("http://localhost:8080/pedido/vendashoje")
-                .then(function (res) {
-                    $("#vendasHoje").text(res.body);
-                }, function (res) {
-                    console.log(res);
-                });
-
         },
         updateItem: function () {
             console.log(this.newItemPedido.id);
