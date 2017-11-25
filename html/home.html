@@ -9,8 +9,8 @@
                     <div>
                         <a class="nav-item" data-toggle="modal"
                            style="float: left; font-weight: bold; font-size: large">R$</a>
-                        <a class="nav-item" data-toggle="modal"
-                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">2.001,50</a>
+                        <a id="vendasHoje" class="nav-item" data-toggle="modal"
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large"></a>
                     </div>
                     <div class="w-100"></div>
                     <div style="padding-bottom: 0.65rem;">
@@ -165,10 +165,13 @@
 </div>
 
 <script src="vendor/chart.js/Chart.bundle.min.js"></script>
+<script src="/js/pedido.js"></script>
 <script>
-    $("#valorMedia").text("5555555555");
+
+    //$("#valorMedia").text("444");
 </script>
 <script>
+
     var ctx = document.getElementById("myChartB");
     var myChartB = new Chart(ctx, {
         type: 'bar',
