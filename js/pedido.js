@@ -32,7 +32,6 @@ var app = new Vue({
         this.findAllItensPedido();
         this.findAllUsuarios();
         this.vendasHoje();
-        this.vendas
     },
     methods: {
         clearItem: function () {

@@ -47,7 +47,7 @@
                     <div>
                         <a class="nav-item" data-toggle="modal"
                            style="float: left; font-weight: bold; font-size: large">R$</a>
-                        <a class="nav-item" data-toggle="modal"
+                        <a id="vendasPeriodo" class="nav-item" data-toggle="modal"
                            style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">22.001,50</a>
                     </div>
                     <div class="w-100"></div>
@@ -171,6 +171,10 @@
 <script>
     var app = new Vue({
         el:'#app',
+        data:{
+            dataIni:'',
+            dataFin:''
+        },
         created:function(){
             this.teste();
             this.setGrafico();
@@ -185,6 +189,15 @@
                 this.$http.get("http://localhost:8080/pedido/vendashoje")
                     .then(function (res) {
                         $("#vendasHoje").text(res.body);
+                    }, function (res) {
+                        console.log(res);
+                    });
+
+            },
+            vendasPeriodo: function (dataIni,dataFin) {
+                this.$http.get("http://localhost:8080/pedido/vendasperiodo?dataIni="+dataIni+"&dataFin="+dataFin)
+                    .then(function (res) {
+                        $("#vendasPeriodo").text(res.body);
                     }, function (res) {
                         console.log(res);
                     });
@@ -235,14 +248,24 @@
                     "options":{}});
             },
             setDatePicker:function () {
-                $(function () {
 
                     var start = moment().subtract(29, 'days');
                     var end = moment();
 
                     function cb(start, end) {
                         $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+                        this.dataIni = start.format('DD/MM/YYYY');
+                        this.dataFin = end.format('DD/MM/YYYY');
+                        console.log(start.format('DD/MM/YYYY') +" - "+end.format('DD/MM/YYYY') )
+                        $.ajax({
+                            method: "GET",
+                              url: "http://localhost:8080/pedido/vendasperiodo?dataIni="+this.dataIni+"&dataFin="+this.dataFin,
+                              data: {}
+                        }).done(function(msg){
+                            $("#vendasPeriodo").text(msg);
+                               })
                     }
+
 
                     $('#reportrange').daterangepicker({
                         startDate: start,
@@ -259,9 +282,9 @@
                     }, cb);
 
                     cb(start, end);
-                    console.log(start.date()+"/"+start.month()+"/"+start.year()+"/")
-                    console.log(end.date()+"/"+end.month()+"/"+end.year()+"/")
-                });
+                ;
+                console.log("data ini "+this.dataIni+" data fin "+this.dataFin);
+
             }
 
     }})
