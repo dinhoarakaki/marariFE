@@ -41,6 +41,11 @@ var app = new Vue({
                 quantidade:''
             }
         },
+        removeItem: function (i) {
+            console.log(this.newItemPedido.id+" - "+i);
+            this.newPedido.itensPedido.splice(i,1);
+
+        },
         updateItem: function () {
             console.log(this.newItemPedido.id);
             // this.$http.put("http://localhost:8080/pedido/alterar", this.newPedido)
@@ -64,7 +69,7 @@ var app = new Vue({
         },
         addItem: function () {
 
-            if (this.newItemPedido.produto !== "" && this.newItemPedido.quantidade !== "" ) {
+            if (this.newItemPedido.produto !== "" || this.newItemPedido.quantidade !== "" ) {
                this.newPedido.itensPedido.push(this.newItemPedido);
             }else{
                 window.alert("Entradas inválidas");
@@ -187,16 +192,6 @@ var app = new Vue({
     },
     mounted: function(){
         $('#valor').mask('000.000.000.000.000,00', {reverse: true});
-        $("#btn-salvar").on('click',function () {
-            $(this).addClass("d-none");
-            $(this).closest('td').find("#btn-editar").removeClass("b-none");
-            $(this).clone('tr').css('pointer-events','none');
-        });
-        $("#btn-editar").on('click',function () {
-            $(this).addClass("d-none");
-            $(this).closest('td').find("#btn-salvar").removeClass("b-none");
-            $(this).clone('tr').css('pointer-events','normal');
-        });
     }
 
 })
