@@ -11,7 +11,7 @@ var app = new Vue({
             itensPedido:[],
             valorTotal:'',
             info:'',
-            usuario:''
+            vendedor:''
         },
         newItemPedido:{
             id:'',
@@ -22,7 +22,7 @@ var app = new Vue({
         pedidos:[],
         formasPagamento:[],
         clientes:[],
-        usuarios:[]
+        vendedores:[]
     },
     created:function(){
         this.findAll();
@@ -30,7 +30,7 @@ var app = new Vue({
         this.findAllClientes();
         this.findAllProdutos();
         this.findAllItensPedido();
-        this.findAllUsuarios();
+        this.findAllVendedores();
         this.vendasHoje();
     },
     methods: {
@@ -100,10 +100,10 @@ var app = new Vue({
                     console.log(res);
                 });
         },
-        findAllUsuarios:function() {
+        findAllVendedores:function() {
             this.$http.get("http://localhost:8080/usuario/todos")
                 .then(function(res){
-                    this.usuarios = res.body;
+                    this.vendedores = res.body;
                 }, function (res){
                     console.log(res);
                 });
