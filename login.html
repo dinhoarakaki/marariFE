@@ -16,11 +16,12 @@
 <body class="bg-dark" style="background-color: #EEE9E9 !important;">
 <div class="container" align="center">
 
-    <div class="card card-login mx-auto mt-lg-5"
-         style="padding: 5px; -webkit-box-shadow: 2px 3px 9px 0px rgba(0,0,0,0.67); -moz-box-shadow: 2px 3px 9px 0px rgba(0,0,0,0.67); box-shadow: 2px 3px 9px 0px rgba(0,0,0,0.67);">
+    <div class="card card-login mx-auto"
+         style="margin-top: 20%; padding: 5px; -webkit-box-shadow: 2px 3px 9px 0px rgba(0,0,0,0.67); -moz-box-shadow: 2px 3px 9px 0px rgba(0,0,0,0.67); box-shadow: 2px 3px 9px 0px rgba(0,0,0,0.67);">
         <div class="mx-auto" style="margin-top:3%;">
             <img src="https://i.imgur.com/2JSLghs.png" alt="Logo" title="Home page" width="100">
-            <a class="align-middle" style="pointer-events:none;font-size: 3.5rem !important; color: #1E90FF !important; font-weight: 500 !important; text-align: center !important;">SWECCA</a>
+            <a class="align-middle"
+               style="pointer-events:none;font-size: 3.5rem !important; color: #1E90FF !important; font-weight: 500 !important; text-align: center !important;">SWECCA</a>
         </div>
         <div class="card-body">
             <form id="form_login">
@@ -57,18 +58,16 @@
         methods: {
 
             data_validate: function () {
-                console.log(this.vars.username+" - "+this.vars.password);
+                console.log(this.vars.username + " - " + this.vars.password);
                 if (this.vars.username !== '' && this.vars.password !== '') {
-//                    this.$http.post("/login", this.vars, {
-//                        emulateJSON: true
-//                    })
-//                        .then(function (res) {
-                        window.location = 'index.html';
-//                        }, function (res) {
-//                            //console.log("Erro ao logar: = "+res);
-//                            if (res.status == 401)
-//                                alert("Usuário inválido ou não registrado");
-//                        });
+                    this.$http.post("/login?email=" + this.vars.username + "&senha=" + this.vars.password)
+                        .then(function (res) {
+                            window.location = 'index.html';
+                        }, function (res) {
+                            //console.log("Erro ao logar: = "+res);
+                            if (res.status == 401)
+                                alert("Usuário inválido ou não registrado");
+                        });
                 } else {
                     alert('Um ou mais campos estão vazios');
                 }
