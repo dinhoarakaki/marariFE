@@ -29,8 +29,8 @@
                            v-model="vars.username" placeholder="Email" required="required">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" id="exampleInputPassword1" type="password" v-model="vars.password"
-                           placeholder="Senha" required="required">
+                    <input class="form-control" id="exampleInputPassword" type="password"
+                           v-model="vars.password" placeholder="Senha" required="required">
                 </div>
                 <a class="btn btn-primary btn-block" v-on:click="data_validate"
                    style="cursor: pointer; color: #EEE9E9 ; background-color: #1E90FF">Acessar</a>
@@ -50,18 +50,20 @@
         el: '#form_login',
         data: {
             vars: {
-                username: '',
-                password: '',
+                username: "",
+                password: ""
             }
         },
         methods: {
+
             data_validate: function () {
-                if (this.username != '' && this.password != '') {
+                console.log(this.vars.username+" - "+this.vars.password);
+                if (this.vars.username !== '' && this.vars.password !== '') {
 //                    this.$http.post("/login", this.vars, {
 //                        emulateJSON: true
 //                    })
 //                        .then(function (res) {
-                            window.location = 'index.html';
+                        window.location = 'index.html';
 //                        }, function (res) {
 //                            //console.log("Erro ao logar: = "+res);
 //                            if (res.status == 401)
@@ -70,7 +72,6 @@
                 } else {
                     alert('Um ou mais campos estão vazios');
                 }
-
             }
         }
     });
