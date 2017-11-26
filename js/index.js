@@ -23,6 +23,7 @@ function open_file(file_name){
     $.ajax({url: "/html/"+file_name, cache: false, async: false, success: function(result){
         $('.page_data_content').html(result);
         $('#navbarResponsive').removeClass('show');
+        $('#toTop').click();
     }});
 }
 
