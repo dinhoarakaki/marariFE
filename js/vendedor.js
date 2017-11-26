@@ -15,20 +15,12 @@ var app = new Vue({
             telefone:'',
             info:''
         },
-        newEndereco:{
-            id:'',
-            estado:'',
-            cidade:'',
-            cep:'',
-            bairro:'',
-            numero:'',
-            rua:''
-        },
+
         vendedores:[]
     },
     created:function(){
         this.findAll();
-        //this.findAllEnderecos();
+        this.findAllEnderecos();
         this.valida_update();
     },
     methods: {
@@ -69,7 +61,6 @@ var app = new Vue({
         },
         add: function () {
             console.log(this.newVendedor);
-            this.newVendedor.endereco = this.newEndereco;
             this.$http.post("http://localhost:8080/vendedor/salvar", this.newVendedor)
                 .then(function(res) {
                     window.alert("Vendedor Adicionado");

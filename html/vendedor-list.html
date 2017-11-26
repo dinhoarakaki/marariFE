@@ -14,7 +14,6 @@
                         <th class="col-md-1">RG</th>
                         <th class="col-md-2">Telefone</th>
                         <th class="col-md-2">Info</th>
-                        <th class="col-md-2">Endereço</th>
                         <th class="col-xs-2">Ações</th>
                     </tr>
                     </thead>
@@ -26,7 +25,6 @@
                         <td>{{c.rg}}</td>
                         <td>{{c.telefone}}</td>
                         <td>{{c.info}}</td>
-                        <td>{{c.endereco.rua}}</td>
                         <td align="center">
                             <i v-on:click="prepareUpdate(c)" class="fa fa-pencil" aria-hidden="true"
                                title="Editar Vendedor"></i>
