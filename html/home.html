@@ -48,7 +48,7 @@
                         <a class="nav-item" data-toggle="modal"
                            style="float: left; font-weight: bold; font-size: large">R$</a>
                         <a id="vendasPeriodo" class="nav-item" data-toggle="modal"
-                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">22.001,50</a>
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large"></a>
                     </div>
                     <div class="w-100"></div>
                     <div style="padding-bottom: 0.65rem;">
@@ -70,7 +70,7 @@
                         <a class="nav-item" data-toggle="modal"
                            style="float: left; font-weight: bold; font-size: large">R$</a>
                         <a id="valorMedia" class="nav-item" data-toggle="modal"
-                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">2.001,50</a>
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large"></a>
                     </div>
                     <div class="w-100"></div>
                     <div style="padding-bottom: 0.65rem;">
@@ -173,7 +173,8 @@
         el:'#app',
         data:{
             dataIni:'',
-            dataFin:''
+            dataFin:'',
+            vendasPeriodo:''
         },
         created:function(){
             this.teste();
@@ -189,15 +190,6 @@
                 this.$http.get("http://localhost:8080/pedido/vendashoje")
                     .then(function (res) {
                         $("#vendasHoje").text(res.body);
-                    }, function (res) {
-                        console.log(res);
-                    });
-
-            },
-            vendasPeriodo: function (dataIni,dataFin) {
-                this.$http.get("http://localhost:8080/pedido/vendasperiodo?dataIni="+dataIni+"&dataFin="+dataFin)
-                    .then(function (res) {
-                        $("#vendasPeriodo").text(res.body);
                     }, function (res) {
                         console.log(res);
                     });
@@ -254,16 +246,26 @@
 
                     function cb(start, end) {
                         $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
-                        this.dataIni = start.format('DD/MM/YYYY');
-                        this.dataFin = end.format('DD/MM/YYYY');
-                        console.log(start.format('DD/MM/YYYY') +" - "+end.format('DD/MM/YYYY') )
+                        this.dataIni = start.format('YYYY/MM/DD');
+                        this.dataFin = end.format('YYYY/MM/DD');
+
+                       ;
                         $.ajax({
                             method: "GET",
                               url: "http://localhost:8080/pedido/vendasperiodo?dataIni="+this.dataIni+"&dataFin="+this.dataFin,
                               data: {}
                         }).done(function(msg){
                             $("#vendasPeriodo").text(msg);
-                               })
+                            this.vendasPeriodo = msg;
+                            var dias = ((end.date() +(end.month() * 30) + (end.year() * 365))-(start.date() +(start.month() * 30) + (start.year() * 365))) ;
+                            var result = this.vendasPeriodo / dias;
+                            var arredondado = parseFloat(result.toFixed(2));
+                            $("#valorMedia").text(arredondado);
+                        })
+
+
+
+
                     }
 
 
@@ -283,7 +285,6 @@
 
                     cb(start, end);
                 ;
-                console.log("data ini "+this.dataIni+" data fin "+this.dataFin);
 
             }
 

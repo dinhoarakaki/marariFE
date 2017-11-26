@@ -11,7 +11,7 @@ var app = new Vue({
             itensPedido:[],
             valorTotal:'',
             info:'',
-            vendedor:''
+            usuario:''
         },
         newItemPedido:{
             id:'',
@@ -22,7 +22,7 @@ var app = new Vue({
         pedidos:[],
         formasPagamento:[],
         clientes:[],
-        vendedores:[]
+        usuarios:[]
     },
     created:function(){
         this.findAll();
@@ -30,7 +30,7 @@ var app = new Vue({
         this.findAllClientes();
         this.findAllProdutos();
         this.findAllItensPedido();
-        this.findAllVendedores();
+        this.findAllUsuarios();
         this.vendasHoje();
     },
     methods: {
@@ -69,7 +69,7 @@ var app = new Vue({
         },
         addItem: function () {
 
-            if (this.newItemPedido.produto !== "" || this.newItemPedido.quantidade !== "" ) {
+            if (this.newItemPedido.produto !== "" && this.newItemPedido.quantidade !== "" ) {
                this.newPedido.itensPedido.push(this.newItemPedido);
             }else{
                 window.alert("Entradas inválidas");
@@ -105,10 +105,10 @@ var app = new Vue({
                     console.log(res);
                 });
         },
-        findAllVendedores:function() {
+        findAllUsuarios:function() {
             this.$http.get("http://localhost:8080/usuario/todos")
                 .then(function(res){
-                    this.vendedores = res.body;
+                    this.usuarios = res.body;
                 }, function (res){
                     console.log(res);
                 });

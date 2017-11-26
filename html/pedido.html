@@ -8,9 +8,9 @@
 
                 <div class="col-md-12">
                     <div class="form-group" style="width: 35.66%; float: left;">
-                        <select v-model="newPedido.vendedor" class="form-control" id="usuario">
+                        <select v-model="newPedido.usuario" class="form-control" id="usuario">
                             <option value="" disabled selected>Usuário</option>
-                            <option v-for="f in vendedores" v-bind:value="f">
+                            <option v-for="f in usuarios" v-bind:value="f">
                                 {{ f.nome }}
                             </option>
                         </select>
