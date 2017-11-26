@@ -11,7 +11,7 @@ var app = new Vue({
             itensPedido:[],
             valorTotal:'',
             info:'',
-            vendedor:''
+            usuario:''
         },
         newItemPedido:{
             id:'',
@@ -22,7 +22,7 @@ var app = new Vue({
         pedidos:[],
         formasPagamento:[],
         clientes:[],
-        vendedores:[]
+        usuarios:[]
     },
     created:function(){
         this.findAll();
@@ -30,7 +30,7 @@ var app = new Vue({
         this.findAllClientes();
         this.findAllProdutos();
         this.findAllItensPedido();
-        this.findAllVendedores();
+        this.findAllUsuarios();
         this.vendasHoje();
     },
     methods: {
@@ -47,28 +47,24 @@ var app = new Vue({
 
         },
         updateItem: function () {
-            console.log(this.newItemPedido.id);
-            // this.$http.put("http://localhost:8080/pedido/alterar", this.newPedido)
-            //     .then(function(res) {
-            //         window.alert("Pedido Editado");
-            //         this.findAll();
-            //     }, function (res){
-            //         window.alert(res.body.mensagem);
-            //     });
+            if (this.newItemPedido.produto !== "" || this.newItemPedido.quantidade !== "" ) {
+                this.newPedido.itensPedido.splice(this.newItemPedido.id, 1, this.newItemPedido);
+            }else{
+                window.alert("Entradas inválidas");
+            }
         },
         saveItem:function(){
-            console.log(this.newItemPedido.id+"if >= 0 should edit");
+            console.log("If -> "+this.newItemPedido.id+" >= 0 should edit");
             console.log(this.newItemPedido.quantidade);
             console.log(this.newItemPedido.produto);
             if(this.newItemPedido.id===""){
                 this.addItem();
             }else {
-                this.newPedido.itensPedido.splice(this.newItemPedido.id, 1, this.newItemPedido);
+                this.updateItem();
             }
             this.clearItem();
         },
         addItem: function () {
-
             if (this.newItemPedido.produto !== "" || this.newItemPedido.quantidade !== "" ) {
                this.newPedido.itensPedido.push(this.newItemPedido);
             }else{
@@ -76,7 +72,6 @@ var app = new Vue({
             }
         },
         prepareUpdateItem: function (i) {
-            console.log(i);
             this.newItemPedido = Vue.util.extend({},this.newPedido.itensPedido[i]);
             this.newItemPedido.id = i;
         },
@@ -105,10 +100,10 @@ var app = new Vue({
                     console.log(res);
                 });
         },
-        findAllVendedores:function() {
+        findAllUsuarios:function() {
             this.$http.get("http://localhost:8080/usuario/todos")
                 .then(function(res){
-                    this.vendedores = res.body;
+                    this.usuarios = res.body;
                 }, function (res){
                     console.log(res);
                 });
