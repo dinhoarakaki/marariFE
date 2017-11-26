@@ -47,7 +47,7 @@ var app = new Vue({
 
         },
         updateItem: function () {
-            if (this.newItemPedido.produto !== "" || this.newItemPedido.quantidade !== "" ) {
+            if (this.newItemPedido.produto !== "" && this.newItemPedido.quantidade !== "" ) {
                 this.newPedido.itensPedido.splice(this.newItemPedido.id, 1, this.newItemPedido);
             }else{
                 window.alert("Entradas inválidas");
@@ -65,7 +65,7 @@ var app = new Vue({
             this.clearItem();
         },
         addItem: function () {
-            if (this.newItemPedido.produto !== "" || this.newItemPedido.quantidade !== "" ) {
+            if (this.newItemPedido.produto !== "" && this.newItemPedido.quantidade !== "" ) {
                this.newPedido.itensPedido.push(this.newItemPedido);
             }else{
                 window.alert("Entradas inválidas");
