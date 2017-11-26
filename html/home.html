@@ -162,7 +162,7 @@
             </div>
         </div>
     </div>
-    <input type="button" style="display: none" id="atualizaGrafico" v-on:click="">
+
 </div>
 
 <script src="vendor/chart.js/Chart.bundle.min.js"></script>
@@ -174,11 +174,12 @@
         data:{
             dataIni:'',
             dataFin:'',
+            dias:'',
             vendasPeriodo:''
         },
         created:function(){
             this.teste();
-            this.setGrafico();
+           // this.setGrafico();
             this.setDatePicker();
             this.vendasHoje();
         },
@@ -195,7 +196,7 @@
                     });
 
             },
-            setGrafico:function () {
+            /*setGrafico:function () {
                 var ctx = document.getElementById("myChartB");
                 var myChartB = new Chart(ctx, {
                     type: 'bar',
@@ -238,36 +239,105 @@
                     "type":"line",
                     "data":{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"borderColor":"rgb(75, 192, 192)","lineTension":0.1}]},
                     "options":{}});
-            },
+            },*/
             setDatePicker:function () {
 
-                    var start = moment().subtract(29, 'days');
+                    var start = moment().subtract(6, 'days');
                     var end = moment();
 
                     function cb(start, end) {
                         $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
-                        this.dataIni = start.format('YYYY/MM/DD');
-                        this.dataFin = end.format('YYYY/MM/DD');
+                        dataIni = start.format('YYYY/MM/DD');
+                        dataFin = end.format('YYYY/MM/DD');
 
-                       ;
                         $.ajax({
                             method: "GET",
-                              url: "http://localhost:8080/pedido/vendasperiodo?dataIni="+this.dataIni+"&dataFin="+this.dataFin,
+                              url: "http://localhost:8080/pedido/vendasperiodo?dataIni="+dataIni+"&dataFin="+this.dataFin,
                               data: {}
                         }).done(function(msg){
                             $("#vendasPeriodo").text(msg);
                             this.vendasPeriodo = msg;
-                            var dias = ((end.date() +(end.month() * 30) + (end.year() * 365))-(start.date() +(start.month() * 30) + (start.year() * 365))) ;
+                            dias = ((end.date() +(end.month() * 30) + (end.year() * 365))-(start.date() +(start.month() * 30) + (start.year() * 365))) ;
                             var result = this.vendasPeriodo / dias;
                             var arredondado = parseFloat(result.toFixed(2));
                             $("#valorMedia").text(arredondado);
-                        })
+
+                            // ----------------------------------------------------------
+
+                            function setGrafico () {
+                                console.log("grafico  dias "+dias+" dataini"+dataIni);
+                                $("#myChartB").text('');
+                                var ctx = document.getElementById("myChartB");
+                                $.ajax({
+                                    method: "GET",
+                                    url: "http://localhost:8080/pedido/vendasdiaperiodo?dataIni="+dataIni+"&dataFin="+dataFin,
+                                    data: {}
+                                }).done(function(msg){
+                                    datasPeriodo=msg;
+                                });
+
+                                $.ajax({
+                                    method: "GET",
+                                    url: "http://localhost:8080/pedido/vendasvalorperiodo?dataIni="+dataIni+"&dataFin="+dataFin,
+                                    data: {}
+                                }).done(function(msg){
+                                    datasValor=msg;
+                                });
+
+                                var myChartB = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: datasPeriodo,
+                                        datasets: [{
+                                            label: 'Total Líquido',
+                                            data: datasValor,
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.2)',
+                                                'rgba(54, 162, 235, 0.2)',
+                                                'rgba(255, 206, 86, 0.2)',
+                                                'rgba(75, 192, 192, 0.2)',
+                                                'rgba(153, 102, 255, 0.2)',
+                                                'rgba(255, 159, 64, 0.2)'
+                                            ],
+                                            borderColor: [
+                                                'rgba(255,99,132,1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 159, 64, 1)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                                var ctx = document.getElementById("myChartL");
+                                var myChartL = new Chart(ctx, {
+                                    "type":"line",
+                                    "data":{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"borderColor":"rgb(75, 192, 192)","lineTension":0.1}]},
+                                    "options":{}});
+                            }
+                            setGrafico();
+
+                            //--------------------------------------------------------
+
+
+                        });
+
 
 
 
 
                     }
-
 
                     $('#reportrange').daterangepicker({
                         startDate: start,
@@ -284,7 +354,8 @@
                     }, cb);
 
                     cb(start, end);
-                ;
+
+
 
             }
 

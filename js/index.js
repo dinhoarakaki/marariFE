@@ -18,6 +18,11 @@
 //     }
 // });
 var update_global = '';
+var dias = '';
+var dataIni='';
+var dataFin='';
+var datasPeriodo=[];
+var datasValor=[];
 
 function open_file(file_name){
     $.ajax({url: "/html/"+file_name, cache: false, async: false, success: function(result){
