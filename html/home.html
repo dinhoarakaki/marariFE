@@ -8,7 +8,7 @@
                      style="padding-top: 0.65rem; padding-bottom: 0.65rem; border: 1px solid #343a40; background: #5bc0de;">
                     <div>
                         <a class="nav-item" data-toggle="modal"
-                           style="float: left; font-weight: bold; font-size: large">R$</a>
+                           style="float: left; font-weight: bold; font-size: large"></a>
                         <a id="vendasHoje" class="nav-item" data-toggle="modal"
                            style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large"></a>
                     </div>
@@ -46,7 +46,7 @@
                      style="padding-top: 0.65rem; padding-bottom: 0.65rem; border: 1px solid #343a40; background: #007bff;">
                     <div>
                         <a class="nav-item" data-toggle="modal"
-                           style="float: left; font-weight: bold; font-size: large">R$</a>
+                           style="float: left; font-weight: bold; font-size: large"></a>
                         <a id="vendasPeriodo" class="nav-item" data-toggle="modal"
                            style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large"></a>
                     </div>
@@ -68,7 +68,7 @@
                      style="padding-top: 0.65rem; padding-bottom: 0.65rem; border: 1px solid #343a40; background: #449d44;">
                     <div>
                         <a class="nav-item" data-toggle="modal"
-                           style="float: left; font-weight: bold; font-size: large">R$</a>
+                           style="float: left; font-weight: bold; font-size: large"></a>
                         <a id="valorMedia" class="nav-item" data-toggle="modal"
                            style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large"></a>
                     </div>
@@ -115,23 +115,8 @@
             <!--item1-->
             <div class="pb-5">
                 <div class="row mx-auto">
-                    <div class="col-md-5">
-                        <div class="row">
-                            <div class="col-md-5 mt-3">
-                                <a class="nav-item align-bottom py-1" data-toggle="modal"
-                                   style="float: left; font-size: large;">Vendedor</a>
-                            </div>
-                            <div class="col-md-7 pull-right mt-3" style="padding: 0px">
-                                <select v-model="selected" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-                                    <option disabled value="">Escolha um item</option>
-                                    <option>A</option>
-                                    <option>B</option>
-                                    <option>C</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
+
+                    <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-3 mt-3">
                                 <a class="nav-item align-bottom py-1" data-toggle="modal"
@@ -179,7 +164,6 @@
         },
         created:function(){
             this.teste();
-           // this.setGrafico();
             this.setDatePicker();
             this.vendasHoje();
         },
@@ -190,56 +174,14 @@
             vendasHoje: function () {
                 this.$http.get("http://localhost:8080/pedido/vendashoje")
                     .then(function (res) {
-                        $("#vendasHoje").text(res.body);
+                        var venda = "R$ " + res.body.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+                        $("#vendasHoje").text(venda);
                     }, function (res) {
                         console.log(res);
                     });
 
             },
-            /*setGrafico:function () {
-                var ctx = document.getElementById("myChartB");
-                var myChartB = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255,99,132,1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
-                });
-                var ctx = document.getElementById("myChartL");
-                var myChartL = new Chart(ctx, {
-                    "type":"line",
-                    "data":{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"borderColor":"rgb(75, 192, 192)","lineTension":0.1}]},
-                    "options":{}});
-            },*/
+
             setDatePicker:function () {
 
                     var start = moment().subtract(10, 'days');
@@ -256,14 +198,14 @@
                               url: "http://localhost:8080/pedido/vendasperiodo?dataIni="+dataIni+"&dataFin="+this.dataFin,
                               data: {}
                         }).done(function(msg){
-                            console.log("vendas periodo"+msg);
-                            $("#vendasPeriodo").text(msg);
+                            var  formatado = "R$ " + msg.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+
+                            $("#vendasPeriodo").text(formatado);
                             this.vendasPeriodo = msg;
                             dias = ((end.date() +(end.month() * 30) + (end.year() * 365))-(start.date() +(start.month() * 30) + (start.year() * 365))) ;
                             var result = this.vendasPeriodo / dias;
-                            var arredondado = parseFloat(result.toFixed(2));
+                            var arredondado = "R$ " + msg.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
                             $("#valorMedia").text(arredondado);
-
 
                             $.ajax({
                                 method: "GET",
@@ -304,56 +246,60 @@
                                             label: 'Total Líquido',
                                             data: datasValor,
                                             backgroundColor: [
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+                                                'rgba(30, 144, 255, 0.2)',
+
                                             ],
                                             borderColor: [
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
+                                                'rgba(30, 144, 255, 1)',
                                             ],
                                             borderWidth: 1
                                         }]
@@ -382,19 +328,7 @@
                                 setGrafico();
                                 graficoSetado = true;
                             },600)
-
-
-
-
-                            //--------------------------------------------------------
-
-
                         });
-
-
-
-
-
                     }
 
                     $('#reportrange').daterangepicker({
@@ -412,88 +346,8 @@
                     }, cb);
 
                     cb(start, end);
-
-
-
             }
 
     }})
 
-</script>
-<script>
-
-    /*var ctx = document.getElementById("myChartB");
-    var myChartB = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-    var ctx = document.getElementById("myChartL");
-    var myChartL = new Chart(ctx, {
-        "type":"line",
-        "data":{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"borderColor":"rgb(75, 192, 192)","lineTension":0.1}]},
-        "options":{}});*/
-
-</script>
-
-
-<script>
-    /*$(function () {
-
-        var start = moment().subtract(29, 'days');
-        var end = moment();
-
-        function cb(start, end) {
-            $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
-        }
-
-        $('#reportrange').daterangepicker({
-            startDate: start,
-            endDate: end,
-            format: 'DD/MM/YYYY',
-            ranges: {
-                'Hoje': [moment(), moment()],
-                'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Últimos 7 Dias': [moment().subtract(6, 'days'), moment()],
-                'Últimos 30 Dias': [moment().subtract(29, 'days'), moment()],
-                'Esse Mês': [moment().startOf('month'), moment()],
-                'Último Mês': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-            }
-        }, cb);
-
-        cb(start, end);
-        console.log(start.date()+"/"+start.month()+"/"+start.year()+"/")
-        console.log(end.date()+"/"+end.month()+"/"+end.year()+"/")
-    });*/
 </script>
