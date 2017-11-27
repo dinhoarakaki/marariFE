@@ -21,8 +21,13 @@ var update_global = '';
 var dias = '';
 var dataIni='';
 var dataFin='';
-var datasPeriodo='';
+var datasPeriodo=[];
 var datasValor='';
+var graficoSetado = false;
+var myChartB ='';
+var myChartL = '';
+var coresFundo = [];
+var coresBorda =[];
 
 function open_file(file_name){
     $.ajax({url: "/html/"+file_name, cache: false, async: false, success: function(result){
