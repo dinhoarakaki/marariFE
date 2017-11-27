@@ -60,14 +60,16 @@
             data_validate: function () {
                 console.log(this.vars.username + " - " + this.vars.password);
                 if (this.vars.username !== '' && this.vars.password !== '') {
-                    this.$http.post("/login?email=" + this.vars.username + "&senha=" + this.vars.password)
-                        .then(function (res) {
-                            window.location = 'index.html';
-                        }, function (res) {
-                            //console.log("Erro ao logar: = "+res);
-                            if (res.status == 401)
-                                alert("Usuário inválido ou não registrado");
-                        });
+                    $.ajax({
+                        method: "POST",
+                        url: "http://localhost:8080/login/?email=" + this.vars.username + "&senha=" + this.vars.password,
+                        data: {}
+                    }).done(function(msg){
+                        console.log("entrou")
+                       // window.location = 'index.html';
+                        this.open_file('index.html')
+                    });
+
                 } else {
                     alert('Um ou mais campos estão vazios');
                 }
