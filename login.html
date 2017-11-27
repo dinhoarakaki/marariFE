@@ -58,24 +58,36 @@
         methods: {
 
             data_validate: function () {
-                console.log(this.vars.username + " - " + this.vars.password);
-                if (this.vars.username !== '' && this.vars.password !== '') {
-                    $.ajax({
-                        method: "POST",
-                        url: "http://localhost:8080/login/?email=" + this.vars.username + "&senha=" + this.vars.password,
-                        data: {}
-                    }).done(function(msg){
-                        console.log("entrou")
-                       // window.location = 'index.html';
-                        this.open_file('index.html')
-                    });
-
-                } else {
-                    alert('Um ou mais campos estão vazios');
+                if( this.username != '' && this.password != '' ){
+                    tempo_sessao = now.getYear()+now.getMonth()+now.getDay()+now.getHours()+now.getMinutes()+now.getMilliseconds();
+                    this.$http.get("http://localhost:8080/login/?email="+this.vars.username+"&senha="+this.vars.password, {
+                        emulateJSON: true
+                    })
+                        .then(function (res) {
+                            window.sessionStorage.setItem('tempo_sessao', now.getTime());
+                            console.log(res.body);
+                            //console.log('tempo setado: '+window.sessionStorage.getItem('tempo_sessao'))
+                            window.location = 'index.html';
+                        }, function (res) {
+                            //console.log("Erro ao logar: = "+res);
+                            if(res.status == 401)
+                                alert("Invalid user");
+                        });
+                }else{
+                    alert('To access fill in your email and password');
                 }
+//                
             }
         }
     });
+
+    $(document).keypress(opera_evento);
+    function opera_evento(e){
+        var tecla = (e.keyCode?e.keyCode:e.which);
+        if( tecla == 13 ){
+            form_login.data_validate();
+        }
+    }
 </script>
 </body>
 </html>
