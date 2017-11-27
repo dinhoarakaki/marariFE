@@ -34,6 +34,9 @@ function open_file(file_name){
         $('.page_data_content').html(result);
         $('#navbarResponsive').removeClass('show');
         $('#toTop').click();
+        $('#collapseComponents').removeClass('show');
+        $('#relCol').addClass('collapsed');
+        $('#relCol').attr("aria-expanded","false");
     }});
 }
 

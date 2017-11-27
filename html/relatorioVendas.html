@@ -1,0 +1,116 @@
+<div class="container" id="app">
+    <div class="row">
+        <div class="card-header col-sm-12">
+            <i class="fa fa-table" aria-hidden="true"></i> Pedido
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="form-group" style="width: 35.66%; float: left;">
+                        <select v-model="newPedido.usuario" class="form-control" id="usuario">
+                            <option value="" disabled selected>Usuário</option>
+                            <option v-for="f in usuarios" v-bind:value="f">
+                                {{ f.nome }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="width: 35.66%; float: left; margin-left: 1.33%;">
+                        <select v-model="newPedido.cliente" class="form-control" id="cliente">
+                            <option value="" disabled selected>Cliente</option>
+                            <option v-for="c in clientes" v-bind:value="c">
+                                {{ c.nome }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="width: 26%; float: left; margin-left: 1.33%;">
+                        <select v-model="newPedido.formaPagamento" class="form-control" id="formaPagamento">
+                            <option value="" disabled selected>Forma de Pagamento</option>
+                            <option v-for="f in formasPagamento" v-bind:value="f">
+                                {{ f.descricao }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group" style="width: 100%;">
+                        <input type="text" class="form-control" v-model="newPedido.info" placeholder="Informações">
+                    </div>
+                </div>
+
+                <div class="col-md-12 py-3" style="border-top: 1px solid rgba(0,0,0,.125);">
+                    <div class="col-md-12">
+                        <div class="form-group" style="width: 78.66%; float: left;">
+                            <select v-model="newItemPedido.produto" class="form-control" id="produto">
+                                <option value="" disabled selected>Produto</option>
+                                <option v-for="f in produtos" v-bind:value="f">
+                                    {{ f.descricao }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="width: 20%; float: left; margin-left: 1.33%;">
+                            <input id="qtd" type="text" class="form-control" v-model="newItemPedido.quantidade" placeholder="Qtd">
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <input id="itemAdd" type="button" class=" btn btn-sm"
+                               style="float: right; background-color: #337ab7; color: white;"
+                               v-on:click="saveItem()" value="Adicionar Item">
+                    </div>
+                    <div class="col-md-12">
+                        <input id="cancelar" type="button" class="btn btn-sm"
+                               style="float: right; background-color: #b0aea8; color: white; margin-right: 1.33%;"
+                               v-on:click="clearItem()" value="Limpar campos">
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="col-md-6">Produto</th>
+                        <th class="col-md-2">Quantidade</th>
+                        <th class="col-md-2">Valor</th>
+                        <th class="col-md-2">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody id="home_table_body">
+                    <tr v-for="(c,index) in newPedido.itensPedido">
+                        <td>{{c.produto.descricao}}</td>
+                        <td>{{c.quantidade}}</td>
+                        <td>{{c.produto.precoVenda}}</td>
+                        <td align="center">
+                            <i v-on:click="prepareUpdateItem(index)" class="fa fa-pencil" aria-hidden="true"
+                               title="Salvar item"></i>
+                            <i style="margin-left: 5%;" v-on:click="removeItem(index)" class="fa fa-trash"
+                               aria-hidden="true" title="Remover item"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted col-sm-12">
+            <span><!--Swecca--></span>
+            <div align="right">
+                <input type="button" class="btn btn-sm float-left" style="background-color: #d9534f; color: white;"
+                       v-on:click="this.open_file('pedido-list.html')" value="Voltar">
+
+                <input type="button" class="btn" style="background-color: green; color: white;" v-on:click="save" value="Salvar">
+            </div>
+        </div>
+    </div>
+</div><!-- end container -->
+<script src="/js/jquery_mask.js"></script>
+<script src="/js/pedido.js"></script>
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
