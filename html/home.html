@@ -205,7 +205,7 @@
                             this.vendasPeriodo = msg;
                             dias = ((end.date() +(end.month() * 30) + (end.year() * 365))-(start.date() +(start.month() * 30) + (start.year() * 365))) ;
                             var result = this.vendasPeriodo / dias;
-                            var arredondado = "R$ " + msg.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+                            var arredondado = "R$ " + result.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
                             $("#valorMedia").text(arredondado);
 
                             $.ajax({
