@@ -8,7 +8,6 @@ var app = new Vue({
             data:'',
             descricao:'',
             valor:'',
-            status:'',
             formaPagamento:'',
             tipoDespesa:'',
             cliente:'',

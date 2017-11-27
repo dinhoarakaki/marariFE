@@ -8,9 +8,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="col-md-2">Descrição</th>
+                        <th class="col-md-3">Descrição</th>
                         <th class="col-md-2">Valor</th>
-                        <th class="col-md-1">Status</th>
                         <th class="col-md-1">Forma de Pagamento</th>
                         <th class="col-md-2">Tipo de Despesa</th>
                         <th class="col-md-2">Fornecedor</th>
@@ -22,7 +21,6 @@
                     <tr v-for="(c,index) in caixas">
                         <td>{{c.descricao}}</td>
                         <td>{{c.valor}}</td>
-                        <td>{{c.status}}</td>
                         <td>{{c.formaPagamento.descricao}}</td>
                         <td>{{c.tipoDespesa.descricao}}</td>
                         <td>{{c.fornecedor.nome}}</td>
