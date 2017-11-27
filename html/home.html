@@ -154,6 +154,7 @@
 <script type="text/javascript" src="moment.min.js"></script>
 <script type="text/javascript" src="daterangepicker.js"></script>
 <script>
+    console.log("usuario"+usuarioLogado);
     var app = new Vue({
         el:'#app',
         data:{
@@ -230,12 +231,6 @@
                                 if (graficoSetado){
                                     myChartB.destroy();
                                     myChartL.destroy();
-                                }
-                                var tamanho = new Array();
-                                tamanho = datasPeriodo;
-                                for (var i =0; i<tamanho.length;i++){
-                                     coresFundo +='rgba(54, 162, 235, 0.2)'+'';
-                                    coresBorda[i] =  'rgba(54, 162, 235, 1)'
                                 }
                                 console.log(coresFundo)
                                  myChartB = new Chart(ctx, {
