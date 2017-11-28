@@ -16,13 +16,13 @@
         <div class="col-md-12" style="padding: 0px;">
             <ul class="nav nav-tabs mb-5" style="background-color: rgba(0,0,0,.03)">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Pedidos Emitidos</a>
+                    <a class="nav-link active" data-toggle="tab" href="#panel1" onclick="resetDate()" role="tab">Pedidos Emitidos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Rentabilidade por Pedido</a>
+                    <a class="nav-link" data-toggle="tab" href="#panel2" onclick="resetDate()" role="tab">Rentabilidade por Pedido</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">Rentabilidade por Produto</a>
+                    <a class="nav-link" data-toggle="tab" href="#panel3" onclick="resetDate()" role="tab">Rentabilidade por Produto</a>
                 </li>
             </ul>
 
@@ -30,11 +30,54 @@
             <div class="tab-content" style="padding: 0px 15px 0px 15px !important;">
 
                 <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-                    <p>pagina1</p>
+                    <div class="col-md-12">
+                        <div class="form-group" style="width: 49.33%; float: left;" id="nomeCliente">
+                            <select class="form-control">
+                                <option value="" selected>Qualquer Cliente</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="width: 49.33%; float: left; margin-left: 1.33%;">
+                            <select v-model="listaCliente.nomeVendedor" class="form-control" id="vendedorlista">
+                                <option value="" selected>Qualquer Cliente</option>
+                                <option v-for="v in vendedores" v-bind:value="v.nome">
+                                    {{ v.nome }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="width: 100%; float: left;">
+                            <div id="reportrange" class="col-md-9 pull-right mt-3"
+                                 style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                                <span></span> <b class="caret"></b>
+                            </div>
+                        </div>
+
+                        <div align="right">
+                            <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                                   onclick="relatPedido()" value="Gerar Relatório">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tab-pane fade" id="panel2" role="tabpanel">
-                    <p>pagina2</p>
+                    <div class="col-md-12">
+                        <div class="form-group" style="width: 100%; float: left;">
+                            <div id="reportrange1" class="col-md-9 pull-right mt-3"
+                                 style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                                <span></span> <b class="caret"></b>
+                            </div>
+                        </div>
+
+                        <div align="right">
+                            <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                                   onclick="teste()" value="Gerar Relatório">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tab-pane fade" id="panel3" role="tabpanel">
@@ -45,4 +88,64 @@
         </div>
     </div>
 </div><!-- end container -->
-
+<script type="text/javascript" src="moment.min.js"></script>
+<script type="text/javascript" src="daterangepicker.js"></script>
+<script>
+    var start;
+    var end;
+    function relatPedido() {
+//        nomeCliente;
+        console.log($("#nomeCliente"))
+//        nomeVendedor;
+        console.log("chegou relat pedido")
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/relatorio/listapedido?dataIni="+dataIni+
+            "&dataFin="+dataFin+"&nomeCliente="+nomeCliente+"&nomeVendedor="+nomeVendedor,
+            data: {}
+        }).done(function (msg) {
+            var newWindow = window.open();
+            newWindow.document.write(msg);
+        })
+    }function rentaPedido() {
+        console.log("chegou renta pedido")
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/relatorio/movimentocaixa?dataIni="+dataIni+"&dataFin="+dataFin,
+            data: {}
+        }).done(function (msg) {
+            var newWindow = window.open();
+            newWindow.document.write(msg);
+        })
+    }
+    function resetDate() {
+        start = moment().subtract(29, 'days')
+        end = moment();
+        $('#reportrange span,#reportrange1 span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+        dataIni = start.format('YYYY/MM/DD');
+        dataFin = end.format('YYYY/MM/DD');
+    }
+    $(function () {
+        start = moment().subtract(29, 'days')
+        end = moment();
+        function cb(start, end) {
+            $('#reportrange span,#reportrange1 span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+            dataIni = start.format('YYYY/MM/DD');
+            dataFin = end.format('YYYY/MM/DD');
+        }
+        $('#reportrange,#reportrange1').daterangepicker({
+            startDate: start,
+            endDate: end,
+            format: 'DD/MM/YYYY',
+            ranges: {
+                'Hoje': [moment(), moment()],
+                'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Últimos 7 Dias': [moment().subtract(6, 'days'), moment()],
+                'Últimos 30 Dias': [moment().subtract(29, 'days'), moment()],
+                'Esse Mês': [moment().startOf('month'), moment()],
+                'Último Mês': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+        cb(start, end);
+    });
+</script>

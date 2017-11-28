@@ -17,7 +17,6 @@ var app = new Vue({
         produto: []
     },
     created: function () {
-        this.findAll();
         this.findAllClientes();
         this.findAllVendedores();
         this.findAllProdutos();
@@ -68,14 +67,9 @@ var app = new Vue({
                 });
         },
         relatCliente: function () {
-            this.$http.post("http://localhost:8080/relatorio/listacliente", this.listaCliente)
-                .then(function (res) {
-                    window.alert("Funcionou - Clientes");
-                    this.findAll();
-                }, function (res) {
-                    window.alert(res.body.mensagem);
-                });
-            clear();
+            nomeCliente=this.listaCliente.nome;
+            nomeVendedor=this.listaCliente.nomeVendedor;
+            relatPedido();
         },
         relatPosicao: function () {
             this.$http.post("http://localhost:8080/relatorio/posicaoestoque", this.listaPosicao)
