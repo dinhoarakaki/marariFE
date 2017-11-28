@@ -18,13 +18,13 @@
         <div class="col-md-12" style="padding: 0px;">
             <ul class="nav nav-tabs mb-5" style="background-color: rgba(0,0,0,.03)">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab">Lista de Clientes</a>
+                    <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab" onclick="clear()">Lista de Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel11" role="tab">Posição de Estoques</a>
+                    <a class="nav-link" data-toggle="tab" href="#panel11" role="tab" onclick="clear()">Posição de Estoques</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel12" role="tab">Lista de Fornecedores</a>
+                    <a class="nav-link" data-toggle="tab" href="#panel12" role="tab" onclick="clear()">Lista de Fornecedores</a>
                 </li>
             </ul>
 
@@ -32,13 +32,12 @@
             <div class="tab-content" style="padding: 0px 15px 0px 15px !important;">
 
                 <div class="tab-pane fade in show active" id="panel4" role="tabpanel">
-
                     <div class="col-md-12">
                         <div class="form-group" style="width: 49.33%; float: left;">
                             <select v-model="listaCliente.nome" class="form-control" id="cliente">
                                 <option value="" selected>Qualquer Cliente</option>
-                                <option v-for="f in clientes" v-bind:value="f">
-                                    {{ f.nome }}
+                                <option v-for="c in clientes" v-bind:value="c">
+                                    {{ c.nome }}
                                 </option>
                             </select>
                         </div>
@@ -46,32 +45,39 @@
                         <div class="form-group" style="width: 49.33%; float: left; margin-left: 1.33%;">
                             <select v-model="listaCliente.nomeVendedor" class="form-control" id="vendedor">
                                 <option value="" selected>Qualquer Cliente</option>
-                                <option v-for="f in vendedores" v-bind:value="f">
-                                    {{ f.nome }}
+                                <option v-for="v in vendedores" v-bind:value="v">
+                                    {{ v.nome }}
                                 </option>
                             </select>
+                        </div>
+
+                        <div align="right">
+                            <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                                   v-on:click="relatCliente()" value="Gerar Relatório">
                         </div>
                     </div>
 
                 </div>
 
                 <div class="tab-pane fade" id="panel11" role="tabpanel">
-
                     <div class="col-md-12">
                         <div class="form-group" style="width: 100%; float: left;">
-                            <select v-model="listaPosicao.nome" class="form-control" id="produto">
+                            <select v-model="this.listaPosicao.nome" class="form-control" id="produto">
                                 <option value="" selected>Todos os Produtos</option>
-                                <option v-for="f in produtos" v-bind:value="f">
-                                    {{ f.nome }}
+                                <option v-for="p in produtos" v-bind:value="p">
+                                    {{ p.nome }}
                                 </option>
                             </select>
                         </div>
-                    </div>
 
+                        <div align="right">
+                            <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                                   v-on:click="relatPosicao()" value="Gerar Relatório">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tab-pane fade" id="panel12" role="tabpanel">
-
                     <div class="col-md-12">
                         <div class="form-group" style="width: 100%; float: left;">
                             <select v-model="listaFornecedor.nome" class="form-control" id="fornecedor">
@@ -81,20 +87,17 @@
                                 </option>
                             </select>
                         </div>
-                    </div>
 
+                        <div align="right">
+                            <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                                   v-on:click="relatFornecedor" value="Gerar Relatório">
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
 
-        <div class="col-md-12">
-            <div align="right">
-                    <i class="fa fa-print "></i>
-                    <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
-                           v-on:click="this.open_file('perfil.html')" value="Gerar Relatório">
-            </div>
-        </div>
     </div>
 </div><!-- end container -->
 <script src="/js/relatorioCadastros.js"></script>

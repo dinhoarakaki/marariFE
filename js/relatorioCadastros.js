@@ -69,7 +69,7 @@ var app = new Vue({
                 });
         },
         relatCliente: function () {
-            this.$http.post("http://localhost:8080/relatorio/listacliente", this.listaCliente)
+            this.$http.post("http://localhost:8080/relatorio/listacliente?nome="+this.listaCliente.nome+"&nomeVendedor="+this.listaCliente.nomeVendedor)
                 .then(function (res) {
                     window.alert("Funcionou - Clientes");
                 }, function (res) {
@@ -78,7 +78,7 @@ var app = new Vue({
             clear();
         },
         relatPosicao: function () {
-            this.$http.post("http://localhost:8080/relatorio/posicaoestoque", this.listaPosicao)
+            this.$http.post("http://localhost:8080/relatorio/posicaoestoque?nome="+this.listaPosicao.nome)
                 .then(function (res) {
                     window.alert("Funcionou - Estoque");
                 }, function (res) {
@@ -87,7 +87,7 @@ var app = new Vue({
             clear();
         },
         relatFornecedor: function () {
-            this.$http.post("http://localhost:8080/relatorio/listafuncionarios", this.listaFornecedor)
+            this.$http.post("http://localhost:8080/relatorio/listaFornecedor?nome="+this.listaFornecedor.nome)
                 .then(function (res) {
                     window.alert("Funcionou - Funcionarios");
                 }, function (res) {

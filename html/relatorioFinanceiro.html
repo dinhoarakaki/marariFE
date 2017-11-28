@@ -24,13 +24,49 @@
             </ul>
             <!-- Tab panels -->
             <div class="tab-content" style="padding: 0px 15px 0px 15px !important;">
+                <div class="col-md-12">
+                    <div class="form-group" style="width: 100%; float: left;">
+                        <div id="reportrange" class="col-md-9 pull-right mt-3"
+                             style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                            <span></span> <b class="caret"></b>
+                        </div>
+                    </div>
 
-                <div class="tab-pane fade in show active" id="panel4" role="tabpanel">
-                    <p>pagina1</p>
+                    <div align="right">
+                        <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                               v-on:click="relatCaixa()" value="Gerar Relatório">
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div><!-- end container -->
-<script src="relatorioCadastros.html"></script>
+<script type="text/javascript" src="moment.min.js"></script>
+<script type="text/javascript" src="daterangepicker.js"></script>
+<script>
+    $(function () {
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+        function cb(start, end) {
+            console.log(this.dataIni)
+            $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+        }
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            format: 'DD/MM/YYYY',
+            ranges: {
+                'Hoje': [moment(), moment()],
+                'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Últimos 7 Dias': [moment().subtract(6, 'days'), moment()],
+                'Últimos 30 Dias': [moment().subtract(29, 'days'), moment()],
+                'Esse Mês': [moment().startOf('month'), moment()],
+                'Último Mês': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+        cb(start, end);
+        console.log(start.date()+" dia "+start.month()+" mes "+start.year()+" ano ")
+    });
+</script>
+<script src="/js/relatorioFinanceiro.js"></script>
