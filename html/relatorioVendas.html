@@ -91,8 +91,6 @@
 <script type="text/javascript" src="moment.min.js"></script>
 <script type="text/javascript" src="daterangepicker.js"></script>
 <script>
-    var start;
-    var end;
     function relatPedido() {
 //        nomeCliente;
         console.log($("#nomeCliente"))
@@ -108,10 +106,10 @@
             newWindow.document.write(msg);
         })
     }function rentaPedido() {
-        console.log("chegou renta pedido")
+        console.log(dataIni+" "+dataFin);
         $.ajax({
             method: "GET",
-            url: "http://localhost:8080/relatorio/movimentocaixa?dataIni="+dataIni+"&dataFin="+dataFin,
+            url: "http://localhost:8080/relatorio/rentabilidadepedido?dataIni="+dataIni+"&dataFin="+dataFin,
             data: {}
         }).done(function (msg) {
             var newWindow = window.open();
@@ -119,15 +117,15 @@
         })
     }
     function resetDate() {
-        start = moment().subtract(29, 'days')
-        end = moment();
+        var start = moment().subtract(29, 'days')
+        var end = moment();
         $('#reportrange span,#reportrange1 span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
         dataIni = start.format('YYYY/MM/DD');
         dataFin = end.format('YYYY/MM/DD');
     }
     $(function () {
-        start = moment().subtract(29, 'days')
-        end = moment();
+        var start = moment().subtract(29, 'days')
+        var end = moment();
         function cb(start, end) {
             $('#reportrange span,#reportrange1 span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
             dataIni = start.format('YYYY/MM/DD');
