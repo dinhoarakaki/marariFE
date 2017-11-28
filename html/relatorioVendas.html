@@ -1,40 +1,58 @@
 <div class="container" id="app">
     <div class="row">
         <div class="card-header col-sm-12">
-            <i class="fa fa-table" aria-hidden="true"></i> Relatórios de Vendas
+            <i class="fa fa-money" aria-hidden="true"></i> Relatórios de Vendas
         </div>
+
+        <div class="card-header col-sm-12">
+            <a href="#" onclick="open_file('relatorioFinanceiro.html')" class="float-left">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i> <i class="fa fa-dollar" aria-hidden="true"></i> Relatórios do Financeiro
+            </a>
+            <a href="#" onclick="open_file('relatorioCadastros.html')" class="float-right">
+                <i class="fa fa-user-o" aria-hidden="true"></i> Relatórios de Cadastros <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+
         <div class="col-md-12" style="padding: 0px;">
             <ul class="nav nav-tabs" style="background-color: rgba(0,0,0,.03)">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab">Active</a>
+                    <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Pedidos Emitidos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel11" role="tab">Link</a>
+                    <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Ranking de Produtos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel12" role="tab">Link</a>
+                    <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">Rentabilidade por Pedido</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#panel4" role="tab">Rentabilidade por Produto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#panel5" role="tab">Vendas e Comissões</a>
                 </li>
             </ul>
 
             <!-- Tab panels -->
             <div class="tab-content" style="padding: 0px 15px 0px 15px !important;">
 
-                <div class="tab-pane fade in show active" id="panel4" role="tabpanel">
-                    <br>
-
+                <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
                     <p>pagina1</p>
                 </div>
 
-                <div class="tab-pane fade" id="panel11" role="tabpanel">
-                    <br>
-
+                <div class="tab-pane fade" id="panel2" role="tabpanel">
                     <p>pagina2</p>
                 </div>
 
-                <div class="tab-pane fade" id="panel12" role="tabpanel">
-                    <br>
-
+                <div class="tab-pane fade" id="panel3" role="tabpanel">
                     <p>pagina3</p>
+                </div>
+
+                <div class="tab-pane fade" id="panel4" role="tabpanel">
+                    <p>pagina4</p>
+                </div>
+
+                <div class="tab-pane fade" id="panel5" role="tabpanel">
+                    <p>pagina5</p>
                 </div>
 
             </div>
