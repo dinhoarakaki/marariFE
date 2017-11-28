@@ -18,13 +18,13 @@
         <div class="col-md-12" style="padding: 0px;">
             <ul class="nav nav-tabs mb-5" style="background-color: rgba(0,0,0,.03)">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab" onclick="clear()">Lista de Clientes</a>
+                    <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab" onclick="this.clear()">Lista de Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel11" role="tab" onclick="clear()">Posição de Estoques</a>
+                    <a class="nav-link" data-toggle="tab" href="#panel11" role="tab" onclick="this.clear()">Posição de Estoques</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel12" role="tab" onclick="clear()">Lista de Fornecedores</a>
+                    <a class="nav-link" data-toggle="tab" href="#panel12" role="tab" onclick="this.clear()">Lista de Fornecedores</a>
                 </li>
             </ul>
 
@@ -75,6 +75,7 @@
                                    v-on:click="relatPosicao()" value="Gerar Relatório">
                         </div>
                     </div>
+
                 </div>
 
                 <div class="tab-pane fade" id="panel12" role="tabpanel">

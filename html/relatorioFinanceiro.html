@@ -35,7 +35,7 @@
 
                     <div align="right">
                         <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
-                               v-on:click="relatCaixa()" value="Gerar Relatório">
+                               v-on:click="teste()" value="Gerar Relatório">
                     </div>
                 </div>
             </div>
@@ -45,11 +45,22 @@
 <script type="text/javascript" src="moment.min.js"></script>
 <script type="text/javascript" src="daterangepicker.js"></script>
 <script>
+    var start;
+    var end;
+    function teste() {
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/relatorio/movimentocaixa?dataIni=" +start.format('DD/MM/YYYY')+ "&dataFin=" + end.format('DD/MM/YYYY'),
+            data: {}
+        }).done(function (msg) {
+            window.alert("Funcionou - Clientes");
+        })
+    }
     $(function () {
-        var start = moment().subtract(29, 'days');
-        var end = moment();
+        start = moment().subtract(29, 'days');
+        end = moment();
         function cb(start, end) {
-            console.log(this.dataIni)
+            teste();
             $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
         }
         $('#reportrange').daterangepicker({
@@ -65,8 +76,8 @@
                 'Último Mês': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
             }
         }, cb);
-        cb(start, end);
         console.log(start.date()+" dia "+start.month()+" mes "+start.year()+" ano ")
+        cb(start, end);
     });
 </script>
-<script src="/js/relatorioFinanceiro.js"></script>
+<!--<script src="/js/relatorioFinanceiro.js"></script>-->

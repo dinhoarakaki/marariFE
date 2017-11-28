@@ -13,8 +13,11 @@ var app = new Vue({
                 dataFin: ''
             }
         },
+        teste1: function (start,end) {
+            console.log(start +" asdasdasd"+ end);
+        },
         relatCaixa: function () {
-            this.$http.post("http://localhost:8080/relatorio/movimentocaixa?dataIni="+this.listaCaixa.dataIni+"&dataFin="+this.listaCaixa)
+            this.$http.get("http://localhost:8080/relatorio/movimentocaixa?dataIni="+this.listaCaixa.dataIni+"&dataFin="+this.listaCaixa)
                 .then(function (res) {
                     window.alert("Funcionou - Clientes");
                     this.findAll();
