@@ -1,20 +1,22 @@
 <div class="container" id="app">
     <div class="row">
         <div class="card-header col-sm-12">
-            <i class="fa fa-user" aria-hidden="true"></i> Relatórios de Cadastros
+            <a href="#" onclick="open_file('relatorioVendas.html')" class="float-left">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i> <i class="fa fa-money" aria-hidden="true"></i>
+                Relatórios de Vendas
+            </a>
+            <a href="#" onclick="open_file('relatorioFinanceiro.html')" class="float-right">
+                <i class="fa fa-dollar" aria-hidden="true"></i> Relatórios do Financeiro <i class="fa fa-arrow-right"
+                                                                                            aria-hidden="true"></i>
+            </a>
         </div>
 
         <div class="card-header col-sm-12">
-            <a href="#" onclick="open_file('relatorioVendas.html')" class="float-left">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i> <i class="fa fa-money" aria-hidden="true"></i> Relatórios de Vendas
-            </a>
-            <a href="#" onclick="open_file('relatorioFinanceiro.html')" class="float-right">
-                <i class="fa fa-dollar" aria-hidden="true"></i> Relatórios do Financeiro <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </a>
+            <i class="fa fa-user" aria-hidden="true"></i> Relatórios de Cadastros
         </div>
 
         <div class="col-md-12" style="padding: 0px;">
-            <ul class="nav nav-tabs" style="background-color: rgba(0,0,0,.03)">
+            <ul class="nav nav-tabs mb-5" style="background-color: rgba(0,0,0,.03)">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab">Lista de Clientes</a>
                 </li>
@@ -30,25 +32,70 @@
             <div class="tab-content" style="padding: 0px 15px 0px 15px !important;">
 
                 <div class="tab-pane fade in show active" id="panel4" role="tabpanel">
-                    <br>
 
-                    <p>pagina1</p>
+                    <div class="col-md-12">
+                        <div class="form-group" style="width: 49.33%; float: left;">
+                            <select v-model="listaCliente.nome" class="form-control" id="cliente">
+                                <option value="" selected>Qualquer Cliente</option>
+                                <option v-for="f in clientes" v-bind:value="f">
+                                    {{ f.nome }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="width: 49.33%; float: left; margin-left: 1.33%;">
+                            <select v-model="listaCliente.nomeVendedor" class="form-control" id="vendedor">
+                                <option value="" selected>Qualquer Cliente</option>
+                                <option v-for="f in vendedores" v-bind:value="f">
+                                    {{ f.nome }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="tab-pane fade" id="panel11" role="tabpanel">
-                    <br>
 
-                    <p>pagina2</p>
+                    <div class="col-md-12">
+                        <div class="form-group" style="width: 100%; float: left;">
+                            <select v-model="listaPosicao.nome" class="form-control" id="produto">
+                                <option value="" selected>Todos os Produtos</option>
+                                <option v-for="f in produtos" v-bind:value="f">
+                                    {{ f.nome }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="tab-pane fade" id="panel12" role="tabpanel">
-                    <br>
 
-                    <p>pagina3</p>
+                    <div class="col-md-12">
+                        <div class="form-group" style="width: 100%; float: left;">
+                            <select v-model="listaFornecedor.nome" class="form-control" id="fornecedor">
+                                <option value="" selected>Todos os Fornecedores</option>
+                                <option v-for="f in fornecedores" v-bind:value="f">
+                                    {{ f.nome }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
         </div>
+
+        <div class="col-md-12">
+            <div align="right">
+                    <i class="fa fa-print "></i>
+                    <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                           v-on:click="this.open_file('perfil.html')" value="Gerar Relatório">
+            </div>
+        </div>
     </div>
 </div><!-- end container -->
+<script src="/js/relatorioCadastros.js"></script>
 

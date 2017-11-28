@@ -116,13 +116,13 @@
             <div class="pb-5">
                 <div class="row mx-auto">
 
-                    <div class="col-md-8">
+                    <div class="col-md-12 mt-3">
                         <div class="row">
-                            <div class="col-md-3 mt-3">
+                            <div class="col-md-3">
                                 <a class="nav-item align-bottom py-1" data-toggle="modal"
                                    style="float: left; font-size: large;">Período</a>
                             </div>
-                            <div id="reportrange" class="col-md-9 pull-right mt-3"
+                            <div id="reportrange" class="col-md-9 pull-right"
                                  style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
                                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
                                 <span></span> <b class="caret"></b>
@@ -154,16 +154,16 @@
 <script type="text/javascript" src="moment.min.js"></script>
 <script type="text/javascript" src="daterangepicker.js"></script>
 <script>
-    console.log("usuario"+usuarioLogado);
+    console.log("usuario" + usuarioLogado);
     var app = new Vue({
-        el:'#app',
-        data:{
-            dataIni:'',
-            dataFin:'',
-            dias:'',
-            vendasPeriodo:''
+        el: '#app',
+        data: {
+            dataIni: '',
+            dataFin: '',
+            dias: '',
+            vendasPeriodo: ''
         },
-        created:function(){
+        created: function () {
             this.teste();
             this.setDatePicker();
             this.vendasHoje();
@@ -183,166 +183,178 @@
 
             },
 
-            setDatePicker:function () {
+            setDatePicker: function () {
 
-                    var start = moment().subtract(10, 'days');
-                    var end = moment();
+                var start = moment().subtract(10, 'days');
+                var end = moment();
 
 
-                    function cb(start, end) {
-                        $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
-                        dataIni = start.format('YYYY/MM/DD');
-                        dataFin = end.format('YYYY/MM/DD');
+                function cb(start, end) {
+                    $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+                    dataIni = start.format('YYYY/MM/DD');
+                    dataFin = end.format('YYYY/MM/DD');
+
+                    $.ajax({
+                        method: "GET",
+                        url: "http://localhost:8080/pedido/vendasperiodo?dataIni=" + dataIni + "&dataFin=" + this.dataFin,
+                        data: {}
+                    }).done(function (msg) {
+                        var formatado = "R$ " + msg.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+
+                        $("#vendasPeriodo").text(formatado);
+                        this.vendasPeriodo = msg;
+                        dias = ((end.date() + (end.month() * 30) + (end.year() * 365)) - (start.date() + (start.month() * 30) + (start.year() * 365)));
+                        var result = this.vendasPeriodo / dias;
+                        var arredondado = "R$ " + result.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+                        $("#valorMedia").text(arredondado);
 
                         $.ajax({
                             method: "GET",
-                              url: "http://localhost:8080/pedido/vendasperiodo?dataIni="+dataIni+"&dataFin="+this.dataFin,
-                              data: {}
-                        }).done(function(msg){
-                            var  formatado = "R$ " + msg.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
-
-                            $("#vendasPeriodo").text(formatado);
-                            this.vendasPeriodo = msg;
-                            dias = ((end.date() +(end.month() * 30) + (end.year() * 365))-(start.date() +(start.month() * 30) + (start.year() * 365))) ;
-                            var result = this.vendasPeriodo / dias;
-                            var arredondado = "R$ " + result.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
-                            $("#valorMedia").text(arredondado);
-
-                            $.ajax({
-                                method: "GET",
-                                url: "http://localhost:8080/pedido/vendasdiaperiodo?dataIni="+dataIni+"&dataFin="+dataFin,
-                                data: {}
-                            }).done(function(msg){
-                                datasPeriodo=msg;
-                            });
-
-                            $.ajax({
-                                method: "GET",
-                                url: "http://localhost:8080/pedido/vendasvalorperiodo?dataIni="+dataIni+"&dataFin="+dataFin,
-                                data: {}
-                            }).done(function(msg){
-                                datasValor=msg;
-                            });
-                            // ----------------------------------------------------------
-
-                            function setGrafico () {
-//                                console.log("grafico  dias "+dias+" dataini"+dataIni);
-                                var ctx = document.getElementById("myChartB");
-                                if (graficoSetado){
-                                    myChartB.destroy();
-                                    myChartL.destroy();
-                                }
-                                console.log(coresFundo)
-                                 myChartB = new Chart(ctx, {
-                                    type: 'bar',
-                                    data: {
-                                        labels: datasPeriodo,
-                                        datasets: [{
-                                            label: 'Total Líquido',
-                                            data: datasValor,
-                                            backgroundColor: [
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-                                                'rgba(30, 144, 255, 0.2)',
-
-                                            ],
-                                            borderColor: [
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                                'rgba(30, 144, 255, 1)',
-                                            ],
-                                            borderWidth: 1
-                                        }]
-                                    },
-                                    options: {
-                                        scales: {
-                                            yAxes: [{
-                                                ticks: {
-                                                    beginAtZero: true
-                                                }
-                                            }]
-                                        }
-                                    }
-                                });
-
-
-                                var ctx = document.getElementById("myChartL");
-                                 myChartL = new Chart(ctx, {
-                                    "type":"line",
-                                    "data":{"labels":datasPeriodo,"datasets":[{"label":"Total Líquido","data":datasValor,"fill":false,"borderColor":"rgb(75, 192, 192)","lineTension":0.1}]},
-                                    "options":{}});
-                            }
-
-                            setTimeout(function () {
-
-                                setGrafico();
-                                graficoSetado = true;
-                            },600)
+                            url: "http://localhost:8080/pedido/vendasdiaperiodo?dataIni=" + dataIni + "&dataFin=" + dataFin,
+                            data: {}
+                        }).done(function (msg) {
+                            datasPeriodo = msg;
                         });
-                    }
 
-                    $('#reportrange').daterangepicker({
-                        startDate: start,
-                        endDate: end,
-                        format: 'DD/MM/YYYY',
-                        ranges: {
-                            'Hoje': [moment(), moment()],
-                            'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                            'Últimos 7 Dias': [moment().subtract(6, 'days'), moment()],
-                            'Últimos 30 Dias': [moment().subtract(29, 'days'), moment()],
-                            'Esse Mês': [moment().startOf('month'), moment()],
-                            'Último Mês': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                        $.ajax({
+                            method: "GET",
+                            url: "http://localhost:8080/pedido/vendasvalorperiodo?dataIni=" + dataIni + "&dataFin=" + dataFin,
+                            data: {}
+                        }).done(function (msg) {
+                            datasValor = msg;
+                        });
+
+                        // ----------------------------------------------------------
+
+                        function setGrafico() {
+//                                console.log("grafico  dias "+dias+" dataini"+dataIni);
+                            var ctx = document.getElementById("myChartB");
+                            if (graficoSetado) {
+                                myChartB.destroy();
+                                myChartL.destroy();
+                            }
+                            console.log(coresFundo)
+                            myChartB = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: datasPeriodo,
+                                    datasets: [{
+                                        label: 'Total Líquido',
+                                        data: datasValor,
+                                        backgroundColor: [
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+                                            'rgba(30, 144, 255, 0.2)',
+
+                                        ],
+                                        borderColor: [
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                            'rgba(30, 144, 255, 1)',
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                                    }
+                                }
+                            });
+
+
+                            var ctx = document.getElementById("myChartL");
+                            myChartL = new Chart(ctx, {
+                                "type": "line",
+                                "data": {
+                                    "labels": datasPeriodo,
+                                    "datasets": [{
+                                        "label": "Total Líquido",
+                                        "data": datasValor,
+                                        "fill": false,
+                                        "borderColor": "rgb(75, 192, 192)",
+                                        "lineTension": 0.1
+                                    }]
+                                },
+                                "options": {}
+                            });
                         }
-                    }, cb);
 
-                    cb(start, end);
+                        setTimeout(function () {
+
+                            setGrafico();
+                            graficoSetado = true;
+                        }, 600)
+                    });
+                }
+
+                $('#reportrange').daterangepicker({
+                    startDate: start,
+                    endDate: end,
+                    format: 'DD/MM/YYYY',
+                    ranges: {
+                        'Hoje': [moment(), moment()],
+                        'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        'Últimos 7 Dias': [moment().subtract(6, 'days'), moment()],
+                        'Últimos 30 Dias': [moment().subtract(29, 'days'), moment()],
+                        'Esse Mês': [moment().startOf('month'), moment()],
+                        'Último Mês': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    }
+                }, cb);
+
+                cb(start, end);
             }
 
-    }})
+        }
+    })
 
 </script>
