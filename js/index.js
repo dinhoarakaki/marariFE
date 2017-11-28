@@ -30,7 +30,7 @@ var coresFundo = [];
 var coresBorda =[];
 var usuarioLogado ='';
 
-function open_file(file_name){
+/*function open_file(file_name){
     $.ajax({url: "/html/"+file_name, cache: false, async: false, success: function(result){
         $('.page_data_content').html(result);
         $('#navbarResponsive').removeClass('show');
@@ -42,7 +42,7 @@ function open_file(file_name){
         $('#relCol2').addClass('collapsed');
         $('#relCol2').attr("aria-expanded","false");
     }});
-}/*
+}*/
 var now = new Date();
 function open_file(file_name){
     var agora = now.getTime();
@@ -59,11 +59,14 @@ function open_file(file_name){
             $('#collapseComponents').removeClass('show');
             $('#relCol').addClass('collapsed');
             $('#relCol').attr("aria-expanded","false");
+            $('#collapseComponents2').removeClass('show');
+            $('#relCol2').addClass('collapsed');
+            $('#relCol2').attr("aria-expanded","false");
         }});
     }else{
         window.location = "../login.html";
     }
-}*/
+}
 
 open_file('home.html');
 
