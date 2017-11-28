@@ -27,13 +27,13 @@
             <form id="form_login">
                 <div class="form-group">
                     <input class="form-control" id="exampleInputUserName" type="email" aria-describedby="emailHelp"
-                           v-model="vars.username" placeholder="Email" required="required">
+                           v-model="email" placeholder="Email" required="required">
                 </div>
                 <div class="form-group">
                     <input class="form-control" id="exampleInputPassword" type="password"
-                           v-model="vars.password" placeholder="Senha" required="required">
+                           v-model="senha" placeholder="Senha" required="required">
                 </div>
-                <a class="btn btn-primary btn-block" v-on:click="data_validate"
+                <a class="btn btn-primary btn-block" v-on:click="logar"
                    style="cursor: pointer; color: #EEE9E9 ; background-color: #1E90FF">Acessar</a>
             </form>
         </div>
@@ -50,34 +50,44 @@
     var form_login = new Vue({
         el: '#form_login',
         data: {
-            vars: {
-                username: "",
-                password: ""
-            }
+            email:'',
+            senha:'',
         },
         methods: {
-
-            data_validate: function () {
-                if( this.username != '' && this.password != '' ){
-                    tempo_sessao = now.getYear()+now.getMonth()+now.getDay()+now.getHours()+now.getMinutes()+now.getMilliseconds();
-                    this.$http.get("http://localhost:8080/login/?email="+this.vars.username+"&senha="+this.vars.password, {
-                        emulateJSON: true
-                    })
+            logar:function () {
+                if (this.email!= '' && this.senha != ''){
+                    console.log("email"+this.email+"senha "+this.senha);
+                    this.$http.post("http://localhost:8080/login/?email="+this.email+"&senha="+this.senha)
                         .then(function (res) {
-                            window.sessionStorage.setItem('tempo_sessao', now.getTime());
-                            console.log(res.body);
-                            //console.log('tempo setado: '+window.sessionStorage.getItem('tempo_sessao'))
+                            console.log("entrou")
                             window.location = 'index.html';
-                        }, function (res) {
-                            //console.log("Erro ao logar: = "+res);
-                            if(res.status == 401)
-                                alert("Invalid user");
-                        });
-                }else{
-                    alert('To access fill in your email and password');
+                        })
+                }else {
+                    alert("Preencha todos os campos")
                 }
+            },
+
+//            data_validate: function () {
+//                if( this.vars.username != '' && this.vars.password != '' ){
+//                    console.log("email"+this.vars.username+"senha"+this.vars.password);
+//                    console.log("entrou");
+//                    tempo_sessao = now.getYear()+now.getMonth()+now.getDay()+now.getHours()+now.getMinutes()+now.getMilliseconds();
+//                    this.$http.post("http://localhost:8080/login/?email="+this.vars.username+"&senha="+this.vars.password)
+//                        .then(function (res) {
+//                            window.sessionStorage.setItem('tempo_sessao', now.getTime());
+//                            console.log(res);
+//                            //console.log('tempo setado: '+window.sessionStorage.getItem('tempo_sessao'))
+//                            window.location = 'index.html';
+//                        }, function (res) {
+//                            //console.log("Erro ao logar: = "+res);
+//                            if(res.status == 401)
+//                                alert("Invalid user");
+//                        });
+//                }else{
+//                    alert('To access fill in your email and password');
+//                }
 //
-            }
+//            }
         }
     });
 
@@ -85,7 +95,7 @@
     function opera_evento(e){
         var tecla = (e.keyCode?e.keyCode:e.which);
         if( tecla == 13 ){
-            form_login.data_validate();
+            form_login.logar();
         }
     }
 </script>
