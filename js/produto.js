@@ -34,6 +34,7 @@ var app = new Vue({
         this.findAllFornecedores();
         this.findAllTiposProduto();
         this.findAllUsuarios();
+        this.valida_update();
     },
     methods: {
         findAll: function () {
@@ -48,6 +49,7 @@ var app = new Vue({
         findAllFornecedores:function(){
             this.$http.get("http://localhost:8080/fornecedor/todos")
                 .then(function (res) {
+                    console.log("fornecedores"+res.body)
                     this.fornecedores = res.body;
                 }, function (res) {
                     console.log(res);
@@ -113,8 +115,18 @@ var app = new Vue({
                     alert("Um erro ocorreu :(");
                 });
         },
-        prepareUpdate :function(i){
-            this.newProduto=  Vue.util.extend({},this.produtos[i]);
+        prepareUpdate :function(c){
+            update_global = '';
+            update_global = JSON.stringify(c);
+
+            open_file('produto.html');
+        },valida_update: function () {
+            if (update_global != '') {
+                var aux_update = JSON.parse(update_global);
+                //Não esta funcionando
+                this.newProduto = aux_update;
+                update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
+            }
         },
         clear: function () {
             this.newProduto = {

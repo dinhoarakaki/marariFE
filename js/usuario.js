@@ -16,6 +16,7 @@ var app = new Vue({
     mounted:function(){
         this.findAll();
         this.findAllPerfis();
+        this.valida_update();
     },
     methods: {
         findAll: function () {
@@ -79,8 +80,17 @@ var app = new Vue({
                     alert("Um erro ocorreu :(");
                 });
         },
-        prepareUpdate :function(i){
-            this.newUsuario=  Vue.util.extend({},this.usuarios[i]);
+        prepareUpdate :function(c){
+            update_global = '';
+            update_global = JSON.stringify(c);
+            open_file('usuario.html');
+        },valida_update: function () {
+            if (update_global != '') {
+                var aux_update = JSON.parse(update_global);
+                //Não esta funcionando
+                this.newUsuario = aux_update;
+                update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
+            }
         },
         clear: function () {
             this.newUsuario = {

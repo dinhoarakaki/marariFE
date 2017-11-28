@@ -10,10 +10,7 @@
                     <tr>
                         <th class="col-md-2">Nome</th>
                         <th class="col-md-2">Email</th>
-                        <th class="col-md-1">CPF/CNPJ</th>
-                        <th class="col-md-1">RG</th>
                         <th class="col-md-2">Telefone</th>
-                        <th class="col-md-2">Info</th>
                         <th class="col-xs-2">Ações</th>
                     </tr>
                     </thead>
@@ -21,10 +18,7 @@
                     <tr v-for="(c,index) in vendedores">
                         <td>{{c.nome}}</td>
                         <td>{{c.email}}</td>
-                        <td>{{c.cpfCnpj}}</td>
-                        <td>{{c.rg}}</td>
                         <td>{{c.telefone}}</td>
-                        <td>{{c.info}}</td>
                         <td align="center">
                             <i v-on:click="prepareUpdate(c)" class="fa fa-pencil" aria-hidden="true"
                                title="Editar Vendedor"></i>

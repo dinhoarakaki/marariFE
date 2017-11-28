@@ -30,7 +30,7 @@ var coresFundo = [];
 var coresBorda =[];
 var usuarioLogado ='';
 
-/*function open_file(file_name){
+function open_file(file_name){
     $.ajax({url: "/html/"+file_name, cache: false, async: false, success: function(result){
         $('.page_data_content').html(result);
         $('#navbarResponsive').removeClass('show');
@@ -42,8 +42,8 @@ var usuarioLogado ='';
         $('#relCol2').addClass('collapsed');
         $('#relCol2').attr("aria-expanded","false");
     }});
-}*/
-var now = new Date();
+}
+/*var now = new Date();
 function open_file(file_name){
     var agora = now.getTime();
     var tempo_permitido =  window.sessionStorage.getItem('tempo_sessao');
@@ -66,7 +66,7 @@ function open_file(file_name){
     }else{
         window.location = "../login.html";
     }
-}
+}*/
 
 open_file('home.html');
 

@@ -98,7 +98,7 @@ var app = new Vue({
         deleteCliente: function (i) {
             this.$http.delete("http://localhost:8080/cliente/" + (i))
                 .then(function (res) {
-                    window.alert("Caixa Deletado");
+                    window.alert("Cliente Deletado");
                     setTimeout(this.back_home, 250);
                 }, function (res) {
                     console.log(res);

@@ -13,14 +13,13 @@ var app = new Vue({
             regiao:'',
             meta:'',
             telefone:'',
-            info:''
+
         },
 
         vendedores:[]
     },
     created:function(){
         this.findAll();
-        this.findAllEnderecos();
         this.valida_update();
     },
     methods: {
@@ -79,7 +78,7 @@ var app = new Vue({
         deleteVendedor: function (i) {
             this.$http.delete("http://localhost:8080/vendedor/" + (i))
                 .then(function (res) {
-                    window.alert("Caixa Deletado");
+                    window.alert("Vendedor Deletado");
                     setTimeout(this.back_home, 250);
                 }, function (res) {
                     console.log(res);
@@ -97,7 +96,6 @@ var app = new Vue({
                 var aux_update = JSON.parse(update_global);
                 //Não esta funcionando
                 this.newVendedor = aux_update;
-                this.newEndereco = aux_update.endereco;
                 update_global = ''; // LIMPANDO VARIÁVEL GLOBAL DE ATUALIZAÇÃO
             }
         },
@@ -112,15 +110,7 @@ var app = new Vue({
                 regiao:'',
                 meta:'',
                 telefone:'',
-                info:''
-            },this.newEndereco = {
-                id:'',
-                estado:'',
-                cidade:'',
-                cep:'',
-                bairro:'',
-                numero:'',
-                rua:''
+
             },
                 setTimeout(this.back_home, 600);
         }
