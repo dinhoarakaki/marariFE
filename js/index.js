@@ -29,6 +29,7 @@ var myChartL = '';
 var coresFundo = [];
 var coresBorda =[];
 var usuarioLogado ='';
+var entrou = false;
 
 function open_file(file_name){
     $.ajax({url: "/html/"+file_name, cache: false, async: false, success: function(result){
