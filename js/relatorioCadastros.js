@@ -22,6 +22,7 @@ var app = new Vue({
         this.findAllClientes();
         this.findAllVendedores();
         this.findAllProdutos();
+        this.findAllFornecedores();
     },
     methods: {
         clear: function () {
@@ -69,31 +70,35 @@ var app = new Vue({
                 });
         },
         relatCliente: function () {
-            this.$http.post("http://localhost:8080/relatorio/listacliente?nome="+this.listaCliente.nome+"&nomeVendedor="+this.listaCliente.nomeVendedor)
+            this.$http.get("http://localhost:8080/relatorio/listacliente?nome="+this.listaCliente.nome+"&nomeVendedor="+this.listaCliente.nomeVendedor)
                 .then(function (res) {
-                    window.alert("Funcionou - Clientes");
+                    var newWindow = window.open();
+                    newWindow.document.write(res.body);
                 }, function (res) {
                     window.alert(res.body.mensagem);
                 });
-            clear();
+            this.clear();
         },
         relatPosicao: function () {
-            this.$http.post("http://localhost:8080/relatorio/posicaoestoque?nome="+this.listaPosicao.nome)
+            console.log(this.listaPosicao.nome)
+            this.$http.get("http://localhost:8080/relatorio/posicaoestoque?nome="+this.listaPosicao.nome)
                 .then(function (res) {
-                    window.alert("Funcionou - Estoque");
+                    var newWindow = window.open();
+                    newWindow.document.write(res.body);
                 }, function (res) {
                     window.alert(res.body.mensagem);
                 });
-            clear();
+            this.clear();
         },
         relatFornecedor: function () {
-            this.$http.post("http://localhost:8080/relatorio/listaFornecedor?nome="+this.listaFornecedor.nome)
+            this.$http.get("http://localhost:8080/relatorio/listafornecedor?nome="+this.listaFornecedor.nome)
                 .then(function (res) {
-                    window.alert("Funcionou - Funcionarios");
+                    var newWindow = window.open();
+                    newWindow.document.write(res.body);
                 }, function (res) {
                     window.alert(res.body.mensagem);
                 });
-            clear();
+            this.clear();
         }
     }
 })
