@@ -50,7 +50,7 @@
     function teste() {
         $.ajax({
             method: "GET",
-            url: "http://localhost:8080/relatorio/movimentocaixa?dataIni=" +start.format('DD/MM/YYYY')+ "&dataFin=" + end.format('DD/MM/YYYY'),
+            url: "http://localhost:8080/relatorio/movimentocaixa?dataIni=" +start.format('YYYY/MM/DD')+ "&dataFin=" + end.format('YYYY/MM/DD'),
             data: {}
         }).done(function (msg) {
             window.alert("Funcionou - Clientes");
@@ -80,4 +80,3 @@
         cb(start, end);
     });
 </script>
-<!--<script src="/js/relatorioFinanceiro.js"></script>-->
