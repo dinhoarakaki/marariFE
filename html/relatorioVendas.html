@@ -31,20 +31,14 @@
 
                 <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
                     <div class="col-md-12">
-                        <div class="form-group" style="width: 49.33%; float: left;" id="nomeCliente">
-                            <select class="form-control">
+                        <div class="form-group" style="width: 49.33%; float: left;">
+                            <select class="form-control" id="nomeCliente">
                                 <option value="" selected>Qualquer Cliente</option>
-                                <option value="saabao">Saab</option>
-                                <option value="opelao">Opel</option>
-                                <option value="audiao">Audi</option>
                             </select>
                         </div>
                         <div class="form-group" style="width: 49.33%; float: left; margin-left: 1.33%;">
-                            <select v-model="listaCliente.nomeVendedor" class="form-control" id="nomeVendedor">
+                            <select class="form-control" id="nomeVendedor">
                                 <option value="" selected>Qualquer Vendedor</option>
-                                <option v-for="v in vendedores" v-bind:value="v.nome">
-                                    {{ v.nome }}
-                                </option>
                             </select>
                         </div>
 
@@ -84,8 +78,6 @@
                     <p>pagina3</p>
                 </div>
 
-<select id="teste"></select>
-
             </div>
         </div>
     </div>
@@ -101,7 +93,17 @@
         }).done(function (msg) {
             var testea = msg;
             for (i =0; i<msg.length;i++){
-                $('<option>').val(i).text(msg[i].nome).appendTo('#teste');
+                $('<option>').val(i).text(msg[i].nome).appendTo('#nomeCliente');
+            }
+        })
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/usuario/todos",
+            data: {}
+        }).done(function (msg1) {
+            var testea = msg1;
+            for (i =0; i<msg1.length;i++){
+                $('<option>').val(i).text(msg1[i].nome).appendTo('#nomeVendedor');
             }
         })
     });
