@@ -140,7 +140,7 @@ var app = new Vue({
 
         $('#cel').mask('(00) 0000-0000', options1);
 
-        $('#meta').mask('000.000.000.000.000,00', {reverse: true});
+
         $('#rg').mask('000.000.000');
         $('#estado').mask('AA');
         $('#cep').mask('00000-000');

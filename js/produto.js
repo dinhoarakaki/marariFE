@@ -90,6 +90,7 @@ var app = new Vue({
             this.clear();
         },
         add: function () {
+            console.log(this.newProduto.medidaProduto)
             this.$http.post("http://localhost:8080/produto/salvar", this.newProduto)
                 .then(function(res) {
                     window.alert("Produto Adicionado");
@@ -154,7 +155,7 @@ var app = new Vue({
         }
     },
     mounted: function(){
-        $('#pc,#pv,#pmin,#pmax').mask('000.000.000.000.000,00', {reverse: true});
+
     }
 
 })

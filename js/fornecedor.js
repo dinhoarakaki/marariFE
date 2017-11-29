@@ -162,7 +162,7 @@ var app = new Vue({
         $('#cel').mask('(00) 0000-0000', options1);
 
         $('#num').mask('0000000000');
-        $('#rg').mask('000.000.000');
+
         $('#cep').mask('00000-000');
         $('#estado').mask('AA');
 
