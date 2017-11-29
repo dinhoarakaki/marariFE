@@ -34,14 +34,14 @@
                         <div class="form-group" style="width: 49.33%; float: left;" id="nomeCliente">
                             <select class="form-control">
                                 <option value="" selected>Qualquer Cliente</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option>
+                                <option value="saabao">Saab</option>
+                                <option value="opelao">Opel</option>
+                                <option value="audiao">Audi</option>
                             </select>
                         </div>
                         <div class="form-group" style="width: 49.33%; float: left; margin-left: 1.33%;">
-                            <select v-model="listaCliente.nomeVendedor" class="form-control" id="vendedorlista">
-                                <option value="" selected>Qualquer Cliente</option>
+                            <select v-model="listaCliente.nomeVendedor" class="form-control" id="nomeVendedor">
+                                <option value="" selected>Qualquer Vendedor</option>
                                 <option v-for="v in vendedores" v-bind:value="v.nome">
                                     {{ v.nome }}
                                 </option>
@@ -91,10 +91,20 @@
 <script type="text/javascript" src="moment.min.js"></script>
 <script type="text/javascript" src="daterangepicker.js"></script>
 <script>
+    $(function () {
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/cliente/todos",
+            data: {}
+        }).done(function (msg) {
+            var testea = msg;
+            console.log(testea)
+        })
+    });
     function relatPedido() {
-//        nomeCliente;
-        console.log($("#nomeCliente"))
-//        nomeVendedor;
+        nomeCliente = $('#nomeCliente').find(":selected").text();
+        nomeVendedor = $('#nomeVendedor').find(":selected").text();
+        console.log(nomeCliente)
         console.log("chegou relat pedido")
         $.ajax({
             method: "GET",
@@ -105,7 +115,8 @@
             var newWindow = window.open();
             newWindow.document.write(msg);
         })
-    }function rentaPedido() {
+    }
+    function rentaPedido() {
         console.log(dataIni+" "+dataFin);
         $.ajax({
             method: "GET",
