@@ -84,6 +84,8 @@
                     <p>pagina3</p>
                 </div>
 
+<select id="teste"></select>
+
             </div>
         </div>
     </div>
@@ -98,7 +100,9 @@
             data: {}
         }).done(function (msg) {
             var testea = msg;
-            console.log(testea)
+            for (i =0; i<msg.length;i++){
+                $('<option>').val(i).text(msg[i].nome).appendTo('#teste');
+            }
         })
     });
     function relatPedido() {
