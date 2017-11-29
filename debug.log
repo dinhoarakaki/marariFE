@@ -37,3 +37,6 @@
 [1129/191558.138:ERROR:crash_report_database_win.cc(568)] CreateDirectory C:\Program Files (x86)\Jarhair\Reports\Dump: O sistema não pode encontrar o caminho especificado. (0x3)
 [1129/191558.142:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: O pipe foi finalizado. (0x6D)
 [1129/191558.143:ERROR:crash_report_database_win.cc(568)] CreateDirectory C:\Program Files (x86)\Jarhair\Reports\Dump: O sistema não pode encontrar o caminho especificado. (0x3)
+[1129/195213.882:ERROR:crash_report_database_win.cc(568)] CreateDirectory C:\Program Files (x86)\Jarhair\Reports\Dump: O sistema não pode encontrar o caminho especificado. (0x3)
+[1129/195213.882:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: O pipe foi finalizado. (0x6D)
+[1129/195213.882:ERROR:crash_report_database_win.cc(568)] CreateDirectory C:\Program Files (x86)\Jarhair\Reports\Dump: O sistema não pode encontrar o caminho especificado. (0x3)

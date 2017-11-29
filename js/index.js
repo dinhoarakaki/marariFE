@@ -50,6 +50,17 @@ function open_file(file_name){
         $('#relCol2').attr("aria-expanded","false");
     }});
 }
+
+$('#relCol').click(function () {
+    $('#exampleAccordion').animate({
+        scrollTop: $("#collapseComponents").height()
+    }, 200);
+})
+$('#relCol2').click(function () {
+    $('#exampleAccordion').animate({
+        scrollTop: $("#collapseComponents2").height()
+    }, 200);
+})
 /*var now = new Date();
 function open_file(file_name){
     var agora = now.getTime();
