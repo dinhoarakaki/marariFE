@@ -20,7 +20,10 @@
 var update_global = '';
 var dias = '';
 var dataIni='';
+var dataIniAnterior='';
 var dataFin='';
+var dataFinAnterior='';
+var vendasPeriodoAnterior;
 var nomeProduto='';
 var nomeCliente='';
 var nomeVendedor='';

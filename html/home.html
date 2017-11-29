@@ -90,11 +90,11 @@
                      style="padding-top: 0.65rem; padding-bottom: 0.65rem; border: 1px solid #343a40; background: #c9302c;">
                     <div>
                         <a class="nav-item" data-toggle="modal"
-                           style="float: left; font-weight: bold; font-size: large">+</a>
+                           style="float: left; font-weight: bold; font-size: large"></a>
+                        <a class="nav-item" data-toggle="modal" id="variacao"
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large"></a>
                         <a class="nav-item" data-toggle="modal"
-                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">23,02</a>
-                        <a class="nav-item" data-toggle="modal"
-                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large">%</a>
+                           style="float: left; font-weight: bold; padding-left: 0.2rem; font-size: large"></a>
                     </div>
                     <div class="w-100"></div>
                     <div style="padding-bottom: 0.65rem;">
@@ -193,15 +193,35 @@
                     $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
                     dataIni = start.format('YYYY/MM/DD');
                     dataFin = end.format('YYYY/MM/DD');
-
                     $.ajax({
                         method: "GET",
                         url: "http://localhost:8080/pedido/vendasperiodo?dataIni=" + dataIni + "&dataFin=" + this.dataFin,
                         data: {}
                     }).done(function (msg) {
                         var formatado = "R$ " + msg.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
-
                         $("#vendasPeriodo").text(formatado);
+
+                        dataIniAnterior =start.year()+"/"+start.month()+"/"+start.date();
+                        dataFinAnterior = end.year()+"/"+end.month()+"/"+end.date();
+                        $.ajax({
+                            method: "GET",
+                            url: "http://localhost:8080/pedido/vendasperiodo?dataIni=" + dataIniAnterior + "&dataFin=" + dataFinAnterior,
+                            data: {}
+                        }).done(function (res) {
+                            vendasPeriodoAnterior = res;
+                            console.log("periodo anterior "+vendasPeriodoAnterior)
+                        })
+                        if (vendasPeriodoAnterior == null){
+                            vendasPeriodoAnterior = 0
+                        }
+                        console.log("msg "+msg+"vendas anterior "+vendasPeriodoAnterior)
+
+
+                        vendasPeriodoAnterior = ((msg - vendasPeriodoAnterior)/msg)*100;
+                        var vendasAnteriorFormatado = vendasPeriodoAnterior.toFixed(2)+"%";
+                        $("#variacao").text(vendasAnteriorFormatado);
+
+
                         this.vendasPeriodo = msg;
                         dias = ((end.date() + (end.month() * 30) + (end.year() * 365)) - (start.date() + (start.month() * 30) + (start.year() * 365)));
                         var result = this.vendasPeriodo / dias;
