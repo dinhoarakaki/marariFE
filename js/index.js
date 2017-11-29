@@ -21,6 +21,7 @@ var update_global = '';
 var dias = '';
 var dataIni='';
 var dataFin='';
+var nomeProduto='';
 var nomeCliente='';
 var nomeVendedor='';
 var datasPeriodo=[];

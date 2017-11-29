@@ -75,7 +75,18 @@
                 </div>
 
                 <div class="tab-pane fade" id="panel3" role="tabpanel">
-                    <p>pagina3</p>
+                    <div class="col-md-12">
+                        <div class="form-group" style="width: 49.33%; float: left;">
+                            <select class="form-control" id="rentaProduto">
+                                <option value="" selected>Qualquer Produto</option>
+                            </select>
+                        </div>
+
+                        <div align="right">
+                            <input type="button" class="btn btn-sm" style="background-color: #337ab7; color: white;"
+                                   onclick="rentaProduto()" value="Gerar Relatório">
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -91,7 +102,6 @@
             url: "http://localhost:8080/cliente/todos",
             data: {}
         }).done(function (msg) {
-            var testea = msg;
             for (i =0; i<msg.length;i++){
                 $('<option>').val(i).text(msg[i].nome).appendTo('#nomeCliente');
             }
@@ -101,9 +111,17 @@
             url: "http://localhost:8080/usuario/todos",
             data: {}
         }).done(function (msg1) {
-            var testea = msg1;
             for (i =0; i<msg1.length;i++){
                 $('<option>').val(i).text(msg1[i].nome).appendTo('#nomeVendedor');
+            }
+        })
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/produto/todos",
+            data: {}
+        }).done(function (msg2) {
+            for (i =0; i<msg2.length;i++){
+                $('<option>').val(i).text(msg2[i].descricao).appendTo('#nomeProduto');
             }
         })
     });
@@ -127,6 +145,17 @@
         $.ajax({
             method: "GET",
             url: "http://localhost:8080/relatorio/rentabilidadepedido?dataIni="+dataIni+"&dataFin="+dataFin,
+            data: {}
+        }).done(function (msg) {
+            var newWindow = window.open();
+            newWindow.document.write(msg);
+        })
+    }
+    function rentaProduto() {
+        console.log(dataIni+" "+dataFin);
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/relatorio/rentabilidadeproduto?nome="+nomeProduto,
             data: {}
         }).done(function (msg) {
             var newWindow = window.open();
